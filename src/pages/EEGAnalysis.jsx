@@ -670,6 +670,10 @@ const EEGAnalysis = ({ user, cognitiveData }) => {
           }
         }
 
+        .advanced-visualization {
+          margin-top: 60px;
+        }
+
         @media (max-width: 768px) {
           .control-panel {
             flex-direction: column;
