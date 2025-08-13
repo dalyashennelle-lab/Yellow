@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import {
   Brain,
   BarChart3,
-  GameController2,
+  Gamepad2,
   Heart,
   Waves,
   TrendingUp,
@@ -23,7 +23,7 @@ const Navigation = ({ user }) => {
     { path: '/', icon: BarChart3, label: 'Dashboard', active: location.pathname === '/' },
     { path: '/advanced', icon: Cpu, label: 'Advanced Hub', active: location.pathname === '/advanced', premium: true },
     { path: '/checkin', icon: Heart, label: 'Daily Check-In', active: location.pathname === '/checkin' },
-    { path: '/games', icon: GameController2, label: 'Brain Games', active: location.pathname === '/games' },
+    { path: '/games', icon: Gamepad2, label: 'Brain Games', active: location.pathname === '/games' },
     { path: '/mindfulness', icon: Brain, label: 'Mindfulness', active: location.pathname === '/mindfulness' },
     { path: '/eeg', icon: Waves, label: 'EEG Analysis', active: location.pathname === '/eeg' },
     { path: '/progress', icon: TrendingUp, label: 'Progress', active: location.pathname === '/progress' },

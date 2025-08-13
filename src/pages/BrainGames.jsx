@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { 
-  GameController2, 
+  Gamepad2, 
   Target, 
   Brain, 
   Clock, 
