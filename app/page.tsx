@@ -161,7 +161,7 @@ export default function HomePage() {
               beta: cognitiveMetrics.processing / 100
             }}
             onScoreUpdate={(score, accuracy) => {
-              onScoreUpdate?.(score, accuracy, 0);
+              console.log('Memory game score update:', { score, accuracy });
             }}
           />
         </div>
