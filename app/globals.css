@@ -1338,6 +1338,546 @@ body {
   50% { transform: scale(1.3); }
 }
 
+/* NFT Rewards Styles */
+.wallet-section {
+  margin-bottom: 2rem;
+}
+
+.wallet-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(30, 35, 48, 0.8);
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.wallet-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #4facfe;
+  margin-bottom: 0.5rem;
+}
+
+.connected-wallet {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wallet-address {
+  font-family: monospace;
+  color: #e2e8f0;
+  font-size: 0.875rem;
+}
+
+.connection-status {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.connection-status.connected {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.wallet-description {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.wallet-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wallet-button.connect {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+}
+
+.wallet-button.disconnect {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border: 1px solid #ef4444;
+}
+
+.wallet-button:hover {
+  transform: translateY(-2px);
+}
+
+.nft-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.nft-card {
+  background: rgba(20, 25, 35, 0.8);
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.nft-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 50px rgba(79, 172, 254, 0.15);
+}
+
+.nft-card.unlocked {
+  border-color: rgba(79, 172, 254, 0.3);
+}
+
+.nft-card.locked {
+  opacity: 0.7;
+  filter: grayscale(0.3);
+}
+
+.nft-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.nft-image {
+  font-size: 3rem;
+  filter: drop-shadow(0 0 20px rgba(79, 172, 254, 0.6));
+}
+
+.nft-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rarity-badge, .blockchain-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+.nft-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+}
+
+.nft-description {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.nft-requirement {
+  background: rgba(30, 35, 48, 0.6);
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: #e2e8f0;
+}
+
+.nft-progress {
+  margin-bottom: 1rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.progress-value {
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.progress-bar {
+  height: 6px;
+  background: rgba(20, 25, 35, 0.8);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.nft-attributes {
+  margin-bottom: 1.5rem;
+}
+
+.nft-attributes h4 {
+  color: #4facfe;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.attributes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5rem;
+}
+
+.attribute-item {
+  background: rgba(30, 35, 48, 0.4);
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.attribute-key {
+  color: #94a3b8;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.attribute-value {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.mint-button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+}
+
+.mint-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+}
+
+.mint-button.disabled {
+  background: rgba(107, 114, 128, 0.3);
+  color: #6b7280;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.mint-button.locked {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  cursor: default;
+  transform: none;
+}
+
+.blockchain-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.feature-card {
+  background: rgba(20, 25, 35, 0.6);
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  border-color: rgba(79, 172, 254, 0.3);
+  transform: translateY(-2px);
+}
+
+.feature-card .feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 15px rgba(79, 172, 254, 0.6));
+}
+
+.feature-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #4facfe;
+  margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Soundscapes Styles */
+.active-soundscape {
+  background: rgba(15, 20, 30, 0.8);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.soundscape-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.soundscape-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.soundscape-icon {
+  font-size: 2.5rem;
+}
+
+.soundscape-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.soundscape-category {
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+.stop-button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #ff006e 0%, #8338ec 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.stop-button:hover {
+  transform: translateY(-2px);
+}
+
+.ambient-controls {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(79, 172, 254, 0.1);
+}
+
+.ambient-controls h4 {
+  color: #4facfe;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ambient-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.ambient-button {
+  padding: 0.5rem 1rem;
+  background: rgba(79, 172, 254, 0.1);
+  border: 1px solid rgba(79, 172, 254, 0.2);
+  border-radius: 20px;
+  color: #4facfe;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ambient-button:hover {
+  background: rgba(79, 172, 254, 0.2);
+  transform: translateY(-1px);
+}
+
+.soundscapes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.soundscape-card {
+  background: rgba(20, 25, 35, 0.8);
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.soundscape-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 50px rgba(79, 172, 254, 0.15);
+}
+
+.soundscape-card.active {
+  border-color: rgba(255, 0, 110, 0.4);
+  background: rgba(255, 0, 110, 0.05);
+}
+
+.soundscape-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.soundscape-card-icon {
+  font-size: 2.5rem;
+}
+
+.category-pill {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.soundscape-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.soundscape-card-description {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.brainwave-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: rgba(30, 35, 48, 0.6);
+  border-radius: 8px;
+}
+
+.brainwave-label {
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+.brainwave-type {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.ambient-preview {
+  margin-bottom: 1.5rem;
+}
+
+.ambient-label {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.ambient-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.ambient-tag {
+  padding: 0.25rem 0.5rem;
+  background: rgba(79, 172, 254, 0.1);
+  border: 1px solid rgba(79, 172, 254, 0.2);
+  border-radius: 12px;
+  color: #4facfe;
+  font-size: 0.75rem;
+}
+
+.soundscape-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: transparent;
+  border: 2px solid #4facfe;
+  border-radius: 8px;
+  color: #4facfe;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.soundscape-button:hover {
+  background: rgba(79, 172, 254, 0.1);
+  transform: translateY(-2px);
+}
+
+.soundscape-button.active {
+  background: linear-gradient(135deg, #ff006e 0%, #8338ec 100%);
+  border-color: #ff006e;
+  color: white;
+}
+
+.science-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.science-item {
+  background: rgba(20, 25, 35, 0.6);
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.science-item:hover {
+  border-color: rgba(79, 172, 254, 0.3);
+  transform: translateY(-2px);
+}
+
+.science-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 15px rgba(79, 172, 254, 0.6));
+}
+
+.science-item h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #4facfe;
+  margin-bottom: 0.75rem;
+}
+
+.science-item p {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
 @media (max-width: 768px) {
   .dashboard-row {
     grid-template-columns: 1fr;
@@ -1350,6 +1890,26 @@ body {
 
   .capabilities-grid {
     grid-template-columns: 1fr;
+  }
+
+  .wallet-card {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .nft-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .soundscapes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .soundscape-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
   }
 }
 
