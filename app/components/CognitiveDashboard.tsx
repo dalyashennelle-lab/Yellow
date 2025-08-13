@@ -260,7 +260,16 @@ export default function CognitiveDashboard({
       .style('fill', '#ffffff')
       .text(selectedMetric.charAt(0).toUpperCase() + selectedMetric.slice(1));
 
-  }, [historicalData, selectedTimeRange, selectedMetric, currentBaseline]);
+  }, [
+    historicalData.length,
+    selectedTimeRange,
+    selectedMetric,
+    currentBaseline.attention,
+    currentBaseline.memory,
+    currentBaseline.processing,
+    currentBaseline.reactionTime,
+    currentBaseline.accuracy
+  ]);
 
   // Z-Score Bar Chart
   useEffect(() => {
