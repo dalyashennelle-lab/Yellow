@@ -8,7 +8,45 @@ import AnimatedNeurons from './components/AnimatedNeurons';
 import BrainwaveStrips from './components/BrainwaveStrips';
 import CognitiveDashboard from './components/CognitiveDashboard';
 
+'use client';
+
+import { useState, useEffect } from 'react';
+
 export default function HomePage() {
+  const [cognitiveMetrics, setCognitiveMetrics] = useState({
+    timestamp: Date.now(),
+    attention: 87,
+    memory: 74,
+    processing: 82,
+    reactionTime: 285,
+    accuracy: 92,
+    cognitiveLoad: 72
+  });
+
+  const [historicalData, setHistoricalData] = useState([
+    { timestamp: Date.now() - 3600000, attention: 82, memory: 78, processing: 85, reactionTime: 295, accuracy: 88, cognitiveLoad: 68 },
+    { timestamp: Date.now() - 7200000, attention: 85, memory: 72, processing: 80, reactionTime: 310, accuracy: 85, cognitiveLoad: 75 },
+    { timestamp: Date.now(), attention: 87, memory: 74, processing: 82, reactionTime: 285, accuracy: 92, cognitiveLoad: 72 }
+  ]);
+
+  // Simulate real-time updates
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCognitiveMetrics(prev => ({
+        ...prev,
+        timestamp: Date.now(),
+        attention: Math.max(60, Math.min(100, prev.attention + (Math.random() - 0.5) * 10)),
+        memory: Math.max(60, Math.min(100, prev.memory + (Math.random() - 0.5) * 8)),
+        processing: Math.max(60, Math.min(100, prev.processing + (Math.random() - 0.5) * 12)),
+        reactionTime: Math.max(200, Math.min(500, prev.reactionTime + (Math.random() - 0.5) * 50)),
+        accuracy: Math.max(70, Math.min(100, prev.accuracy + (Math.random() - 0.5) * 5)),
+        cognitiveLoad: Math.max(50, Math.min(100, prev.cognitiveLoad + (Math.random() - 0.5) * 15))
+      }));
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="main-container">
       <Sidebar activeItem="dashboard" />
