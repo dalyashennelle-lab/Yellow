@@ -340,7 +340,7 @@ const BrainGames = ({ user }) => {
           }
 
           .game-title {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 12px;
@@ -353,16 +353,16 @@ const BrainGames = ({ user }) => {
           }
 
           .game-category {
-            padding: 4px 12px;
+            padding: 6px 16px;
             border-radius: 12px;
-            font-size: 0.75rem;
+            font-size: 1rem;
             font-weight: 600;
             color: white;
           }
 
           .game-difficulty {
             color: var(--text-secondary);
-            font-size: 0.875rem;
+            font-size: 1.125rem;
           }
 
           .game-controls {
