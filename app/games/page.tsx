@@ -95,10 +95,23 @@ export default function BrainGamesPage() {
       <Sidebar activeItem="games" />
       
       <main className="main-content">
-        <div className="dashboard-header">
-          <h1 className="dashboard-title">Neural Training Games</h1>
-          <p className="dashboard-subtitle">AI-powered cognitive enhancement with real-time EEG adaptation</p>
-          <div className="section-divider"></div>
+        <div className="games-hero">
+          <div className="hero-content">
+            <div className="hero-text">
+              <h1 className="dashboard-title">Neural Training Games</h1>
+              <p className="hero-description">
+                AI-powered cognitive enhancement with real-time EEG adaptation in our advanced research laboratory
+              </p>
+              <div className="section-divider"></div>
+            </div>
+            <div className="hero-image">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2F55b95b32dde5423082890d1b31a97f0b?format=webp&width=800"
+                alt="Neuroscience researcher working in futuristic brain research lab"
+                className="hero-img"
+              />
+            </div>
+          </div>
         </div>
 
         <NeuralNetwork3D 
