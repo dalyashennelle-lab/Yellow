@@ -141,12 +141,10 @@ export default function HomePage() {
         <div className="section-card">
           <h2 className="section-title">Cognitive Performance Dashboard</h2>
           <div className="section-divider"></div>
-          <div style={{ padding: '40px', textAlign: 'center', background: 'rgba(0,0,0,0.1)', borderRadius: '8px' }}>
-            <p>📈 Performance Dashboard</p>
-            <p>Memory: {cognitiveMetrics.memory}% | Attention: {cognitiveMetrics.attention}%</p>
-            <p>Processing: {cognitiveMetrics.processing}% | Reaction: {cognitiveMetrics.reactionTime}ms</p>
-            <p><em>Charts and analytics loading...</em></p>
-          </div>
+          <CognitiveDashboard
+            currentMetrics={cognitiveMetrics}
+            historicalData={historicalData}
+          />
         </div>
 
         <div className="dashboard-row">
