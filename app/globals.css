@@ -298,13 +298,13 @@ body {
 .chart-container {
   height: 300px;
   margin-top: 1rem;
-  background: rgba(20, 25, 35, 0.4);
+  background: rgba(248, 250, 252, 0.8);
   border-radius: 12px;
   padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(79, 172, 254, 0.1);
+  border: 1px solid rgba(79, 172, 254, 0.2);
 }
 
 .chart-placeholder {
@@ -911,8 +911,8 @@ body {
 }
 
 .benefit-item {
-  background: rgba(20, 25, 35, 0.6);
-  border: 1px solid rgba(79, 172, 254, 0.1);
+  background: rgba(248, 250, 252, 0.8);
+  border: 1px solid rgba(79, 172, 254, 0.2);
   border-radius: 12px;
   padding: 1.5rem;
   text-align: center;
@@ -938,7 +938,7 @@ body {
 }
 
 .benefit-description {
-  color: #94a3b8;
+  color: #718096;
   font-size: 0.875rem;
   line-height: 1.6;
 }
