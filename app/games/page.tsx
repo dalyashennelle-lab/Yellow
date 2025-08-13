@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
-import NeuralNetwork3D from '../components/NeuralNetwork3D';
+import UltraRealistic3DBrain from '../components/UltraRealistic3DBrain';
+import AIRealtimeCognitive from '../components/AIRealtimeCognitive';
 
 export default function BrainGamesPage() {
   const [cognitiveLoad, setCognitiveLoad] = useState(45);
