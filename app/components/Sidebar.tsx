@@ -2,10 +2,13 @@ interface SidebarProps {
   activeItem: string;
 }
 
+import Link from 'next/link';
+
 interface NavItem {
   id: string;
   label: string;
   icon: string;
+  href: string;
 }
 
 const navItems: NavItem[] = [
