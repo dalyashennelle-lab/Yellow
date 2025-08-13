@@ -369,30 +369,23 @@ const AdvancedNavigation = ({ user, onNavigate }) => {
               ))}
             </div>
 
-            {/* 3D Canvas */}
-            <div className="canvas-container">
-              <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
-                <ambientLight intensity={0.5} />
-                <pointLight position={[10, 10, 10]} intensity={1} />
-                <pointLight position={[-10, -10, -10]} intensity={0.5} color="#7c3aed" />
-                
-                <Suspense fallback={null}>
-                  <NeuralParticles isActive={showNeuralNetwork} />
-                  <NeuralNetwork isVisible={showNeuralNetwork} />
-                  
-                  {navItems.map((item) => (
-                    <MorphingTab
-                      key={item.id}
-                      icon={item.icon}
-                      label={item.label}
-                      isActive={activeTab === item.id}
-                      onClick={() => handleTabClick(item)}
-                      position={item.position}
-                      color={item.color}
-                    />
-                  ))}
-                </Suspense>
-              </Canvas>
+            {/* CSS-based Navigation Interface */}
+            <div className="navigation-interface">
+              <CSSNeuralParticles isActive={showNeuralNetwork} />
+              <CSSNeuralNetwork isVisible={showNeuralNetwork} />
+
+              <div className="navigation-grid">
+                {navItems.map((item) => (
+                  <CSSMorphingTab
+                    key={item.id}
+                    icon={item.icon}
+                    label={item.label}
+                    isActive={activeTab === item.id}
+                    onClick={() => handleTabClick(item)}
+                    color={item.color}
+                  />
+                ))}
+              </div>
             </div>
 
             {/* Neural Status Display */}
