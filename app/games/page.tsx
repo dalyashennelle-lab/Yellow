@@ -115,10 +115,18 @@ export default function BrainGamesPage() {
           </div>
         </div>
 
-        <NeuralNetwork3D 
+        <UltraRealistic3DBrain
           cognitiveLoad={cognitiveLoad}
           memoryActivity={memoryActivity}
           focusLevel={focusLevel}
+        />
+
+        <AIRealtimeCognitive
+          onMetricsUpdate={(metrics) => {
+            setCognitiveLoad(Math.round((metrics.attention + metrics.processing) / 2));
+            setMemoryActivity(metrics.workingMemory);
+            setFocusLevel(metrics.attention);
+          }}
         />
 
         <div className="section-card">
