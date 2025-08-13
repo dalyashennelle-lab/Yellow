@@ -128,6 +128,73 @@ export default function MindfulnessPage() {
           </div>
         </div>
 
+        <div className="neuroscience-research">
+          <h2 className="section-title">Neuroscience Research</h2>
+          <div className="section-divider"></div>
+
+          <div className="research-content">
+            <div className="research-visual">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fdd097e3c760c48ab8232e145c15cd5c3?format=webp&width=800"
+                alt="Advanced neuroscience research on mindfulness and meditation"
+                className="research-img"
+              />
+            </div>
+            <div className="research-info">
+              <h3>Cutting-Edge Research</h3>
+              <p>Our mindfulness programs are backed by the latest neuroscience research, showing measurable improvements in brain structure and function through neuroplasticity.</p>
+              <div className="research-stats">
+                <div className="research-stat">
+                  <span className="stat-number">23%</span>
+                  <span className="stat-label">Increased Gray Matter</span>
+                </div>
+                <div className="research-stat">
+                  <span className="stat-number">40%</span>
+                  <span className="stat-label">Stress Reduction</span>
+                </div>
+                <div className="research-stat">
+                  <span className="stat-number">67%</span>
+                  <span className="stat-label">Focus Improvement</span>
+                </div>
+              </div>
+              <button className="research-button">View Studies</button>
+            </div>
+          </div>
+        </div>
+
+        <div className="mindfulness-groups">
+          <h2 className="section-title">Group Mindfulness Sessions</h2>
+          <div className="section-divider"></div>
+
+          <div className="groups-gallery">
+            <div className="group-item">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fd243332b2d844f23aa89acfe673fd9af?format=webp&width=800"
+                alt="Boys and girls practicing mindfulness activities together"
+                className="group-img"
+              />
+              <div className="group-content">
+                <h3>Youth Mindfulness</h3>
+                <p>Specialized programs for children and teenagers to develop emotional regulation and focus</p>
+                <button className="group-button">Join Session</button>
+              </div>
+            </div>
+
+            <div className="group-item">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fb333081fc46e45cbbd0efca0d028b832?format=webp&width=800"
+                alt="Group yoga and mindfulness practice"
+                className="group-img"
+              />
+              <div className="group-content">
+                <h3>Community Practice</h3>
+                <p>Connect with others in supportive group meditation and mindfulness sessions</p>
+                <button className="group-button">Find Groups</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="section-card">
           <h2 className="section-title">Neural Benefits</h2>
           <div className="section-divider"></div>
