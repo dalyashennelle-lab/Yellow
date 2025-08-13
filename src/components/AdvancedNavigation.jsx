@@ -622,7 +622,7 @@ const AdvancedNavigation = ({ user, onNavigate }) => {
         }
 
         .tab-label {
-          font-size: 0.875rem;
+          font-size: 1.125rem;
           font-weight: 600;
           color: rgba(255, 255, 255, 0.8);
           text-align: center;
@@ -667,7 +667,7 @@ const AdvancedNavigation = ({ user, onNavigate }) => {
           align-items: center;
           gap: 8px;
           color: rgba(255, 255, 255, 0.8);
-          font-size: 0.875rem;
+          font-size: 1.125rem;
         }
 
         .status-icon {
@@ -726,12 +726,12 @@ const AdvancedNavigation = ({ user, onNavigate }) => {
         .user-name {
           color: white;
           font-weight: 600;
-          font-size: 0.875rem;
+          font-size: 1.125rem;
         }
 
         .user-role {
           color: var(--neural-primary);
-          font-size: 0.75rem;
+          font-size: 1rem;
           text-transform: uppercase;
           letter-spacing: 1px;
         }
