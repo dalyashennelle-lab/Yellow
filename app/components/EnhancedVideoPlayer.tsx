@@ -59,12 +59,14 @@ export default function EnhancedVideoPlayer({
     const video = videoRef.current;
     if (!video) return;
 
+    // Immediate visual feedback
+    setIsPlaying(!isPlaying);
+
     if (isPlaying) {
       video.pause();
     } else {
       video.play().catch(console.error);
     }
-    setIsPlaying(!isPlaying);
   };
 
   const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -156,7 +158,7 @@ export default function EnhancedVideoPlayer({
                 className="control-btn play-btn"
                 onClick={togglePlay}
               >
-                {isPlaying ? '⏸️' : '▶��'}
+                {isPlaying ? '⏸️' : '▶️'}
               </button>
               
               <div className="progress-container">
