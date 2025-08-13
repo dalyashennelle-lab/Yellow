@@ -1712,7 +1712,11 @@ button {
   box-shadow:
     0 4px 16px rgba(79, 172, 254, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 button:hover {
@@ -1721,6 +1725,22 @@ button:hover {
     0 0 20px rgba(79, 172, 254, 0.6),
     inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
   transform: translateY(-2px) !important;
+}
+
+button:active {
+  transform: translateY(0) scale(0.98) !important;
+  transition: all 0.05s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow:
+    0 2px 8px rgba(79, 172, 254, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Immediate touch feedback for mobile */
+@media (hover: none) and (pointer: coarse) {
+  button:active {
+    transform: scale(0.95) !important;
+    background: linear-gradient(135deg, rgba(79, 172, 254, 1) 0%, rgba(255, 119, 199, 0.8) 100%) !important;
+  }
 }
 
 /* Enhanced Video Player Styles */
