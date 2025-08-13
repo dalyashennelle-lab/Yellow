@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
+import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Yellow Project',
-  description: 'Yellow project application',
+  title: 'NeuroMind Pro - Cognitive Enhancement Suite',
+  description: 'Advanced Cognitive Assessment & Enhancement Platform',
 }
 
 export default function RootLayout({
