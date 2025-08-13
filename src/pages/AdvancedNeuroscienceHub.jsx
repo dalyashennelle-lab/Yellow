@@ -138,10 +138,11 @@ const AdvancedNeuroscienceHub = ({ user }) => {
       complexity: 'Very High',
       realTime: true,
       component: (
-        <VRNeuralEnvironment 
-          cognitiveData={cognitiveMetrics || {}}
-          emotionalState={{ mood: 'focused', energy: 'high' }}
+        <EmotionResponsiveVR
+          emotionalData={{ mood: 'focused', energy: 'high' }}
+          eegData={brainwaveData}
           biometricData={{ heartRate: 72 }}
+          onEnvironmentChange={(emotion, state) => console.log('VR Environment changed:', emotion, state)}
         />
       )
     },
