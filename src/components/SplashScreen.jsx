@@ -253,12 +253,27 @@ const SplashScreen = ({ onFinish }) => {
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 70%);
+            background: linear-gradient(135deg,
+              #fefefe 0%,
+              #f8fafc 25%,
+              #dceefb 50%,
+              #a8e6cf 75%,
+              #e6e6fa 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 10000;
             overflow: hidden;
+            animation: backgroundShift 8s ease-in-out infinite;
+          }
+
+          @keyframes backgroundShift {
+            0%, 100% {
+              background: linear-gradient(135deg, #fefefe 0%, #f8fafc 25%, #dceefb 50%, #a8e6cf 75%, #e6e6fa 100%);
+            }
+            50% {
+              background: linear-gradient(135deg, #e6e6fa 0%, #a8e6cf 25%, #dceefb 50%, #ffd3e1 75%, #ffe4b5 100%);
+            }
           }
 
           .particles-container {
