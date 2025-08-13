@@ -9,14 +9,15 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { id: 'dashboard', label: 'Dashboard', icon: '📊' },
-  { id: 'checkin', label: 'Daily Check-In', icon: '✅' },
-  { id: 'games', label: 'Brain Games', icon: '🎮' },
-  { id: 'mindfulness', label: 'Mindfulness', icon: '🧘' },
-  { id: 'yoga', label: 'Yoga & Stretch', icon: '🧘‍♀️' },
-  { id: 'eeg', label: 'EEG Analysis', icon: '📈' },
-  { id: 'progress', label: 'Progress', icon: '📊' },
-  { id: 'settings', label: 'Settings', icon: '⚙️' },
+  { id: 'dashboard', label: 'Dashboard', icon: '📊', href: '/' },
+  { id: 'checkin', label: 'Daily Check-In', icon: '✅', href: '/checkin' },
+  { id: 'games', label: 'Brain Games', icon: '🎮', href: '/games' },
+  { id: 'mindfulness', label: 'Mindfulness', icon: '🧘', href: '/mindfulness' },
+  { id: 'soundscapes', label: 'Neural Soundscapes', icon: '🎵', href: '/soundscapes' },
+  { id: 'eeg', label: 'EEG Analysis', icon: '📈', href: '/eeg' },
+  { id: 'nft-rewards', label: 'NFT Rewards', icon: '🏆', href: '/nft-rewards' },
+  { id: 'progress', label: 'Progress', icon: '📊', href: '/progress' },
+  { id: 'settings', label: 'Settings', icon: '⚙️', href: '/settings' },
 ];
 
 export default function Sidebar({ activeItem }: SidebarProps) {
