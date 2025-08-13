@@ -62,7 +62,12 @@ const Services = () => {
           <div className="card cta-card">
             <h3>Ready to Glow?</h3>
             <p>Book your consultation today and discover the perfect treatment for you</p>
-            <button className="btn-primary">Schedule Consultation</button>
+            <button
+              className="btn-primary"
+              onClick={() => window.open(`mailto:senushidinara2005@gmail.com?subject=Consultation Request&body=Hello, I would like to schedule a consultation to discuss treatment options.`, '_blank')}
+            >
+              Schedule Consultation
+            </button>
           </div>
         </div>
       </div>
