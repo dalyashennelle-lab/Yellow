@@ -1053,6 +1053,87 @@ const EmotionResponsiveVR = ({ emotionalData, eegData, biometricData, onEnvironm
           color: var(--neural-success);
         }
 
+        .environment-video-section {
+          margin-top: 40px;
+          padding: 32px;
+          background: var(--bg-tertiary);
+          border-radius: 16px;
+          border: 1px solid var(--border-primary);
+        }
+
+        .video-header {
+          text-align: center;
+          margin-bottom: 32px;
+        }
+
+        .video-header h3 {
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: var(--neural-primary);
+          margin-bottom: 8px;
+        }
+
+        .video-header p {
+          color: var(--text-secondary);
+          line-height: 1.6;
+        }
+
+        .video-grid {
+          display: grid;
+          grid-template-columns: 2fr 1fr;
+          gap: 32px;
+          align-items: start;
+        }
+
+        .video-player-container {
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: var(--shadow-glow);
+        }
+
+        .environment-video {
+          width: 100%;
+        }
+
+        .video-benefits h4 {
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: var(--text-primary);
+          margin-bottom: 24px;
+        }
+
+        .benefits-list {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .benefit-item {
+          display: flex;
+          gap: 16px;
+          align-items: flex-start;
+        }
+
+        .benefit-icon {
+          color: var(--neural-success);
+          flex-shrink: 0;
+          margin-top: 2px;
+        }
+
+        .benefit-item strong {
+          color: var(--text-primary);
+          font-size: 0.875rem;
+          display: block;
+          margin-bottom: 4px;
+        }
+
+        .benefit-item p {
+          color: var(--text-secondary);
+          font-size: 0.8rem;
+          line-height: 1.4;
+          margin: 0;
+        }
+
         @media (max-width: 768px) {
           .vr-controls {
             flex-direction: column;
