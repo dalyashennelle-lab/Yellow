@@ -766,15 +766,15 @@ const BrainGames = ({ user }) => {
         }
 
         .game-title {
-          font-size: 1.125rem;
+          font-size: 1.5rem;
           font-weight: 600;
           color: var(--text-primary);
         }
 
         .game-category {
-          padding: 4px 8px;
+          padding: 6px 12px;
           border-radius: 8px;
-          font-size: 0.75rem;
+          font-size: 1rem;
           font-weight: 600;
           color: white;
         }
@@ -795,7 +795,7 @@ const BrainGames = ({ user }) => {
           align-items: center;
           gap: 6px;
           color: var(--text-secondary);
-          font-size: 0.875rem;
+          font-size: 1.125rem;
         }
 
         .assessment-section {
@@ -803,7 +803,7 @@ const BrainGames = ({ user }) => {
         }
 
         .section-title {
-          font-size: 2rem;
+          font-size: 2.5rem;
           font-weight: 700;
           text-align: center;
           margin-bottom: 40px;
