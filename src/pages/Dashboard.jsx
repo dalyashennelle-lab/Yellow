@@ -712,6 +712,16 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
             flex: 1;
           }
         }
+
+        .ai-agent-section,
+        .vr-section,
+        .video-section {
+          margin-bottom: 40px;
+        }
+
+        .nft-collection {
+          grid-column: 1 / -1;
+        }
       `}</style>
     </div>
   )
