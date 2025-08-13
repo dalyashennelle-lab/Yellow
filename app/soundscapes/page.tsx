@@ -239,12 +239,21 @@ export default function SoundscapesPage() {
                       Stop Session
                     </button>
                   ) : (
-                    <button 
+                    <button
                       className="soundscape-button"
-                      onClick={() => startSoundscape(soundscape.id)}
-                      style={{ borderColor: soundscape.color }}
+                      onClick={(e) => {
+                        e.currentTarget.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                          e.currentTarget.style.transform = '';
+                        }, 150);
+                        startSoundscape(soundscape.id);
+                      }}
+                      style={{
+                        borderColor: soundscape.color,
+                        '--primary-color': soundscape.color
+                      } as React.CSSProperties}
                     >
-                      Start Session
+                      ▶️ Start Session
                     </button>
                   )}
                 </div>
