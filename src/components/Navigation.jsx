@@ -65,11 +65,12 @@ const Navigation = ({ user }) => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`nav-item ${item.active ? 'active' : ''}`}
+                className={`nav-item ${item.active ? 'active' : ''} ${item.premium ? 'premium' : ''}`}
                 onClick={() => setIsOpen(false)}
               >
                 <Icon size={20} className="nav-icon" />
                 <span className="nav-label">{item.label}</span>
+                {item.premium && <span className="premium-badge">PRO</span>}
                 {item.active && <div className="active-indicator" />}
               </Link>
             )
