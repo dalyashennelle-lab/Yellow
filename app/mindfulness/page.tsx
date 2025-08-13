@@ -28,10 +28,52 @@ export default function MindfulnessPage() {
       <Sidebar activeItem="mindfulness" />
       
       <main className="main-content">
-        <div className="dashboard-header">
-          <h1 className="dashboard-title">Mindfulness & Meditation</h1>
-          <p className="dashboard-subtitle">Enhance your cognitive wellness through guided meditation, breathing exercises, and yoga</p>
-          <div className="section-divider"></div>
+        <div className="mindfulness-hero">
+          <div className="hero-content">
+            <div className="hero-text">
+              <h1 className="dashboard-title">Mindfulness & Meditation</h1>
+              <p className="hero-description">
+                Enhance your cognitive wellness through guided meditation, breathing exercises, and yoga in serene environments
+              </p>
+              <div className="section-divider"></div>
+            </div>
+            <div className="hero-image">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fc410b98d5fd848a7b3af1bac349c6fc2?format=webp&width=800"
+                alt="Peaceful beach meditation at sunset"
+                className="hero-img"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="mindfulness-gallery">
+          <div className="gallery-grid">
+            <div className="gallery-item">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fff40f1951e0b41d5b70b0ad8707328f0?format=webp&width=800"
+                alt="Beach meditation exercises"
+                className="gallery-img"
+              />
+              <h3 className="gallery-title">Beach Meditation</h3>
+            </div>
+            <div className="gallery-item">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fcbc2f728411b462e8db4e0172e517080?format=webp&width=800"
+                alt="Yoga practice outdoors"
+                className="gallery-img"
+              />
+              <h3 className="gallery-title">Yoga Practice</h3>
+            </div>
+            <div className="gallery-item">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2F646a1879e22a42a9a1a92a236397b947?format=webp&width=800"
+                alt="Breathing exercises by the ocean"
+                className="gallery-img"
+              />
+              <h3 className="gallery-title">Breathing Exercises</h3>
+            </div>
+          </div>
         </div>
 
         <div className="mindfulness-grid">
