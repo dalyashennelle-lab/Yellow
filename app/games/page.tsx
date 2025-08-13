@@ -180,6 +180,40 @@ export default function BrainGamesPage() {
           </div>
         </div>
 
+        <div className="research-lab">
+          <h2 className="section-title">Research & Development</h2>
+          <div className="section-divider"></div>
+
+          <div className="research-content">
+            <div className="research-visual">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fe6a6c9e5cdad4937b2baa7321e301195?format=webp&width=800"
+                alt="Neuroscience researcher working in futuristic lab"
+                className="research-img"
+              />
+            </div>
+            <div className="research-info">
+              <h3>Advanced Neuroscience Lab</h3>
+              <p>Our games are developed using cutting-edge neuroscience research, incorporating real-time EEG feedback and adaptive AI algorithms to maximize cognitive enhancement.</p>
+              <div className="research-stats">
+                <div className="research-stat">
+                  <span className="stat-number">50+</span>
+                  <span className="stat-label">Research Studies</span>
+                </div>
+                <div className="research-stat">
+                  <span className="stat-number">95%</span>
+                  <span className="stat-label">Improvement Rate</span>
+                </div>
+                <div className="research-stat">
+                  <span className="stat-number">24/7</span>
+                  <span className="stat-label">Lab Operations</span>
+                </div>
+              </div>
+              <button className="research-button">Learn More</button>
+            </div>
+          </div>
+        </div>
+
         <div className="section-card">
           <h2 className="section-title">Neural Enhancement Features</h2>
           <div className="section-divider"></div>
