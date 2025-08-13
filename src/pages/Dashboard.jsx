@@ -447,13 +447,13 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
         }
 
         .wellness-content h3 {
-          font-size: 1.125rem;
+          font-size: 1.5rem;
           font-weight: 600;
           margin-bottom: 4px;
         }
 
         .wellness-content p {
-          font-size: 0.875rem;
+          font-size: 1.125rem;
           opacity: 0.9;
           margin-bottom: 8px;
         }
@@ -462,9 +462,9 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
           display: inline-block;
           background: var(--neural-primary);
           color: white;
-          padding: 4px 12px;
+          padding: 6px 16px;
           border-radius: 12px;
-          font-size: 0.75rem;
+          font-size: 1rem;
           font-weight: 600;
         }
 
@@ -478,7 +478,7 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
 
         .welcome-subtitle {
           color: var(--text-secondary);
-          font-size: 1.125rem;
+          font-size: 1.5rem;
           margin-top: 8px;
         }
 
@@ -493,7 +493,7 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
         }
 
         .section-title {
-          font-size: 1.75rem;
+          font-size: 2.25rem;
           font-weight: 700;
           margin-bottom: 24px;
           color: var(--neural-primary);
@@ -517,7 +517,7 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
         }
 
         .progress-details h3 {
-          font-size: 1.5rem;
+          font-size: 2rem;
           font-weight: 600;
           margin-bottom: 12px;
           color: var(--text-primary);
@@ -527,6 +527,7 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
           color: var(--text-secondary);
           line-height: 1.6;
           margin-bottom: 24px;
+          font-size: 1.125rem;
         }
 
         .progress-metrics {
