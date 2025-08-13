@@ -591,10 +591,39 @@ const Mindfulness = ({ user }) => {
         ))}
       </div>
 
+      {/* Beach Calming Video Session */}
+      <div className="beach-calming-section slide-in-up animate-delay-4">
+        <div className="section-header">
+          <h2 className="section-title">Beach Calming Experience</h2>
+          <p className="section-description">
+            Immerse yourself in the therapeutic sounds and visuals of ocean waves for deep relaxation and stress relief.
+          </p>
+        </div>
+        <div className="video-container">
+          <YouTubePlayer
+            videoId="qREKP9oijWI"
+            title="Beach Calming Session - Ocean Waves for Relaxation"
+            controls={true}
+            className="beach-video"
+            onPlay={() => console.log('Beach calming session started')}
+            onPause={() => console.log('Beach calming session paused')}
+          />
+          <div className="video-benefits">
+            <h4>Benefits of Beach Calming</h4>
+            <ul>
+              <li>Reduces cortisol levels and stress hormones</li>
+              <li>Promotes alpha brain wave activity</li>
+              <li>Enhances parasympathetic nervous system activation</li>
+              <li>Improves sleep quality and cognitive restoration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       {/* EEG Integration */}
       <div className="eeg-integration">
         <div className="integration-content">
-          <img 
+          <img
             src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fcabba278a7a1433ca6e7227b5c7dfef8?format=webp&width=800"
             alt="EEG Mindfulness Integration"
             className="eeg-image"
@@ -602,7 +631,10 @@ const Mindfulness = ({ user }) => {
           <div className="integration-text">
             <h3>EEG-Enhanced Mindfulness</h3>
             <p>Real-time brain monitoring during mindfulness sessions provides objective feedback on meditation effectiveness and cognitive state changes.</p>
-            <button className="btn btn-primary">
+            <button
+              className="btn btn-primary"
+              onClick={() => alert('EEG Integration: Connect your EEG headset to monitor brain activity during meditation sessions.')}
+            >
               <Activity size={16} />
               Try EEG Session
             </button>
