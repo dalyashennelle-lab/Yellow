@@ -450,7 +450,7 @@ const BrainGames = ({ user }) => {
           }
 
           .game-complete h3 {
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: var(--neural-success);
             margin-bottom: 12px;
           }
@@ -479,7 +479,7 @@ const BrainGames = ({ user }) => {
           .simulator-display h3 {
             color: var(--neural-primary);
             margin-bottom: 32px;
-            font-size: 1.5rem;
+            font-size: 2rem;
           }
 
           .game-metrics {
