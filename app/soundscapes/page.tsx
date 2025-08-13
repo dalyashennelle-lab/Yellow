@@ -253,7 +253,10 @@ export default function SoundscapesPage() {
           </div>
         </div>
 
-        <NeuralGalaxy isActive={!!activeSoundscape} />
+        <SimplifiedNeuralGalaxy
+          isActive={!!activeSoundscape}
+          brainwave={activeSoundscape ? soundscapes.find(s => s.id === activeSoundscape)?.targetBrainwave : 'alpha'}
+        />
 
         <AIInsightsPanel
           isActive={!!activeSoundscape}
