@@ -12,6 +12,7 @@ import {
   BarChart3,
   Users
 } from 'lucide-react'
+import SimpleEEGVisualization from '../components/SimpleEEGVisualization'
 
 const EEGAnalysis = ({ user, cognitiveData }) => {
   const [isRecording, setIsRecording] = useState(false)
