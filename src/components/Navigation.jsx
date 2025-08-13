@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { 
-  Brain, 
-  BarChart3, 
-  GameController2, 
-  Heart, 
-  Waves, 
-  TrendingUp, 
-  Settings, 
+import {
+  Brain,
+  BarChart3,
+  GameController2,
+  Heart,
+  Waves,
+  TrendingUp,
+  Settings,
   User,
   Menu,
   X,
-  Zap
+  Zap,
+  Cpu
 } from 'lucide-react'
 
 const Navigation = ({ user }) => {
