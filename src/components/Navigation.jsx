@@ -230,6 +230,41 @@ const Navigation = ({ user }) => {
           border-radius: 2px;
         }
 
+        .nav-item.premium {
+          background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 58, 237, 0.1));
+          border: 1px solid rgba(0, 212, 255, 0.2);
+          border-radius: 8px;
+          margin: 2px 12px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .nav-item.premium::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+          animation: premium-shine 3s ease-in-out infinite;
+        }
+
+        .premium-badge {
+          padding: 2px 6px;
+          background: var(--gradient-neural);
+          color: white;
+          font-size: 0.625rem;
+          font-weight: 700;
+          border-radius: 4px;
+          margin-left: auto;
+        }
+
+        @keyframes premium-shine {
+          0% { left: -100%; }
+          100% { left: 100%; }
+        }
+
         .nav-footer {
           padding: 0 24px;
           border-top: 1px solid var(--border-primary);
