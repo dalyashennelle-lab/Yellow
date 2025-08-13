@@ -112,6 +112,7 @@ function App() {
             <Route path="/progress" element={<Progress user={user} />} />
             <Route path="/settings" element={<Settings user={user} setUser={setUser} />} />
             <Route path="/clinical" element={<ClinicalLanding />} />
+            <Route path="/advanced" element={<AdvancedNeuroscienceHub user={user} />} />
           </Routes>
         </main>
       </div>
