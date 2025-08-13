@@ -335,21 +335,24 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
             </div>
           </div>
 
-          {/* Patient Consultation Preview */}
-          <div className="consultation-preview neural-card">
-            <h3>Patient Consultation</h3>
-            <img 
-              src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F39a5c1cfa8ba4f569e59c104daf07f04?format=webp&width=800"
-              alt="Patient Consultation"
-              className="consultation-img"
+          {/* Blockchain NFT Collection */}
+          <div className="nft-collection neural-card">
+            <BlockchainNFT
+              user={user}
+              cognitiveData={cognitiveData}
+              achievements={{ sessionsCompleted: 35 }}
             />
-            <p>Review assessment results with patients using integrated consultation tools.</p>
-            <button className="btn btn-secondary">
-              View Consultation Tools
-              <ChevronRight size={16} />
-            </button>
           </div>
         </div>
+      </div>
+
+      {/* Video Integration Section */}
+      <div className="video-section slide-in-up animate-delay-7">
+        <VideoIntegration
+          user={user}
+          onVideoComplete={(video) => console.log('Video completed:', video)}
+          onVideoStart={(video) => console.log('Video started:', video)}
+        />
       </div>
 
       <style jsx>{`
