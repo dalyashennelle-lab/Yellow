@@ -1974,7 +1974,19 @@ button:hover {
 }
 
 /* Responsive adjustments */
+.mindfulness-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
 @media (max-width: 768px) {
+  .mindfulness-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
   .enhanced-video-card {
     padding: 1.5rem;
     margin: 1rem 0;
