@@ -448,7 +448,16 @@ export default function CognitiveDashboard({
       .style('stroke-width', 2)
       .style('stroke-dasharray', '5,5');
 
-  }, [currentMetrics, currentBaseline]);
+  }, [
+    currentMetrics.attention,
+    currentMetrics.memory,
+    currentMetrics.processing,
+    currentMetrics.accuracy,
+    currentBaseline.attention,
+    currentBaseline.memory,
+    currentBaseline.processing,
+    currentBaseline.accuracy
+  ]);
 
   return (
     <div className="cognitive-dashboard">
