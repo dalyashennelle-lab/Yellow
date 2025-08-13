@@ -46,52 +46,52 @@ const ClinicalLanding = () => {
 
   const themeImageSets = [
     {
-      title: "Mindfulness & Wellness",
+      title: "Beach Mindfulness & Wellness",
       images: [
         {
-          url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F2fbaa246ccb347fe89d3b5fa64b0fb61?format=webp&width=800",
-          title: "Group Mindfulness Practice",
-          description: "Children practicing mindfulness and yoga together"
+          url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Ff28b7b4be9f3440c8a2a5f038b966287?format=webp&width=800",
+          title: "Beach Meditation",
+          description: "Peaceful beach meditation for mental clarity"
         },
         {
-          url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F3cc92a57fb04440889368d56e92898d4?format=webp&width=800",
-          title: "Diverse Meditation",
-          description: "Inclusive mindfulness activities for all ages"
+          url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F32753069f6034bd39e9f7206d46cd99b?format=webp&width=800",
+          title: "Sunrise Yoga",
+          description: "Morning beach yoga for cognitive wellness"
         },
         {
-          url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fc8b91b075c8d4735bbba9a2653647a5d?format=webp&width=800",
-          title: "Focused Meditation",
-          description: "Children in peaceful meditation practice"
+          url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F598339923d9943a494c4e7e903babb0e?format=webp&width=800",
+          title: "Beach Breathing",
+          description: "Ocean-side breathing exercises for relaxation"
         },
         {
-          url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F43f847a708284599b3aea23c4edebdfb?format=webp&width=800",
-          title: "Yoga & Balance",
-          description: "Individual yoga practice for mind-body wellness"
+          url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fadf18e7d2492434cbdb40f6235853384?format=webp&width=800",
+          title: "Beach Fitness",
+          description: "Beach exercises for physical and mental health"
         }
       ]
     },
     {
-      title: "Calming Environments",
+      title: "Evening Counseling & Support",
       images: [
         {
-          url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F10490e924aa147a097d7749f2608d1eb?format=webp&width=800",
-          title: "Garden Serenity",
-          description: "Peaceful garden pathway for stress relief"
+          url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F39ac2c67bc1c4418bc13844687ef74f1?format=webp&width=800",
+          title: "Professional Counseling",
+          description: "Evening therapy sessions for mental health"
         },
         {
-          url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F393c10b906d043d384b19d0616a9b24b?format=webp&width=800",
-          title: "Colorful Garden Walk",
-          description: "Vibrant garden environment for relaxation"
+          url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F1c93762e87d14c4bae3b899f37d3570c?format=webp&width=800",
+          title: "Supportive Environment",
+          description: "Comfortable spaces for therapeutic conversations"
         },
         {
-          url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fa64b4be64d5743b4821735e5a99d3a87?format=webp&width=800",
-          title: "Ocean Tranquility",
-          description: "Calming sea environment at sunset"
+          url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F2b7e493407124cc5acb30b497d54efaa?format=webp&width=800",
+          title: "Therapy Sessions",
+          description: "Professional counseling in comfortable settings"
         },
         {
-          url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F01d05736468d4ef6a79fbc3f56df02f9?format=webp&width=800",
-          title: "Beach Meditation",
-          description: "Serene beach setting for mindfulness practice"
+          url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F6afe411a7dee4b31afddefc33f083291?format=webp&width=800",
+          title: "Evening Support",
+          description: "Evening counseling sessions for cognitive health"
         }
       ]
     },
