@@ -3957,6 +3957,201 @@ body {
   color: #a0aec0;
 }
 
+/* CSS Variables for Theme System */
+:root {
+  --primary-color: #4facfe;
+  --secondary-color: #00f2fe;
+  --background-gradient: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+  --surface-color: rgba(255, 255, 255, 0.95);
+  --text-color: #2d3748;
+  --accent-color: #4facfe;
+}
+
+/* Theme Switcher Styles */
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(79, 172, 254, 0.1);
+}
+
+.theme-switcher {
+  position: relative;
+  width: 100%;
+}
+
+.theme-toggle {
+  width: 100%;
+  background: rgba(79, 172, 254, 0.1);
+  border: 1px solid rgba(79, 172, 254, 0.2);
+  border-radius: 8px;
+  padding: 12px 15px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.theme-toggle:hover {
+  background: rgba(79, 172, 254, 0.15);
+  border-color: rgba(79, 172, 254, 0.3);
+}
+
+.theme-icon {
+  font-size: 1.2rem;
+}
+
+.theme-label {
+  flex: 1;
+  text-align: left;
+}
+
+.dropdown-arrow {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.theme-dropdown {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background: var(--surface-color);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(79, 172, 254, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.theme-options {
+  padding: 8px;
+}
+
+.theme-option {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+  position: relative;
+}
+
+.theme-option:hover {
+  background: rgba(79, 172, 254, 0.1);
+}
+
+.theme-option.active {
+  background: rgba(79, 172, 254, 0.15);
+  border: 1px solid rgba(79, 172, 254, 0.3);
+}
+
+.theme-preview {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.theme-preview-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.theme-preview-surface {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 8px;
+  border-radius: 3px;
+}
+
+.theme-preview-accent {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  right: 2px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.theme-info {
+  flex: 1;
+  text-align: left;
+}
+
+.theme-name {
+  display: block;
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 0.85rem;
+  margin-bottom: 2px;
+}
+
+.theme-description {
+  display: block;
+  color: #718096;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.theme-checkmark {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.theme-footer {
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(79, 172, 254, 0.1);
+}
+
+.theme-footer p {
+  font-size: 0.7rem;
+  color: #718096;
+  margin: 0;
+  text-align: center;
+}
+
+/* Update existing styles to use CSS variables */
+.sidebar {
+  background: var(--surface-color);
+  color: var(--text-color);
+}
+
+.nav-link {
+  color: var(--text-color);
+}
+
+.nav-link.active {
+  background: rgba(79, 172, 254, 0.15);
+  color: var(--primary-color);
+}
+
+.section-card {
+  background: var(--surface-color);
+  color: var(--text-color);
+}
+
+.metric-card {
+  background: var(--surface-color);
+  color: var(--text-color);
+}
+
 .insight-icon {
   font-size: 2rem;
   margin-bottom: 1rem;
