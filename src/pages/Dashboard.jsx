@@ -21,7 +21,6 @@ import AIInsights from '../components/AIInsights'
 import AIAgent from '../components/AIAgent'
 import BlockchainNFT from '../components/BlockchainNFT'
 import EmotionResponsiveVR from '../components/EmotionResponsiveVR'
-import VideoIntegration from '../components/VideoIntegration'
 
 const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
   const [currentTime, setCurrentTime] = useState(new Date())
