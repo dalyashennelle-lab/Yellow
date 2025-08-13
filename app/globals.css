@@ -381,6 +381,359 @@ body {
   line-height: 1.6;
 }
 
+/* EEG Styles */
+.eeg-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(30, 35, 48, 0.8);
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.device-status {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ef4444;
+  animation: pulse 2s infinite;
+}
+
+.status-indicator.connected .status-dot {
+  background: #10b981;
+}
+
+.control-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+}
+
+.control-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+}
+
+.control-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.control-button.stop {
+  background: linear-gradient(135deg, #ff006e 0%, #8338ec 100%);
+}
+
+.brainwave-container {
+  background: rgba(30, 35, 48, 0.8);
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.brainwave-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.brainwave-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.recording-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+.recording-indicator.active {
+  color: #10b981;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+  animation: pulse 1s infinite;
+}
+
+.recording-indicator.active .pulse-dot {
+  background: #10b981;
+}
+
+.brainwave-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.wave-card {
+  background: rgba(20, 25, 35, 0.6);
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.wave-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.wave-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.wave-info {
+  flex: 1;
+}
+
+.wave-name {
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 0.25rem;
+}
+
+.wave-frequency {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.wave-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.wave-bar-container {
+  position: relative;
+  height: 8px;
+  background: rgba(20, 25, 35, 0.8);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.wave-bar {
+  height: 100%;
+  border-radius: 4px;
+  position: relative;
+  transition: width 0.3s ease;
+}
+
+.wave-bar-glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  border-radius: 2px;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.wave-description {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+.brain-visualization {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.brain-outline {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border: 2px solid rgba(79, 172, 254, 0.3);
+  border-radius: 150px 150px 50px 50px;
+  background: radial-gradient(ellipse, rgba(79, 172, 254, 0.05), transparent);
+}
+
+.brain-region {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.frontal {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 60px;
+}
+
+.parietal {
+  top: 40px;
+  right: 60px;
+  width: 60px;
+  height: 60px;
+}
+
+.temporal {
+  bottom: 40px;
+  left: 40px;
+  width: 70px;
+  height: 50px;
+}
+
+.occipital {
+  bottom: 20px;
+  right: 40px;
+  width: 60px;
+  height: 40px;
+}
+
+.region-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.insight-card {
+  background: rgba(20, 25, 35, 0.6);
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.insight-card:hover {
+  border-color: rgba(79, 172, 254, 0.3);
+  transform: translateY(-2px);
+}
+
+.insight-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 10px rgba(79, 172, 254, 0.5));
+}
+
+.insight-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #4facfe;
+  margin-bottom: 0.75rem;
+}
+
+.insight-description {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.insight-metrics {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(79, 172, 254, 0.1);
+}
+
+.metric {
+  color: #e2e8f0;
+  font-size: 0.875rem;
+}
+
+.metric strong {
+  color: #4facfe;
+}
+
+.device-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.device-item {
+  background: rgba(20, 25, 35, 0.6);
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.device-item h4 {
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.device-item p {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.device-status-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.device-status-badge.supported {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.device-status-badge.beta {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
 @media (max-width: 768px) {
   .sidebar {
     width: 100%;
