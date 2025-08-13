@@ -32,7 +32,7 @@ const BrainGames = ({ user }) => {
       difficulty: 'Intermediate',
       duration: '5-10 min',
       category: 'Memory',
-      image: 'https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fadf831945b884671b1aa39da6d0f411d?format=webp&width=800',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fd3b03ef89de9467b9610092b5db3e912?format=webp&width=800',
       color: 'var(--neural-primary)'
     },
     {
@@ -42,7 +42,7 @@ const BrainGames = ({ user }) => {
       difficulty: 'Beginner',
       duration: '3-7 min',
       category: 'Attention',
-      image: 'https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F4080802c9e7e4ec788f030b26ae627a6?format=webp&width=800',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F75afea9da9634afeaab85d2c89eaebc3?format=webp&width=800',
       color: 'var(--neural-success)'
     },
     {
@@ -52,7 +52,7 @@ const BrainGames = ({ user }) => {
       difficulty: 'Advanced',
       duration: '8-12 min',
       category: 'Executive',
-      image: 'https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F3642e63d63be43449c19c0118659c1d9?format=webp&width=800',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fa15f3559262c4c23a96a8b8edac690bd?format=webp&width=800',
       color: 'var(--neural-secondary)'
     },
     {
@@ -62,8 +62,28 @@ const BrainGames = ({ user }) => {
       difficulty: 'Intermediate',
       duration: '4-8 min',
       category: 'Speed',
-      image: 'https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fae9beddb5cb343c1a15c83099fa4d672?format=webp&width=800',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F7e4c6421330e4951ac66f311c1531449?format=webp&width=800',
       color: 'var(--neural-warning)'
+    },
+    {
+      id: 'neuroscience-lab',
+      title: 'Neuroscience Lab Challenge',
+      description: 'Advanced brain research simulation activities',
+      difficulty: 'Expert',
+      duration: '10-15 min',
+      category: 'Research',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fedb3613c06c24b669bb87fd5e0075da3?format=webp&width=800',
+      color: 'var(--neural-accent)'
+    },
+    {
+      id: 'brain-lab-advanced',
+      title: 'Advanced Brain Lab',
+      description: 'Cutting-edge cognitive enhancement protocols',
+      difficulty: 'Expert',
+      duration: '12-20 min',
+      category: 'Advanced',
+      image: 'https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Ffe7d56c2cebb4f01ba34c6178e0d1d05?format=webp&width=800',
+      color: 'var(--neural-primary)'
     }
   ]
 
