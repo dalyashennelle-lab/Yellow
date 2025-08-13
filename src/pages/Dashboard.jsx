@@ -548,13 +548,13 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
 
         .metric-label {
           display: block;
-          font-size: 0.875rem;
+          font-size: 1.125rem;
           color: var(--text-secondary);
         }
 
         .metric-value {
           display: block;
-          font-size: 1.125rem;
+          font-size: 1.5rem;
           font-weight: 600;
           color: var(--neural-primary);
         }
@@ -580,7 +580,7 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
         }
 
         .assessment-content h3 {
-          font-size: 1.5rem;
+          font-size: 2rem;
           font-weight: 600;
           margin-bottom: 12px;
           color: var(--neural-secondary);
@@ -590,6 +590,7 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
           color: var(--text-secondary);
           line-height: 1.6;
           margin-bottom: 20px;
+          font-size: 1.125rem;
         }
 
         .assessment-img {
@@ -637,10 +638,11 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
         .goal-title {
           font-weight: 500;
           color: var(--text-primary);
+          font-size: 1.125rem;
         }
 
         .goal-progress {
-          font-size: 0.875rem;
+          font-size: 1rem;
           color: var(--text-secondary);
         }
 
