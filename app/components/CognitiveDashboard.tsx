@@ -149,7 +149,19 @@ export default function CognitiveDashboard({
 
       setZScores(newZScores);
     }
-  }, [currentMetrics, currentBaseline, historicalData]);
+  }, [
+    currentMetrics.attention,
+    currentMetrics.memory,
+    currentMetrics.processing,
+    currentMetrics.reactionTime,
+    currentMetrics.accuracy,
+    currentBaseline.attention,
+    currentBaseline.memory,
+    currentBaseline.processing,
+    currentBaseline.reactionTime,
+    currentBaseline.accuracy,
+    historicalData.length
+  ]);
 
   // Line Chart Implementation
   useEffect(() => {
