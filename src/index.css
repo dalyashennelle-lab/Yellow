@@ -1,37 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
 :root {
-  /* Neural Network Colors */
-  --neural-primary: #00d4ff;
-  --neural-secondary: #7c3aed;
-  --neural-accent: #ff0080;
-  --neural-success: #00ff88;
-  --neural-warning: #ffaa00;
-  --neural-error: #ff4444;
-  
-  /* Dark Theme Base */
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #151520;
-  --bg-tertiary: #1e1e2e;
-  --bg-card: rgba(21, 21, 32, 0.8);
-  --bg-glass: rgba(255, 255, 255, 0.05);
-  
-  /* Text Colors */
-  --text-primary: #ffffff;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
-  
-  /* Borders */
-  --border-primary: rgba(255, 255, 255, 0.1);
-  --border-glow: rgba(0, 212, 255, 0.3);
-  
-  /* Gradients */
-  --gradient-neural: linear-gradient(135deg, var(--neural-primary) 0%, var(--neural-secondary) 50%, var(--neural-accent) 100%);
-  --gradient-brain: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-  
-  /* Shadows */
-  --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.2);
-  --shadow-neural: 0 20px 40px rgba(124, 58, 237, 0.15);
-  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3);
+  /* Soft Intelligence Pastel Palette */
+  --pastel-primary: #a8e6cf;      /* Soft mint green */
+  --pastel-secondary: #dceefb;    /* Soft sky blue */
+  --pastel-tertiary: #ffd3e1;     /* Blush pink */
+  --pastel-accent: #e6e6fa;       /* Lavender */
+  --pastel-warm: #ffe4b5;         /* Warm cream */
+  --pastel-coral: #ffb3ba;        /* Soft coral */
+  --pastel-purple: #c7c7ff;       /* Soft purple */
+  --pastel-yellow: #ffffba;       /* Soft yellow */
+
+  /* Enhanced Neural Colors with Pastels */
+  --neural-primary: #7dd3fc;      /* Sky blue */
+  --neural-secondary: #a78bfa;    /* Soft purple */
+  --neural-tertiary: #fb7185;     /* Rose pink */
+  --neural-accent: #34d399;       /* Emerald green */
+  --neural-warning: #fbbf24;      /* Amber */
+  --neural-error: #f87171;        /* Red */
+  --neural-success: #22d3ee;      /* Cyan */
+
+  /* Soft Background Colors */
+  --bg-primary: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
+  --bg-secondary: #f8fafc;        /* Slate 50 */
+  --bg-tertiary: #f1f5f9;         /* Slate 100 */
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-glass: rgba(255, 255, 255, 0.8);
+  --bg-soft: #fafbfc;
+
+  /* Gentle Text Colors */
+  --text-primary: #1e293b;        /* Slate 800 */
+  --text-secondary: #64748b;      /* Slate 500 */
+  --text-tertiary: #94a3b8;       /* Slate 400 */
+  --text-muted: #cbd5e1;          /* Slate 300 */
+
+  /* Soft Border Colors */
+  --border-primary: rgba(148, 163, 184, 0.2);
+  --border-secondary: rgba(203, 213, 225, 0.3);
+  --border-glow: rgba(125, 211, 252, 0.4);
+  --border-soft: #e2e8f0;
+
+  /* Pastel Gradients */
+  --gradient-neural: linear-gradient(135deg, #7dd3fc 0%, #a78bfa 50%, #fb7185 100%);
+  --gradient-mint: linear-gradient(135deg, #a8e6cf 0%, #dceefb 100%);
+  --gradient-sunset: linear-gradient(135deg, #ffd3e1 0%, #ffe4b5 100%);
+  --gradient-aurora: linear-gradient(135deg, #e6e6fa 0%, #c7c7ff 50%, #a8e6cf 100%);
+  --gradient-soft: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  --gradient-brain: linear-gradient(135deg, #a8e6cf 0%, #dceefb 50%, #ffd3e1 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.6) 100%);
+
+  /* Soft Shadows */
+  --shadow-glow: 0 0 20px rgba(125, 211, 252, 0.15);
+  --shadow-neural: 0 15px 35px rgba(125, 211, 252, 0.1);
+  --shadow-card: 0 8px 25px rgba(148, 163, 184, 0.1);
+  --shadow-soft: 0 4px 12px rgba(148, 163, 184, 0.08);
+  --shadow-medium: 0 8px 25px rgba(148, 163, 184, 0.12);
+  --shadow-large: 0 15px 35px rgba(148, 163, 184, 0.1);
 
   /* Animation Variables */
   --animation-speed-slow: 3s;
