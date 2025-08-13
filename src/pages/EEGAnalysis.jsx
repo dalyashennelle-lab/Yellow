@@ -151,7 +151,10 @@ const EEGAnalysis = ({ user, cognitiveData }) => {
               {isRecording ? <Pause size={20} /> : <Play size={20} />}
               {isRecording ? 'Stop Recording' : 'Start Recording'}
             </button>
-            <button className="btn btn-secondary">
+            <button
+              className="btn btn-secondary"
+              onClick={() => alert('EEG Configuration: Channel setup, frequency bands, and sensitivity adjustments available in full clinical mode.')}
+            >
               <Settings size={20} />
               Configure
             </button>
