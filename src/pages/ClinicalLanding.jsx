@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import {
   PlayCircle,
   ChevronRight,
@@ -23,8 +22,7 @@ import {
   Sparkles
 } from 'lucide-react'
 
-const ClinicalLanding = () => {
-  const navigate = useNavigate()
+const ClinicalLanding = ({ onNavigate }) => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [currentImageSet, setCurrentImageSet] = useState(0)
   
