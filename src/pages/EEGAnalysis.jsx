@@ -302,6 +302,15 @@ const EEGAnalysis = ({ user, cognitiveData }) => {
         </div>
       )}
 
+      {/* Advanced EEG Visualization */}
+      <div className="advanced-visualization">
+        <SimpleEEGVisualization
+          eegData={brainwaveData}
+          isRecording={isRecording}
+          onToggleRecording={toggleRecording}
+        />
+      </div>
+
       <style jsx>{`
         .eeg-analysis {
           padding: 80px 24px 24px;
