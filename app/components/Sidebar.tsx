@@ -47,6 +47,10 @@ export default function Sidebar({ activeItem }: SidebarProps) {
           ))}
         </ul>
       </nav>
+
+      <div className="sidebar-footer">
+        <ThemeSwitcher />
+      </div>
     </div>
   );
 }
