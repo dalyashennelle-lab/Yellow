@@ -48,7 +48,12 @@ const Services = () => {
                 ))}
               </ul>
               
-              <button className="btn-primary service-btn">Book Now</button>
+              <button
+                className="btn-primary service-btn"
+                onClick={() => window.open(`mailto:senushidinara2005@gmail.com?subject=Service Booking - ${service.title}&body=Hello, I would like to book the ${service.title} service.`, '_blank')}
+              >
+                Book Now
+              </button>
             </div>
           ))}
         </div>
