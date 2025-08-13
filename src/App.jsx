@@ -35,6 +35,8 @@ function App() {
   })
 
   const [showClinicalLanding, setShowClinicalLanding] = useState(true)
+  const [showSplashScreen, setShowSplashScreen] = useState(true)
+  const [useAdvancedNav, setUseAdvancedNav] = useState(true)
 
   useEffect(() => {
     // Simulate real-time data updates
