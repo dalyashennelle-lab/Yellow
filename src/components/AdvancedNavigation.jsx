@@ -755,9 +755,19 @@ const AdvancedNavigation = ({ user, onNavigate }) => {
             height: 60px;
           }
 
-          .canvas-container {
+          .navigation-interface {
             width: 90vw;
             height: 70vh;
+          }
+
+          .navigation-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            padding: 20px;
+          }
+
+          .css-morphing-tab {
+            padding: 16px 12px;
           }
 
           .user-neural-avatar {
