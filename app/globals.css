@@ -1673,6 +1673,24 @@ body::after {
     inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
 }
 
+/* Fix text visibility for neural theme */
+.nav-link span, .nav-icon, .brand-title, .brand-subtitle {
+  color: rgba(226, 232, 240, 0.9) !important;
+  -webkit-text-fill-color: rgba(226, 232, 240, 0.9) !important;
+}
+
+.nav-link.active span, .nav-link.active .nav-icon {
+  color: #4facfe !important;
+  -webkit-text-fill-color: #4facfe !important;
+  text-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+}
+
+.nav-link:hover span, .nav-link:hover .nav-icon {
+  color: #ff77c7 !important;
+  -webkit-text-fill-color: #ff77c7 !important;
+  text-shadow: 0 0 8px rgba(255, 119, 199, 0.4);
+}
+
 /* Update text colors for neural theme */
 h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(135deg, #e2e8f0 0%, #4facfe 50%, #ff77c7 100%);
