@@ -526,7 +526,7 @@ export default function CognitiveDashboard({
           <div className="z-score-legend">
             <div className="legend-item">
               <div className="legend-color exceptional"></div>
-              <span>Exceptional (>2σ)</span>
+              <span>Exceptional (&gt;2σ)</span>
             </div>
             <div className="legend-item">
               <div className="legend-color above-average"></div>
@@ -538,7 +538,7 @@ export default function CognitiveDashboard({
             </div>
             <div className="legend-item">
               <div className="legend-color below-average"></div>
-              <span>Below Average (<-1σ)</span>
+              <span>Below Average (&lt;-1σ)</span>
             </div>
           </div>
         </div>
