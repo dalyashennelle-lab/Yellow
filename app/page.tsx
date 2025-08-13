@@ -4,6 +4,9 @@ import RecommendationCard from './components/RecommendationCard';
 import ActivityItem from './components/ActivityItem';
 import CognitiveChart from './components/CognitiveChart';
 import AIAgent from './components/AIAgent';
+import AnimatedNeurons from './components/AnimatedNeurons';
+import BrainwaveStrips from './components/BrainwaveStrips';
+import CognitiveDashboard from './components/CognitiveDashboard';
 
 export default function HomePage() {
   return (
