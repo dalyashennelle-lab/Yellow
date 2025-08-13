@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import AdvancedNavigation from './components/AdvancedNavigation'
 import SplashScreen from './components/SplashScreen'
