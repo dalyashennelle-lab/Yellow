@@ -1,7 +1,7 @@
 'use client';
 
 import Sidebar from '../components/Sidebar';
-import VideoPlayer from '../components/VideoPlayer';
+import EnhancedVideoPlayer from '../components/EnhancedVideoPlayer';
 import EnhancedMeditation from '../components/EnhancedMeditation';
 import NeuralParticles from '../components/NeuralParticles';
 
@@ -203,7 +203,7 @@ export default function MindfulnessPage() {
           
           <div className="benefits-grid">
             <div className="benefit-item">
-              <div className="benefit-icon">🧠</div>
+              <div className="benefit-icon">��</div>
               <h3 className="benefit-title">Enhanced Neuroplasticity</h3>
               <p className="benefit-description">Meditation increases gray matter density and promotes neural connectivity</p>
             </div>
