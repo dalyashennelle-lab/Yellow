@@ -595,6 +595,50 @@ const ClinicalLanding = () => {
           line-height: 1.6;
         }
 
+        .theme-gallery {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 32px;
+          padding: 40px 24px;
+        }
+
+        .theme-card {
+          display: flex;
+          flex-direction: column;
+          background: var(--bg-card);
+          border-radius: 20px;
+          padding: 24px;
+          text-align: center;
+          border: 1px solid var(--border-primary);
+          transition: all 0.3s ease;
+        }
+
+        .theme-card:hover {
+          transform: translateY(-8px);
+          box-shadow: var(--shadow-neural);
+          border-color: var(--neural-primary);
+        }
+
+        .theme-card-title {
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: var(--text-primary);
+          margin: 16px 0 8px;
+        }
+
+        .theme-card-description {
+          color: var(--text-secondary);
+          line-height: 1.5;
+          flex-grow: 1;
+        }
+
+        .theme-card-image {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          border-radius: 12px;
+        }
+
         @media (max-width: 768px) {
           .hero-content {
             grid-template-columns: 1fr;
