@@ -15,8 +15,18 @@ const Hero = () => {
               elevate your spirit, and embrace your natural glow in our luxurious sanctuary.
             </p>
             <div className="hero-buttons">
-              <button className="btn-primary">Book Appointment</button>
-              <button className="btn-secondary">Learn More</button>
+              <button
+                className="btn-primary"
+                onClick={() => window.open(`mailto:senushidinara2005@gmail.com?subject=Appointment Request&body=Hello, I would like to book a cognitive assessment appointment.`, '_blank')}
+              >
+                Book Appointment
+              </button>
+              <button
+                className="btn-secondary"
+                onClick={() => window.scrollTo({ top: document.getElementById('services')?.offsetTop || 0, behavior: 'smooth' })}
+              >
+                Learn More
+              </button>
             </div>
           </div>
           <div className="hero-visual">
