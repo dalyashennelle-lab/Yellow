@@ -330,17 +330,17 @@ const ClinicalLanding = ({ onNavigate }) => {
             <h2>Ready to Transform Your Cognitive Health?</h2>
             <p>Join thousands of users and healthcare professionals who trust NeuroMind Pro for cognitive enhancement</p>
             <div className="cta-buttons">
-              <button 
+              <button
                 className="btn btn-primary cta-main"
-                onClick={() => navigate('/dashboard')}
+                onClick={() => onNavigate ? onNavigate('/dashboard') : console.log('Navigate to dashboard')}
               >
                 <Zap size={24} />
                 Get Started Now
                 <ChevronRight size={20} />
               </button>
-              <button 
+              <button
                 className="btn btn-ghost cta-secondary"
-                onClick={() => navigate('/advanced')}
+                onClick={() => onNavigate ? onNavigate('/advanced') : console.log('Navigate to advanced')}
               >
                 <Monitor size={20} />
                 View Clinical Features
