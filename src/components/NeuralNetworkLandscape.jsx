@@ -516,7 +516,7 @@ const NeuralNetworkLandscape = ({ brainwaveData, cognitiveState, onNeuralPathway
               className="title-icon"
               style={{ background: landscapeConfigs[landscapeMode].color }}
             >
-              <landscapeConfigs[landscapeMode].icon size={20} />
+              {React.createElement(landscapeConfigs[landscapeMode].icon, { size: 20 })}
             </div>
             <div>
               <h3>{landscapeConfigs[landscapeMode].name}</h3>
