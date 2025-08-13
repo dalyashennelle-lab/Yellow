@@ -119,12 +119,11 @@ export default function HomePage() {
         <div className="section-card">
           <h2 className="section-title">Real-time Neural Activity</h2>
           <div className="section-divider"></div>
-          <div style={{ padding: '40px', textAlign: 'center', background: 'rgba(0,0,0,0.1)', borderRadius: '8px' }}>
-            <p>🧠 Animated Neurons Component</p>
-            <p>Cognitive Load: {cognitiveMetrics.cognitiveLoad}%</p>
-            <p>Activity: {cognitiveMetrics.attention}%</p>
-            <p><em>3D visualization loading...</em></p>
-          </div>
+          <AnimatedNeurons
+            cognitiveLoad={cognitiveMetrics.cognitiveLoad}
+            activity={cognitiveMetrics.attention}
+            neuronCount={20}
+          />
         </div>
 
         <div className="section-card">
