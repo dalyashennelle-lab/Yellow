@@ -35,13 +35,13 @@ export default function Sidebar({ activeItem }: SidebarProps) {
         <ul className="nav-menu">
           {navItems.map((item) => (
             <li key={item.id} className="nav-item">
-              <a 
-                href={`#${item.id}`} 
+              <Link
+                href={item.href}
                 className={`nav-link ${activeItem === item.id ? 'active' : ''}`}
               >
                 <span className="nav-icon">{item.icon}</span>
                 <span>{item.label}</span>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
