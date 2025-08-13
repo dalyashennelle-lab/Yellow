@@ -88,6 +88,39 @@ export default function MindfulnessPage() {
           ))}
         </div>
 
+        <div className="memory-enhancement">
+          <h2 className="section-title">Memory Enhancement Activities</h2>
+          <div className="section-divider"></div>
+
+          <div className="memory-gallery">
+            <div className="memory-item">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fd864cace22e84889a9d56e08a3776134?format=webp&width=800"
+                alt="Memory enhancing cognitive activities"
+                className="memory-img"
+              />
+              <div className="memory-content">
+                <h3>Cognitive Training</h3>
+                <p>Evidence-based exercises designed to strengthen working memory and attention span</p>
+                <button className="memory-button">Start Training</button>
+              </div>
+            </div>
+
+            <div className="memory-item">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fb403153e7f9247968ab9d6785537b5ff?format=webp&width=800"
+                alt="Advanced memory techniques"
+                className="memory-img"
+              />
+              <div className="memory-content">
+                <h3>Memory Palace</h3>
+                <p>Learn the ancient method of loci technique for superior information retention</p>
+                <button className="memory-button">Build Palace</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="section-card">
           <h2 className="section-title">Neural Benefits</h2>
           <div className="section-divider"></div>
