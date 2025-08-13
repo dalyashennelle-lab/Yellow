@@ -52,8 +52,6 @@ export default function MindfulnessPage() {
 
         <WebXRMeditation
           environment="beach"
-          onSessionStart={() => console.log('VR meditation started')}
-          onSessionEnd={() => console.log('VR meditation ended')}
         />
 
         <div className="mindfulness-gallery">
