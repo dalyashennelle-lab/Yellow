@@ -1576,6 +1576,124 @@ body::after {
   }
 }
 
+/* Neural Theme Overrides */
+.dashboard-title, .hero-title, .meditation-title {
+  font-size: 2.2rem !important;
+  font-weight: 700;
+  background: linear-gradient(135deg, #e2e8f0 0%, #4facfe 30%, #ff77c7 70%, #00f2fe 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 30px rgba(79, 172, 254, 0.3);
+  filter: drop-shadow(0 0 10px rgba(79, 172, 254, 0.2));
+  animation: neural-text-glow 4s ease-in-out infinite;
+}
+
+.hero-description, .meditation-subtitle {
+  color: rgba(226, 232, 240, 0.8) !important;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.insight-title {
+  background: linear-gradient(135deg, #e2e8f0 0%, #4facfe 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.insight-description {
+  color: rgba(226, 232, 240, 0.8) !important;
+}
+
+.insight-suggestion {
+  background: linear-gradient(135deg, rgba(79, 172, 254, 0.2) 0%, rgba(132, 204, 246, 0.1) 100%) !important;
+  color: rgba(226, 232, 240, 0.9) !important;
+  backdrop-filter: blur(10px);
+  border-left: 4px solid #4facfe;
+}
+
+/* Neural particles animation */
+.neural-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.neural-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(120, 119, 198, 0.6);
+  border-radius: 50%;
+  animation: float-particle 15s linear infinite;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(100vh) translateX(0px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(50px);
+    opacity: 0;
+  }
+}
+
+/* Glassmorphism effects for cards */
+.metric-card, .recommendation-card, .activity-item {
+  background: linear-gradient(135deg, rgba(15, 15, 35, 0.8) 0%, rgba(26, 26, 46, 0.6) 100%) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(120, 119, 198, 0.2) !important;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(120, 119, 198, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Update text colors for neural theme */
+h1, h2, h3, h4, h5, h6 {
+  background: linear-gradient(135deg, #e2e8f0 0%, #4facfe 50%, #ff77c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+p, span, div {
+  color: rgba(226, 232, 240, 0.8);
+}
+
+/* Neural glow buttons */
+button {
+  background: linear-gradient(135deg, rgba(79, 172, 254, 0.8) 0%, rgba(255, 119, 199, 0.6) 100%) !important;
+  border: 1px solid rgba(120, 119, 198, 0.4) !important;
+  color: white !important;
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 4px 16px rgba(79, 172, 254, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+button:hover {
+  box-shadow:
+    0 8px 32px rgba(79, 172, 254, 0.4),
+    0 0 20px rgba(79, 172, 254, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
 .main-container {
   display: flex;
   min-height: 100vh;
