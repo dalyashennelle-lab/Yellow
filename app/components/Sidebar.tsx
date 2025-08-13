@@ -3,6 +3,7 @@ interface SidebarProps {
 }
 
 import Link from 'next/link';
+import ThemeSwitcher from './ThemeSwitcher';
 
 interface NavItem {
   id: string;
