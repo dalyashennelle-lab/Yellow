@@ -9,6 +9,7 @@ import Mindfulness from './pages/Mindfulness'
 import EEGAnalysis from './pages/EEGAnalysis'
 import Progress from './pages/Progress'
 import Settings from './pages/Settings'
+import AdvancedNeuroscienceHub from './pages/AdvancedNeuroscienceHub'
 
 function App() {
   const [user, setUser] = useState({
