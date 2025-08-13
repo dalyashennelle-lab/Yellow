@@ -102,8 +102,8 @@ export default function MindfulnessPage() {
           <div className="memory-gallery">
             <div className="memory-item">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fd864cace22e84889a9d56e08a3776134?format=webp&width=800"
-                alt="Memory enhancing cognitive activities"
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Ffa6c5edad14c46f195c319c2297d64c4?format=webp&width=800"
+                alt="Advanced memory enhancing activities with neuroscience backing"
                 className="memory-img"
               />
               <div className="memory-content">
@@ -115,8 +115,8 @@ export default function MindfulnessPage() {
 
             <div className="memory-item">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fb403153e7f9247968ab9d6785537b5ff?format=webp&width=800"
-                alt="Advanced memory techniques"
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2F0f8b8b8234bd441ba2a14032034e85df?format=webp&width=800"
+                alt="Neuroscience-based memory enhancement techniques"
                 className="memory-img"
               />
               <div className="memory-content">
