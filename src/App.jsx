@@ -63,9 +63,15 @@ function App() {
 
   // Show clinical landing on first visit (after splash)
   if (showClinicalLanding) {
+    const handleNavigate = (path) => {
+      // Store the intended path and transition to main app
+      sessionStorage.setItem('intendedPath', path)
+      setShowClinicalLanding(false)
+    }
+
     return (
       <div className="clinical-app">
-        <ClinicalLanding />
+        <ClinicalLanding onNavigate={handleNavigate} />
         <div className="enter-app">
           <button
             className="btn btn-primary"
