@@ -533,13 +533,123 @@ const AdvancedNavigation = ({ user, onNavigate }) => {
           filter: blur(1px);
         }
 
-        .canvas-container {
+        .navigation-interface {
+          position: relative;
           width: 800px;
           height: 600px;
           border-radius: 20px;
           overflow: hidden;
-          background: rgba(0, 0, 0, 0.3);
+          background: radial-gradient(circle at center, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95));
           border: 1px solid rgba(255, 255, 255, 0.1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .css-neural-particles {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+        }
+
+        .css-particle {
+          position: absolute;
+          background: linear-gradient(45deg, #00d4ff, #7c3aed);
+          border-radius: 50%;
+          filter: blur(1px);
+        }
+
+        .css-neural-network {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+        }
+
+        .neural-node {
+          position: absolute;
+          background: radial-gradient(circle, rgba(0, 212, 255, 0.8), transparent);
+          border-radius: 50%;
+          filter: blur(2px);
+        }
+
+        .neural-connections {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        .navigation-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          padding: 40px;
+          z-index: 2;
+        }
+
+        .css-morphing-tab {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          padding: 24px 16px;
+          background: rgba(0, 0, 0, 0.3);
+          backdrop-filter: blur(15px);
+          border: 2px solid rgba(255, 255, 255, 0.2);
+          border-radius: 16px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          overflow: hidden;
+        }
+
+        .css-morphing-tab:hover {
+          transform: translateY(-4px);
+        }
+
+        .css-morphing-tab.active {
+          background: rgba(0, 212, 255, 0.1);
+          border-color: var(--neural-primary);
+        }
+
+        .tab-icon {
+          color: rgba(255, 255, 255, 0.8);
+          transition: all 0.3s ease;
+        }
+
+        .css-morphing-tab.active .tab-icon {
+          color: white;
+          filter: drop-shadow(0 0 10px currentColor);
+        }
+
+        .tab-label {
+          font-size: 0.875rem;
+          font-weight: 600;
+          color: rgba(255, 255, 255, 0.8);
+          text-align: center;
+          transition: all 0.3s ease;
+        }
+
+        .css-morphing-tab.active .tab-label {
+          color: white;
+        }
+
+        .tab-glow {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          opacity: 0.1;
+          border-radius: 14px;
+          pointer-events: none;
         }
 
         .neural-status {
