@@ -13,8 +13,9 @@ import AdvancedNeuroscienceHub from './pages/AdvancedNeuroscienceHub'
 
 function App() {
   const [user, setUser] = useState({
-    name: 'Dr. Sarah Chen',
+    name: 'Sarah Chen',
     id: 'user_001',
+    email: 'senushidinara2005@gmail.com',
     streak: 28,
     memberSince: '2023-06-15',
     role: 'Clinical Psychologist'
