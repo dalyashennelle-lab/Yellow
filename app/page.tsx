@@ -11,6 +11,7 @@ import AnimatedNeurons from './components/AnimatedNeurons';
 import BrainwaveStrips from './components/BrainwaveStrips';
 import CognitiveDashboard from './components/CognitiveDashboard';
 import AdvancedMemoryGames from './components/AdvancedMemoryGames';
+import SplashScreen from './components/SplashScreen';
 
 export default function HomePage() {
   const [cognitiveMetrics, setCognitiveMetrics] = useState({
