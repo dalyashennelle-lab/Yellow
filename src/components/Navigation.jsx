@@ -21,6 +21,7 @@ const Navigation = ({ user }) => {
 
   const navItems = [
     { path: '/', icon: BarChart3, label: 'Dashboard', active: location.pathname === '/' },
+    { path: '/advanced', icon: Cpu, label: 'Advanced Hub', active: location.pathname === '/advanced', premium: true },
     { path: '/checkin', icon: Heart, label: 'Daily Check-In', active: location.pathname === '/checkin' },
     { path: '/games', icon: GameController2, label: 'Brain Games', active: location.pathname === '/games' },
     { path: '/mindfulness', icon: Brain, label: 'Mindfulness', active: location.pathname === '/mindfulness' },
