@@ -23,24 +23,24 @@ const ClinicalLanding = () => {
   
   const heroImages = [
     {
-      url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fa15f3559262c4c23a96a8b8edac690bd?format=webp&width=800",
-      title: "Advanced Neuroscience Research",
-      subtitle: "Girl conducting brain research in advanced laboratory"
+      url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F1eaa7d90c80344b3975cd7d103f8ee96?format=webp&width=800",
+      title: "NeuroMind Pro Facility",
+      subtitle: "Professional cognitive health center with expert staff"
     },
     {
-      url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F7e4c6421330e4951ac66f311c1531449?format=webp&width=800",
-      title: "Cutting-edge Neuroscience",
-      subtitle: "Advanced research for cognitive health breakthroughs"
+      url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fc26c4ae341ad4293954d04eab5245651?format=webp&width=800",
+      title: "Expert Clinical Care",
+      subtitle: "Dedicated healthcare professionals for cognitive wellness"
     },
     {
-      url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fedb3613c06c24b669bb87fd5e0075da3?format=webp&width=800",
-      title: "Futuristic Brain Research",
-      subtitle: "Next-generation cognitive assessment technology"
+      url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F8849c3d33bb64dd593961485aa79ae80?format=webp&width=800",
+      title: "EEG Brain Monitoring",
+      subtitle: "Advanced EEG systems for real-time cognitive assessment"
     },
     {
-      url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Ffe7d56c2cebb4f01ba34c6178e0d1d05?format=webp&width=800",
-      title: "Clinical Excellence",
-      subtitle: "Professional brain research in advanced lab environment"
+      url: "https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fe5f4b17fbed04905b759cf7fe7dfce1c?format=webp&width=800",
+      title: "NeuroMind Pro Branding",
+      subtitle: "Leading cognitive health technology company"
     }
   ]
 
