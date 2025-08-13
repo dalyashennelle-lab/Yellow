@@ -74,10 +74,22 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
 
   return (
     <div className="dashboard">
+      {/* Animated Background Images */}
+      <div className="dashboard-bg-images">
+        <div className="bg-image-float float-slow">
+          <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F5f5bb2def30a45228ab08dcf1385b587?format=webp&width=800" alt="Sleep and Brain" className="dashboard-bg-img" />
+        </div>
+        <div className="bg-image-float float-medium">
+          <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F10490e924aa147a097d7749f2608d1eb?format=webp&width=800" alt="Garden Environment" className="dashboard-bg-img" />
+        </div>
+        <div className="bg-image-float float-fast">
+          <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fcac333fde156491d9ffe335413fbeb03?format=webp&width=800" alt="Physical Activity" className="dashboard-bg-img" />
+        </div>
+      </div>
       {/* Header Section */}
-      <div className="dashboard-header">
+      <div className="dashboard-header slide-in-up">
         <div className="welcome-section">
-          <h1 className="heading-xl">
+          <h1 className="heading-xl breathe-glow">
             {getGreeting()}, {user.name.split(' ')[0]}
           </h1>
           <p className="welcome-subtitle">
@@ -97,8 +109,44 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
         </div>
       </div>
 
+      {/* Wellness Preview Section */}
+      <div className="wellness-preview slide-in-up animate-delay-1">
+        <h2 className="section-title">Your Wellness Journey</h2>
+        <div className="wellness-cards">
+          <div className="wellness-card theme-image-container float-slow">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F2fbaa246ccb347fe89d3b5fa64b0fb61?format=webp&width=800" alt="Mindfulness Practice" className="wellness-image" />
+            <div className="theme-image-overlay"></div>
+            <div className="wellness-content">
+              <h3>Mindfulness Practice</h3>
+              <p>Daily meditation sessions</p>
+              <span className="wellness-stat neural-pulse">15 min today</span>
+            </div>
+          </div>
+
+          <div className="wellness-card theme-image-container float-medium">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fd3b03ef89de9467b9610092b5db3e912?format=webp&width=800" alt="Memory Training" className="wellness-image" />
+            <div className="theme-image-overlay"></div>
+            <div className="wellness-content">
+              <h3>Memory Training</h3>
+              <p>Cognitive enhancement activities</p>
+              <span className="wellness-stat neural-pulse">3 games completed</span>
+            </div>
+          </div>
+
+          <div className="wellness-card theme-image-container float-fast">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fa64b4be64d5743b4821735e5a99d3a87?format=webp&width=800" alt="Calming Environment" className="wellness-image" />
+            <div className="theme-image-overlay"></div>
+            <div className="wellness-content">
+              <h3>Stress Relief</h3>
+              <p>Calming environments</p>
+              <span className="wellness-stat neural-pulse">Ocean sounds</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Clinical Progress Section */}
-      <div className="clinical-progress">
+      <div className="clinical-progress slide-in-up animate-delay-2">
         <h2 className="section-title">Clinical Progress Overview</h2>
         <div className="progress-showcase">
           <div className="progress-image">
@@ -132,7 +180,7 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
       </div>
 
       {/* Main Metrics Grid */}
-      <div className="metrics-grid grid grid-4">
+      <div className="metrics-grid grid grid-4 slide-in-up animate-delay-3">
         <MetricCard
           title="Memory Health"
           value={cognitiveData.memoryHealth}
@@ -172,7 +220,7 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
       </div>
 
       {/* Secondary Metrics */}
-      <div className="secondary-metrics grid grid-4">
+      <div className="secondary-metrics grid grid-4 slide-in-up animate-delay-4">
         <div className="metric-card">
           <div className="metric-header">
             <Heart className="metric-icon" style={{color: 'var(--neural-error)'}} />
@@ -287,6 +335,118 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
           padding: 80px 24px 24px;
           max-width: 1400px;
           margin: 0 auto;
+          position: relative;
+        }
+
+        .dashboard-bg-images {
+          position: fixed;
+          top: 0;
+          left: 280px;
+          right: 0;
+          bottom: 0;
+          pointer-events: none;
+          z-index: -1;
+          overflow: hidden;
+        }
+
+        .bg-image-float {
+          position: absolute;
+          opacity: 0.03;
+          border-radius: 20px;
+          overflow: hidden;
+        }
+
+        .bg-image-float:nth-child(1) {
+          top: 10%;
+          right: 10%;
+          width: 300px;
+          height: 200px;
+        }
+
+        .bg-image-float:nth-child(2) {
+          bottom: 20%;
+          left: 5%;
+          width: 250px;
+          height: 180px;
+        }
+
+        .bg-image-float:nth-child(3) {
+          top: 50%;
+          right: 30%;
+          width: 200px;
+          height: 150px;
+        }
+
+        .dashboard-bg-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .wellness-preview {
+          margin-bottom: 40px;
+          padding: 32px;
+          background: var(--bg-card);
+          border-radius: 20px;
+          border: 1px solid var(--border-primary);
+        }
+
+        .wellness-cards {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 24px;
+        }
+
+        .wellness-card {
+          position: relative;
+          height: 200px;
+          border-radius: 16px;
+          overflow: hidden;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .wellness-card:hover {
+          transform: translateY(-8px) scale(1.02);
+          box-shadow: var(--shadow-glow);
+        }
+
+        .wellness-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .wellness-content {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 20px;
+          background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+          color: white;
+        }
+
+        .wellness-content h3 {
+          font-size: 1.125rem;
+          font-weight: 600;
+          margin-bottom: 4px;
+        }
+
+        .wellness-content p {
+          font-size: 0.875rem;
+          opacity: 0.9;
+          margin-bottom: 8px;
+        }
+
+        .wellness-stat {
+          display: inline-block;
+          background: var(--neural-primary);
+          color: white;
+          padding: 4px 12px;
+          border-radius: 12px;
+          font-size: 0.75rem;
+          font-weight: 600;
         }
 
         .dashboard-header {
