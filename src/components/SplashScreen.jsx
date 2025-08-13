@@ -349,7 +349,7 @@ const SplashScreen = ({ onFinish }) => {
 
           .logo-icon svg {
             color: var(--neural-primary);
-            filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5));
+            filter: drop-shadow(0 0 15px rgba(125, 211, 252, 0.4));
           }
 
           .logo-pulse {
@@ -361,17 +361,19 @@ const SplashScreen = ({ onFinish }) => {
             height: 48px;
             border: 2px solid var(--neural-primary);
             border-radius: 50%;
+            box-shadow: 0 0 20px rgba(125, 211, 252, 0.3);
           }
 
           .logo-text {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 3rem;
-            font-weight: 700;
+            font-weight: 800;
             background: var(--gradient-neural);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin: 0;
+            text-shadow: 0 2px 10px rgba(125, 211, 252, 0.1);
           }
 
           .quote-container {
