@@ -49,8 +49,8 @@ function App() {
     heartRate: 72
   })
 
-  const [showClinicalLanding, setShowClinicalLanding] = useState(true)
-  const [showSplashScreen, setShowSplashScreen] = useState(true)
+  const [showClinicalLanding, setShowClinicalLanding] = useState(false)
+  const [showSplashScreen, setShowSplashScreen] = useState(false)
   const [useAdvancedNav, setUseAdvancedNav] = useState(true)
 
   useEffect(() => {
