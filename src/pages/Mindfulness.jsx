@@ -461,14 +461,59 @@ const Mindfulness = ({ user }) => {
   }
 
   return (
-    <div className="mindfulness">
-      <div className="page-header">
-        <h1 className="heading-xl">Mindfulness & Meditation</h1>
+    <div className="mindfulness animated-bg">
+      {/* Floating Background Elements */}
+      <div className="mindfulness-bg-images">
+        <div className="bg-meditation-float float-slow">
+          <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fc8b91b075c8d4735bbba9a2653647a5d?format=webp&width=800" alt="Peaceful Meditation" className="bg-float-img" />
+        </div>
+        <div className="bg-garden-float float-medium">
+          <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F393c10b906d043d384b19d0616a9b24b?format=webp&width=800" alt="Garden Path" className="bg-float-img" />
+        </div>
+        <div className="bg-breathing-float float-fast">
+          <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fba8d2fee0f314362acccf739599e217c?format=webp&width=800" alt="Breathing Exercise" className="bg-float-img" />
+        </div>
+      </div>
+      <div className="page-header slide-in-up">
+        <h1 className="heading-xl breathe-glow">Mindfulness & Meditation</h1>
         <p>Clinical-grade mindfulness exercises for cognitive enhancement and stress reduction</p>
       </div>
 
+      {/* Calming Environments Showcase */}
+      <div className="calming-environments slide-in-up animate-delay-1">
+        <h2 className="section-title">Calming Environments</h2>
+        <div className="environment-gallery">
+          <div className="environment-card theme-image-container float-slow">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F01d31114fe8d4201a1f40f32fb91c980?format=webp&width=800" alt="Colorful Garden" className="environment-image" />
+            <div className="theme-image-overlay"></div>
+            <div className="environment-info">
+              <h4>Colorful Garden</h4>
+              <p>Vibrant botanical sanctuary</p>
+            </div>
+          </div>
+
+          <div className="environment-card theme-image-container float-medium">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F0bd9d6c236e7433eafe326ca538970c3?format=webp&width=800" alt="Tranquil Lake" className="environment-image" />
+            <div className="theme-image-overlay"></div>
+            <div className="environment-info">
+              <h4>Tranquil Lake</h4>
+              <p>Peaceful water reflection</p>
+            </div>
+          </div>
+
+          <div className="environment-card theme-image-container float-fast">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F01d05736468d4ef6a79fbc3f56df02f9?format=webp&width=800" alt="Beach Sunset" className="environment-image" />
+            <div className="theme-image-overlay"></div>
+            <div className="environment-info">
+              <h4>Beach Sunset</h4>
+              <p>Calming ocean waves</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Clinical Mindfulness Feature */}
-      <div className="clinical-mindfulness">
+      <div className="clinical-mindfulness slide-in-up animate-delay-2">
         <div className="clinical-content">
           <h2>Clinical Mindfulness Integration</h2>
           <p>Evidence-based mindfulness practices designed for clinical environments, supporting cognitive rehabilitation and stress management protocols.</p>
@@ -497,11 +542,12 @@ const Mindfulness = ({ user }) => {
       </div>
 
       {/* Mindfulness Sessions */}
-      <div className="sessions-grid grid grid-2">
-        {mindfulnessSessions.map((session) => (
-          <div key={session.id} className="session-card neural-card">
+      <div className="sessions-grid grid grid-2 slide-in-up animate-delay-3">
+        {mindfulnessSessions.map((session, index) => (
+          <div key={session.id} className={`session-card neural-card theme-image-container scale-in animate-delay-${index + 1}`}>
             <div className="session-image-container">
-              <img src={session.image} alt={session.title} className="session-image" />
+              <img src={session.image} alt={session.title} className="session-image theme-image" />
+              <div className="theme-image-overlay"></div>
               <div className="session-overlay">
                 <div className="session-category-badge" style={{ background: session.color }}>
                   {session.category}
