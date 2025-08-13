@@ -749,6 +749,61 @@ const EmotionResponsiveVR = ({ emotionalData, eegData, biometricData, onEnvironm
         </div>
       </div>
 
+      {/* Environment Relaxing Video Section */}
+      <div className="environment-video-section">
+        <div className="video-header">
+          <h3>Immersive Environment Experience</h3>
+          <p>Deep relaxation through natural environment sounds and visuals for enhanced VR immersion.</p>
+        </div>
+
+        <div className="video-grid">
+          <div className="video-player-container">
+            <YouTubePlayer
+              videoId="VNu15Qqomt8"
+              title="Environment Relaxing Video - Nature Sounds for VR"
+              controls={true}
+              className="environment-video"
+              onPlay={() => console.log('Environment relaxing video started')}
+              onPause={() => console.log('Environment relaxing video paused')}
+            />
+          </div>
+
+          <div className="video-benefits">
+            <h4>VR Enhancement Benefits</h4>
+            <div className="benefits-list">
+              <div className="benefit-item">
+                <Waves className="benefit-icon" />
+                <div>
+                  <strong>Spatial Audio Integration</strong>
+                  <p>Natural environment sounds enhance VR immersion and presence</p>
+                </div>
+              </div>
+              <div className="benefit-item">
+                <Eye className="benefit-icon" />
+                <div>
+                  <strong>Visual Synchronization</strong>
+                  <p>Synchronized visuals create deeper emotional connection to virtual environments</p>
+                </div>
+              </div>
+              <div className="benefit-item">
+                <Brain className="benefit-icon" />
+                <div>
+                  <strong>Cognitive Restoration</strong>
+                  <p>Nature-based content promotes mental restoration and stress reduction</p>
+                </div>
+              </div>
+              <div className="benefit-item">
+                <Heart className="benefit-icon" />
+                <div>
+                  <strong>Biometric Harmony</strong>
+                  <p>Calming environments regulate heart rate and emotional state</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <style jsx>{`
         .emotion-responsive-vr {
           background: var(--bg-card);
