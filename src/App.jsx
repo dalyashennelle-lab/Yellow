@@ -52,39 +52,48 @@ function App() {
     return () => clearInterval(interval)
   }, [])
 
-  // Show clinical landing on first visit
+  // Show splash screen on first load
+  if (showSplashScreen) {
+    return (
+      <SplashScreen
+        onFinish={() => setShowSplashScreen(false)}
+      />
+    )
+  }
+
+  // Show clinical landing on first visit (after splash)
   if (showClinicalLanding) {
     return (
       <div className="clinical-app">
         <ClinicalLanding />
         <div className="enter-app">
-          <button 
+          <button
             className="btn btn-primary"
             onClick={() => setShowClinicalLanding(false)}
           >
             Enter NeuroMind Pro
           </button>
         </div>
-        
+
         <style jsx>{`
           .clinical-app {
             position: relative;
           }
-          
+
           .enter-app {
             position: fixed;
             bottom: 30px;
             right: 30px;
             z-index: 1000;
           }
-          
+
           .enter-app .btn {
             padding: 16px 32px;
             font-size: 1.125rem;
             border-radius: 30px;
             box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
           }
-          
+
           .enter-app .btn:hover {
             box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
             transform: translateY(-3px);
