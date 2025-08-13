@@ -23,6 +23,7 @@ import {
   Smartphone,
   Monitor
 } from 'lucide-react'
+import YouTubePlayer from './YouTubePlayer'
 
 const EmotionResponsiveVR = ({ emotionalData, eegData, biometricData, onEnvironmentChange }) => {
   const [vrMode, setVrMode] = useState('immersive') // preview, immersive, ar, mixed-reality
