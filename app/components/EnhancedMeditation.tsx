@@ -112,21 +112,33 @@ const EnhancedMeditation: React.FC<EnhancedMeditationProps> = ({ onSessionChange
   }, [isActive]);
 
   const startMeditation = (environment: string) => {
-    setSelectedEnvironment(environment);
-    setIsActive(true);
-    setSessionTimer(0);
-    setCurrentImageIndex(0);
-    onSessionChange?.(true);
-    
-    // Smooth start animation
-    if (backgroundRef.current) {
-      backgroundRef.current.style.transform = 'scale(1.05)';
-      setTimeout(() => {
-        if (backgroundRef.current) {
-          backgroundRef.current.style.transform = 'scale(1)';
-        }
-      }, 300);
+    // Immediate visual feedback
+    const button = document.activeElement as HTMLElement;
+    if (button) {
+      button.style.transform = 'scale(0.95)';
+      requestAnimationFrame(() => {
+        button.style.transform = '';
+      });
     }
+
+    // Use RAF for smooth state updates
+    requestAnimationFrame(() => {
+      setSelectedEnvironment(environment);
+      setIsActive(true);
+      setSessionTimer(0);
+      setCurrentImageIndex(0);
+      onSessionChange?.(true);
+
+      // Smooth start animation
+      if (backgroundRef.current) {
+        backgroundRef.current.style.transform = 'scale(1.05)';
+        setTimeout(() => {
+          if (backgroundRef.current) {
+            backgroundRef.current.style.transform = 'scale(1)';
+          }
+        }, 300);
+      }
+    });
   };
 
   const stopMeditation = () => {
