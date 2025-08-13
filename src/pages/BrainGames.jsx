@@ -238,8 +238,8 @@ const BrainGames = ({ user }) => {
                     } ${matchedCards.includes(index) ? 'matched' : ''}`}
                     onClick={() => handleCardClick(index)}
                     style={{
-                      backgroundColor: flippedCards.includes(index) || matchedCards.includes(index) 
-                        ? card.color 
+                      backgroundColor: flippedCards.includes(index) || matchedCards.includes(index)
+                        ? card.color
                         : 'var(--bg-tertiary)'
                     }}
                   >
@@ -251,7 +251,7 @@ const BrainGames = ({ user }) => {
                   </div>
                 ))}
               </div>
-              
+
               {gameState === 'completed' && (
                 <div className="game-complete">
                   <h3>Excellent Work!</h3>
@@ -261,6 +261,63 @@ const BrainGames = ({ user }) => {
                   </button>
                 </div>
               )}
+            </div>
+          )}
+
+          {activeGame && activeGame !== 'memory-matrix' && (
+            <div className="generic-game">
+              <div className="game-interface">
+                <div className="game-simulator">
+                  <div className="simulator-display">
+                    <h3>{games.find(g => g.id === activeGame)?.title} Simulator</h3>
+                    <div className="game-metrics">
+                      <div className="metric">
+                        <span className="metric-label">Cognitive Load</span>
+                        <div className="metric-bar">
+                          <div className="metric-fill" style={{width: `${45 + (score * 2)}%`}}></div>
+                        </div>
+                        <span className="metric-value">{45 + (score * 2)}%</span>
+                      </div>
+                      <div className="metric">
+                        <span className="metric-label">Response Time</span>
+                        <div className="metric-bar">
+                          <div className="metric-fill" style={{width: `${Math.max(20, 80 - score)}%`}}></div>
+                        </div>
+                        <span className="metric-value">{Math.max(200, 800 - (score * 10))}ms</span>
+                      </div>
+                    </div>
+
+                    <div className="game-actions">
+                      <button
+                        className="btn btn-secondary game-action-btn"
+                        onClick={() => setScore(score + Math.floor(Math.random() * 5) + 1)}
+                        disabled={gameState !== 'playing'}
+                      >
+                        <Brain size={16} />
+                        Process Task
+                      </button>
+                      <button
+                        className="btn btn-accent game-action-btn"
+                        onClick={() => setScore(score + Math.floor(Math.random() * 3) + 1)}
+                        disabled={gameState !== 'playing'}
+                      >
+                        <Target size={16} />
+                        Focus Challenge
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {gameState === 'completed' && (
+                  <div className="game-complete">
+                    <h3>Session Complete!</h3>
+                    <p>You completed {games.find(g => g.id === activeGame)?.title} with a score of {score}</p>
+                    <button className="btn btn-primary" onClick={resetGame}>
+                      Try Again
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           )}
         </div>
