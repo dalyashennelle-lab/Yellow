@@ -18,6 +18,10 @@ import MetricCard from '../components/MetricCard'
 import ProgressChart from '../components/ProgressChart'
 import RecentActivity from '../components/RecentActivity'
 import AIInsights from '../components/AIInsights'
+import AIAgent from '../components/AIAgent'
+import BlockchainNFT from '../components/BlockchainNFT'
+import VRNeuralEnvironment from '../components/VRNeuralEnvironment'
+import VideoIntegration from '../components/VideoIntegration'
 
 const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
   const [currentTime, setCurrentTime] = useState(new Date())
@@ -275,6 +279,24 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
             className="assessment-img"
           />
         </div>
+      </div>
+
+      {/* AI Agent Section */}
+      <div className="ai-agent-section slide-in-up animate-delay-5">
+        <AIAgent
+          user={user}
+          cognitiveData={cognitiveData}
+          onRecommendation={(type) => console.log('AI Recommendation:', type)}
+        />
+      </div>
+
+      {/* VR Neural Environment */}
+      <div className="vr-section slide-in-up animate-delay-6">
+        <VRNeuralEnvironment
+          cognitiveData={cognitiveData}
+          emotionalState={{ mood: 'calm', energy: 'moderate' }}
+          biometricData={{ heartRate: cognitiveData.heartRate }}
+        />
       </div>
 
       {/* Content Grid */}
