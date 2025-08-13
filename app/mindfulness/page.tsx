@@ -29,6 +29,7 @@ export default function MindfulnessPage() {
 
   return (
     <div className="main-container" data-tab="mindfulness">
+      <NeuralParticles />
       <Sidebar activeItem="mindfulness" />
       
       <main className="main-content">
