@@ -381,14 +381,18 @@ const SplashScreen = ({ onFinish }) => {
           }
 
           .research-quote {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 1.4rem;
             line-height: 1.6;
-            color: #f2f2f2;
+            color: var(--text-primary);
             margin: 0;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            text-shadow: 0 2px 15px rgba(168, 230, 207, 0.2);
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--neural-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
           }
 
           .tagline-container {
