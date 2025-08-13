@@ -404,16 +404,16 @@ const SplashScreen = ({ onFinish }) => {
           }
 
           .tagline-icon {
-            color: var(--neural-secondary);
+            color: var(--neural-accent);
           }
 
           .tagline {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 1rem;
             color: var(--text-secondary);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 500;
+            letter-spacing: 3px;
+            font-weight: 600;
           }
 
           .loading-indicator {
@@ -422,16 +422,18 @@ const SplashScreen = ({ onFinish }) => {
             left: 50%;
             transform: translateX(-50%);
             width: 300px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 1px;
+            height: 4px;
+            background: rgba(168, 230, 207, 0.2);
+            border-radius: 8px;
             overflow: hidden;
+            box-shadow: 0 2px 10px rgba(168, 230, 207, 0.1);
           }
 
           .loading-bar {
             height: 100%;
-            background: var(--gradient-neural);
-            border-radius: 1px;
+            background: var(--gradient-mint);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(168, 230, 207, 0.4);
           }
 
           @media (max-width: 768px) {
