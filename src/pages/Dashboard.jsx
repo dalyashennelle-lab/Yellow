@@ -103,11 +103,11 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
         </div>
         
         <div className="quick-actions">
-          <button className="btn btn-primary">
+          <button className="btn btn-primary" onClick={() => navigate('/eeg')}>
             <Play size={16} />
             Start Assessment
           </button>
-          <button className="btn btn-secondary">
+          <button className="btn btn-secondary" onClick={() => navigate('/checkin')}>
             <Sparkles size={16} />
             Quick Check-in
           </button>
@@ -268,7 +268,7 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
         <div className="assessment-content">
           <h3>Professional Assessment Tools</h3>
           <p>Access clinical-grade cognitive assessment protocols designed for healthcare professionals.</p>
-          <button className="btn btn-primary">
+          <button className="btn btn-primary" onClick={() => navigate('/clinical')}>
             <Monitor size={16} />
             Start Clinical Assessment
           </button>
