@@ -225,28 +225,43 @@ export default function BrainGamesPage() {
         </div>
 
         <div className="section-card">
+          <h2 className="section-title">Adaptive Mini-Games</h2>
+          <div className="section-divider"></div>
+          <AdaptiveMiniGames
+            onScoreUpdate={(score, accuracy, reactionTime) => {
+              setCognitiveLoad(Math.round((score / 100) * 30 + 50));
+              setMemoryActivity(Math.round(accuracy));
+              setFocusLevel(Math.round((500 - reactionTime) / 3));
+            }}
+            onDifficultyChange={(difficulty) => {
+              console.log('Difficulty adjusted to:', difficulty);
+            }}
+          />
+        </div>
+
+        <div className="section-card">
           <h2 className="section-title">Neural Enhancement Features</h2>
           <div className="section-divider"></div>
-          
+
           <div className="features-grid">
             <div className="feature-item">
               <div className="feature-icon">🧠</div>
               <h3>Real-time EEG Adaptation</h3>
               <p>Games automatically adjust difficulty based on your brainwave patterns and cognitive load</p>
             </div>
-            
+
             <div className="feature-item">
               <div className="feature-icon">🎮</div>
               <h3>Procedural Generation</h3>
               <p>AI creates unique challenges daily, ensuring continuous cognitive stimulation</p>
             </div>
-            
+
             <div className="feature-item">
               <div className="feature-icon">🌟</div>
               <h3>Neuroplasticity Optimization</h3>
               <p>Tasks designed to maximize neural pathway strengthening and brain adaptability</p>
             </div>
-            
+
             <div className="feature-item">
               <div className="feature-icon">📊</div>
               <h3>Performance Analytics</h3>
