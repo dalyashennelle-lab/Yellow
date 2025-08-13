@@ -68,23 +68,36 @@ export default function HomePage() {
           <CognitiveChart />
         </div>
 
-        <div className="section-card">
-          <h2 className="section-title">Recent Activity</h2>
-          <div className="section-divider"></div>
+        <div className="dashboard-row">
+          <div className="section-card">
+            <h2 className="section-title">Recent Activity</h2>
+            <div className="section-divider"></div>
 
-          <ActivityItem
-            icon="🎮"
-            title="Memory Game"
-            details="Completed level 5 with 92% accuracy"
-            time="Today at 10:30 AM"
-          />
+            <ActivityItem
+              icon="🎮"
+              title="Memory Game"
+              details="Completed level 5 with 92% accuracy"
+              time="Today at 10:30 AM"
+            />
 
-          <ActivityItem
-            icon="���"
-            title="Daily Check-in"
-            details="Mood: 8/10 | Focus: 7/10 | Memory: 6/10"
-            time="Today at 8:15 AM"
-          />
+            <ActivityItem
+              icon="✅"
+              title="Daily Check-in"
+              details="Mood: 8/10 | Focus: 7/10 | Memory: 6/10"
+              time="Today at 8:15 AM"
+            />
+          </div>
+
+          <div className="section-card">
+            <h2 className="section-title">AI Neural Coach</h2>
+            <div className="section-divider"></div>
+            <AIAgent
+              cognitiveLoad={72}
+              memoryScore={87}
+              focusLevel={74}
+              stressLevel={28}
+            />
+          </div>
         </div>
 
         <footer className="footer">
