@@ -142,9 +142,21 @@ const EnhancedMeditation: React.FC<EnhancedMeditationProps> = ({ onSessionChange
   };
 
   const stopMeditation = () => {
-    setIsActive(false);
-    setSessionTimer(0);
-    onSessionChange?.(false);
+    // Immediate visual feedback
+    const button = document.activeElement as HTMLElement;
+    if (button) {
+      button.style.transform = 'scale(0.95)';
+      requestAnimationFrame(() => {
+        button.style.transform = '';
+      });
+    }
+
+    // Use RAF for smooth state updates
+    requestAnimationFrame(() => {
+      setIsActive(false);
+      setSessionTimer(0);
+      onSessionChange?.(false);
+    });
   };
 
   const formatTime = (seconds: number) => {
