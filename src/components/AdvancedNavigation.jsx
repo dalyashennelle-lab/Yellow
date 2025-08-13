@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useRef, Suspense } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { Text, Float, MeshWobbleMaterial, Sphere, Box } from '@react-three/drei'
 import { motion, AnimatePresence } from 'framer-motion'
 import { gsap } from 'gsap'
 import {
@@ -20,7 +18,6 @@ import {
   Eye,
   Sparkles
 } from 'lucide-react'
-import * as THREE from 'three'
 
 // 3D Neural Particle System
 const NeuralParticles = ({ isActive }) => {
