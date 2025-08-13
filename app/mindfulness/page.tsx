@@ -111,12 +111,13 @@ export default function MindfulnessPage() {
 
         <div className="mindfulness-grid">
           {mindfulnessContent.map((content, index) => (
-            <VideoPlayer
+            <EnhancedVideoPlayer
               key={index}
-              videoId={content.videoId}
+              videoUrl={content.videoUrl}
               title={content.title}
               description={content.description}
               icon={content.icon}
+              category={content.category}
             />
           ))}
         </div>
