@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import BinauralBeats from '../components/BinauralBeats';
-import NeuralGalaxy from '../components/NeuralGalaxy';
+import SimplifiedNeuralGalaxy from '../components/SimplifiedNeuralGalaxy';
 import AIInsightsPanel from '../components/AIInsightsPanel';
 
 interface Soundscape {
