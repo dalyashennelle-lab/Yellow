@@ -346,14 +346,6 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
         </div>
       </div>
 
-      {/* Video Integration Section */}
-      <div className="video-section slide-in-up animate-delay-7">
-        <VideoIntegration
-          user={user}
-          onVideoComplete={(video) => console.log('Video completed:', video)}
-          onVideoStart={(video) => console.log('Video started:', video)}
-        />
-      </div>
 
       <style jsx>{`
         .dashboard {
