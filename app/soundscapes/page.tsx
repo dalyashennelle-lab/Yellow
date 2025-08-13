@@ -101,10 +101,23 @@ export default function SoundscapesPage() {
       <Sidebar activeItem="mindfulness" />
       
       <main className="main-content">
-        <div className="dashboard-header">
-          <h1 className="dashboard-title">Neural Soundscapes</h1>
-          <p className="dashboard-subtitle">Adaptive binaural beats and ambient sounds for cognitive enhancement</p>
-          <div className="section-divider"></div>
+        <div className="soundscapes-hero">
+          <div className="hero-content">
+            <div className="hero-text">
+              <h1 className="dashboard-title">Neural Soundscapes</h1>
+              <p className="hero-description">
+                Adaptive binaural beats and ambient sounds for cognitive enhancement in calming environments
+              </p>
+              <div className="section-divider"></div>
+            </div>
+            <div className="hero-image">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2F3523311277ec45bea23afd2acf036ec7?format=webp&width=800"
+                alt="Serene calming environment for mindfulness and meditation"
+                className="hero-img"
+              />
+            </div>
+          </div>
         </div>
 
         {activeSoundscapeData && (
