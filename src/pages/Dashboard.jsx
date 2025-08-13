@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { 
-  Brain, 
-  Heart, 
-  Zap, 
-  Activity, 
-  Target, 
+import { useNavigate } from 'react-router-dom'
+import {
+  Brain,
+  Heart,
+  Zap,
+  Activity,
+  Target,
   TrendingUp,
   Clock,
   Flame,
