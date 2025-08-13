@@ -213,70 +213,62 @@ const AdvancedNavigation = ({ user, onNavigate }) => {
   }, [isOpen])
 
   const navItems = [
-    { 
-      id: 'dashboard', 
-      path: '/', 
-      icon: BarChart3, 
-      label: 'Neural Hub', 
-      color: '#00d4ff',
-      position: [-3, 2, 0]
+    {
+      id: 'dashboard',
+      path: '/',
+      icon: BarChart3,
+      label: 'Neural Hub',
+      color: '#00d4ff'
     },
-    { 
-      id: 'advanced', 
-      path: '/advanced', 
-      icon: Cpu, 
-      label: 'Quantum Lab', 
+    {
+      id: 'advanced',
+      path: '/advanced',
+      icon: Cpu,
+      label: 'Quantum Lab',
       color: '#7c3aed',
-      position: [0, 2, 0],
       premium: true
     },
-    { 
-      id: 'checkin', 
-      path: '/checkin', 
-      icon: Heart, 
-      label: 'Bio Sync', 
-      color: '#ff4757',
-      position: [3, 2, 0]
+    {
+      id: 'checkin',
+      path: '/checkin',
+      icon: Heart,
+      label: 'Bio Sync',
+      color: '#ff4757'
     },
-    { 
-      id: 'games', 
-      path: '/games', 
-      icon: Gamepad2, 
-      label: 'Mind Arena', 
-      color: '#2ed573',
-      position: [-3, 0, 0]
+    {
+      id: 'games',
+      path: '/games',
+      icon: Gamepad2,
+      label: 'Mind Arena',
+      color: '#2ed573'
     },
-    { 
-      id: 'mindfulness', 
-      path: '/mindfulness', 
-      icon: Brain, 
-      label: 'Zen Matrix', 
-      color: '#ff6b6b',
-      position: [0, 0, 0]
+    {
+      id: 'mindfulness',
+      path: '/mindfulness',
+      icon: Brain,
+      label: 'Zen Matrix',
+      color: '#ff6b6b'
     },
-    { 
-      id: 'eeg', 
-      path: '/eeg', 
-      icon: Waves, 
-      label: 'Wave Core', 
-      color: '#ffa502',
-      position: [3, 0, 0]
+    {
+      id: 'eeg',
+      path: '/eeg',
+      icon: Waves,
+      label: 'Wave Core',
+      color: '#ffa502'
     },
-    { 
-      id: 'progress', 
-      path: '/progress', 
-      icon: TrendingUp, 
-      label: 'Evolution', 
-      color: '#3742fa',
-      position: [-1.5, -2, 0]
+    {
+      id: 'progress',
+      path: '/progress',
+      icon: TrendingUp,
+      label: 'Evolution',
+      color: '#3742fa'
     },
-    { 
-      id: 'settings', 
-      path: '/settings', 
-      icon: Settings, 
-      label: 'Command', 
-      color: '#747d8c',
-      position: [1.5, -2, 0]
+    {
+      id: 'settings',
+      path: '/settings',
+      icon: Settings,
+      label: 'Command',
+      color: '#747d8c'
     }
   ]
 
