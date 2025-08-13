@@ -69,6 +69,66 @@ body::before {
   position: relative;
 }
 
+/* Main Layout */
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 280px;
+  min-height: 100vh;
+}
+
+/* Page Layouts */
+.dashboard,
+.daily-checkin,
+.brain-games,
+.mindfulness,
+.eeg-analysis,
+.progress,
+.settings {
+  padding: 80px 24px 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 32px;
+}
+
+.page-header h1 {
+  margin-bottom: 8px;
+}
+
+.page-header p {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+}
+
+/* Metric Layouts */
+.metric-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.metric-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--bg-glass);
+  border-radius: 8px;
+}
+
+.metric-item .metric-value {
+  margin-left: auto;
+  font-weight: 600;
+  color: var(--neural-primary);
+}
+
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 6px;
@@ -180,13 +240,18 @@ body::before {
   overflow: hidden;
 }
 
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .btn-primary {
   background: var(--gradient-neural);
   color: white;
   box-shadow: var(--shadow-neural);
 }
 
-.btn-primary:hover {
+.btn-primary:hover:not(:disabled) {
   box-shadow: 0 20px 40px rgba(124, 58, 237, 0.25);
   transform: translateY(-2px);
 }
@@ -198,7 +263,7 @@ body::before {
   backdrop-filter: blur(10px);
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover:not(:disabled) {
   border-color: var(--border-glow);
   background: rgba(255, 255, 255, 0.1);
 }
@@ -209,7 +274,7 @@ body::before {
   border: 1px solid transparent;
 }
 
-.btn-ghost:hover {
+.btn-ghost:hover:not(:disabled) {
   color: var(--text-primary);
   background: var(--bg-glass);
   border-color: var(--border-primary);
@@ -245,6 +310,24 @@ body::before {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+.metric-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  justify-content: center;
+}
+
+.metric-icon {
+  flex-shrink: 0;
+}
+
+.metric-unit {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-left: 4px;
 }
 
 /* Animations */
@@ -298,6 +381,20 @@ body::before {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
+  
+  .dashboard,
+  .daily-checkin,
+  .brain-games,
+  .mindfulness,
+  .eeg-analysis,
+  .progress,
+  .settings {
+    padding: 80px 16px 16px;
+  }
+  
   .glass-card,
   .neural-card {
     padding: 16px;
