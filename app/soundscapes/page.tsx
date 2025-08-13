@@ -235,8 +235,17 @@ export default function SoundscapesPage() {
 
                 <div className="soundscape-actions">
                   {activeSoundscape === soundscape.id ? (
-                    <button className="soundscape-button active" onClick={stopSoundscape}>
-                      Stop Session
+                    <button
+                      className="soundscape-button active"
+                      onClick={(e) => {
+                        e.currentTarget.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                          e.currentTarget.style.transform = '';
+                        }, 150);
+                        stopSoundscape();
+                      }}
+                    >
+                      ⏹️ Stop Session
                     </button>
                   ) : (
                     <button
