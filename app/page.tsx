@@ -57,7 +57,11 @@ export default function HomePage() {
   }, [showSplash]);
 
   return (
-    <div className="main-container">
+    <>
+      {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
+
+      {!showSplash && (
+        <div className="main-container">
       <Sidebar activeItem="dashboard" />
 
       <main className="main-content">
@@ -209,6 +213,8 @@ export default function HomePage() {
           Powered by Neuroscience & AI | Your data is always secure and private
         </footer>
       </main>
-    </div>
+        </div>
+      )}
+    </>
   )
 }
