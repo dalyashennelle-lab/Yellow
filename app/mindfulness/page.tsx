@@ -42,8 +42,8 @@ export default function MindfulnessPage() {
             </div>
             <div className="hero-image">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fc410b98d5fd848a7b3af1bac349c6fc2?format=webp&width=800"
-                alt="Peaceful beach meditation at sunset"
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2F45c5212b12344cbfa68860e97a9be6da?format=webp&width=800"
+                alt="Serene beach meditation at golden sunset"
                 className="hero-img"
               />
             </div>
