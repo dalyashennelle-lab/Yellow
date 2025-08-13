@@ -460,6 +460,87 @@ const BrainGames = ({ user }) => {
             margin-bottom: 20px;
           }
 
+          .generic-game {
+            width: 100%;
+            max-width: 800px;
+          }
+
+          .game-interface {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid var(--border-primary);
+          }
+
+          .simulator-display {
+            text-align: center;
+          }
+
+          .simulator-display h3 {
+            color: var(--neural-primary);
+            margin-bottom: 32px;
+            font-size: 1.5rem;
+          }
+
+          .game-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 32px;
+          }
+
+          .metric {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+          }
+
+          .metric-label {
+            min-width: 120px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: left;
+          }
+
+          .metric-bar {
+            flex: 1;
+            height: 8px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            overflow: hidden;
+          }
+
+          .metric-fill {
+            height: 100%;
+            background: var(--gradient-neural);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+          }
+
+          .metric-value {
+            min-width: 60px;
+            font-weight: 600;
+            color: var(--neural-success);
+            text-align: right;
+          }
+
+          .game-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+          }
+
+          .game-action-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+          }
+
+          .game-action-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+          }
+
           @media (max-width: 768px) {
             .game-header {
               flex-direction: column;
