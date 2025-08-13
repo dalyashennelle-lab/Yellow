@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import { 
-  Brain, 
-  Heart, 
-  Play, 
-  Pause, 
-  RotateCcw, 
+import {
+  Brain,
+  Heart,
+  Play,
+  Pause,
+  RotateCcw,
   Volume2,
   Settings,
   Timer,
   Headphones,
   Activity
 } from 'lucide-react'
+import YouTubePlayer from '../components/YouTubePlayer'
 
 const Mindfulness = ({ user }) => {
   const [activeSession, setActiveSession] = useState(null)
