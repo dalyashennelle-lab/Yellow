@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
+import ClinicalLanding from './pages/ClinicalLanding'
 import Dashboard from './pages/Dashboard'
 import DailyCheckin from './pages/DailyCheckin'
 import BrainGames from './pages/BrainGames'
@@ -11,10 +12,11 @@ import Settings from './pages/Settings'
 
 function App() {
   const [user, setUser] = useState({
-    name: 'Alex Chen',
+    name: 'Dr. Sarah Chen',
     id: 'user_001',
     streak: 28,
-    memberSince: '2023-06-15'
+    memberSince: '2023-06-15',
+    role: 'Clinical Psychologist'
   })
 
   const [cognitiveData, setCognitiveData] = useState({
@@ -27,6 +29,8 @@ function App() {
     avgSleep: 6.8,
     heartRate: 72
   })
+
+  const [showClinicalLanding, setShowClinicalLanding] = useState(true)
 
   useEffect(() => {
     // Simulate real-time data updates
@@ -41,6 +45,48 @@ function App() {
 
     return () => clearInterval(interval)
   }, [])
+
+  // Show clinical landing on first visit
+  if (showClinicalLanding) {
+    return (
+      <div className="clinical-app">
+        <ClinicalLanding />
+        <div className="enter-app">
+          <button 
+            className="btn btn-primary"
+            onClick={() => setShowClinicalLanding(false)}
+          >
+            Enter NeuroMind Pro
+          </button>
+        </div>
+        
+        <style jsx>{`
+          .clinical-app {
+            position: relative;
+          }
+          
+          .enter-app {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+          }
+          
+          .enter-app .btn {
+            padding: 16px 32px;
+            font-size: 1.125rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+          }
+          
+          .enter-app .btn:hover {
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+            transform: translateY(-3px);
+          }
+        `}</style>
+      </div>
+    )
+  }
 
   return (
     <Router>
@@ -64,6 +110,7 @@ function App() {
             <Route path="/eeg" element={<EEGAnalysis user={user} cognitiveData={cognitiveData} />} />
             <Route path="/progress" element={<Progress user={user} />} />
             <Route path="/settings" element={<Settings user={user} setUser={setUser} />} />
+            <Route path="/clinical" element={<ClinicalLanding />} />
           </Routes>
         </main>
       </div>

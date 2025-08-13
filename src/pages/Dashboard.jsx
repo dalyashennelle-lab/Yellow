@@ -10,7 +10,9 @@ import {
   Flame,
   ChevronRight,
   Play,
-  Sparkles
+  Sparkles,
+  Stethoscope,
+  Monitor
 } from 'lucide-react'
 import MetricCard from '../components/MetricCard'
 import ProgressChart from '../components/ProgressChart'
@@ -79,19 +81,53 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
             {getGreeting()}, {user.name.split(' ')[0]}
           </h1>
           <p className="welcome-subtitle">
-            Ready to enhance your cognitive performance today?
+            {user.role} - Ready to enhance cognitive performance today?
           </p>
         </div>
         
         <div className="quick-actions">
           <button className="btn btn-primary">
             <Play size={16} />
-            Start Brain Training
+            Start Assessment
           </button>
           <button className="btn btn-secondary">
             <Sparkles size={16} />
             Quick Check-in
           </button>
+        </div>
+      </div>
+
+      {/* Clinical Progress Section */}
+      <div className="clinical-progress">
+        <h2 className="section-title">Clinical Progress Overview</h2>
+        <div className="progress-showcase">
+          <div className="progress-image">
+            <img 
+              src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F5c9dabb76aee4b138da67f4ac12a5e72?format=webp&width=800"
+              alt="Clinical Progress Dashboard"
+              className="clinical-dashboard-img"
+            />
+          </div>
+          <div className="progress-details">
+            <h3>Advanced Analytics</h3>
+            <p>Monitor cognitive domain improvements over time with comprehensive tracking and detailed progress reports.</p>
+            <div className="progress-metrics">
+              <div className="progress-metric">
+                <Stethoscope className="metric-icon" />
+                <div>
+                  <span className="metric-label">Clinical Accuracy</span>
+                  <span className="metric-value">98.5%</span>
+                </div>
+              </div>
+              <div className="progress-metric">
+                <Monitor className="metric-icon" />
+                <div>
+                  <span className="metric-label">Assessment Reliability</span>
+                  <span className="metric-value">99.2%</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -174,6 +210,25 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
         </div>
       </div>
 
+      {/* Clinical Assessment Section */}
+      <div className="clinical-assessment">
+        <div className="assessment-content">
+          <h3>Professional Assessment Tools</h3>
+          <p>Access clinical-grade cognitive assessment protocols designed for healthcare professionals.</p>
+          <button className="btn btn-primary">
+            <Monitor size={16} />
+            Start Clinical Assessment
+          </button>
+        </div>
+        <div className="assessment-image">
+          <img 
+            src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F81fe22e8bee641ffaac534cbd75cd8cb?format=webp&width=800"
+            alt="Clinical Assessment Interface"
+            className="assessment-img"
+          />
+        </div>
+      </div>
+
       {/* Content Grid */}
       <div className="content-grid">
         <div className="content-left">
@@ -209,6 +264,21 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
               ))}
             </div>
           </div>
+
+          {/* Patient Consultation Preview */}
+          <div className="consultation-preview neural-card">
+            <h3>Patient Consultation</h3>
+            <img 
+              src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F39a5c1cfa8ba4f569e59c104daf07f04?format=webp&width=800"
+              alt="Patient Consultation"
+              className="consultation-img"
+            />
+            <p>Review assessment results with patients using integrated consultation tools.</p>
+            <button className="btn btn-secondary">
+              View Consultation Tools
+              <ChevronRight size={16} />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -239,12 +309,113 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
           flex-shrink: 0;
         }
 
+        .clinical-progress {
+          margin-bottom: 40px;
+        }
+
+        .section-title {
+          font-size: 1.75rem;
+          font-weight: 700;
+          margin-bottom: 24px;
+          color: var(--neural-primary);
+        }
+
+        .progress-showcase {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+          align-items: center;
+          background: var(--bg-card);
+          border-radius: 20px;
+          padding: 32px;
+          border: 1px solid var(--border-primary);
+        }
+
+        .clinical-dashboard-img {
+          width: 100%;
+          border-radius: 16px;
+          box-shadow: var(--shadow-glow);
+        }
+
+        .progress-details h3 {
+          font-size: 1.5rem;
+          font-weight: 600;
+          margin-bottom: 12px;
+          color: var(--text-primary);
+        }
+
+        .progress-details p {
+          color: var(--text-secondary);
+          line-height: 1.6;
+          margin-bottom: 24px;
+        }
+
+        .progress-metrics {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .progress-metric {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .metric-icon {
+          color: var(--neural-primary);
+        }
+
+        .metric-label {
+          display: block;
+          font-size: 0.875rem;
+          color: var(--text-secondary);
+        }
+
+        .metric-value {
+          display: block;
+          font-size: 1.125rem;
+          font-weight: 600;
+          color: var(--neural-primary);
+        }
+
         .metrics-grid {
           margin-bottom: 32px;
         }
 
         .secondary-metrics {
           margin-bottom: 32px;
+        }
+
+        .clinical-assessment {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+          align-items: center;
+          background: var(--bg-tertiary);
+          border-radius: 20px;
+          padding: 32px;
+          margin-bottom: 40px;
+          border: 1px solid var(--border-primary);
+        }
+
+        .assessment-content h3 {
+          font-size: 1.5rem;
+          font-weight: 600;
+          margin-bottom: 12px;
+          color: var(--neural-secondary);
+        }
+
+        .assessment-content p {
+          color: var(--text-secondary);
+          line-height: 1.6;
+          margin-bottom: 20px;
+        }
+
+        .assessment-img {
+          width: 100%;
+          border-radius: 16px;
+          box-shadow: var(--shadow-glow);
         }
 
         .content-grid {
@@ -306,8 +477,34 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
           transition: width 0.3s ease;
         }
 
+        .consultation-preview {
+          text-align: center;
+        }
+
+        .consultation-preview h3 {
+          margin-bottom: 16px;
+          color: var(--neural-accent);
+        }
+
+        .consultation-img {
+          width: 100%;
+          border-radius: 12px;
+          margin-bottom: 16px;
+        }
+
+        .consultation-preview p {
+          color: var(--text-secondary);
+          margin-bottom: 16px;
+          line-height: 1.5;
+        }
+
         @media (max-width: 1024px) {
           .content-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .progress-showcase,
+          .clinical-assessment {
             grid-template-columns: 1fr;
           }
         }
