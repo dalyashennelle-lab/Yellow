@@ -305,7 +305,8 @@ const SplashScreen = ({ onFinish }) => {
           .neural-node {
             position: absolute;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.3) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(168, 230, 207, 0.4) 0%, rgba(220, 238, 251, 0.2) 50%, transparent 80%);
+            box-shadow: 0 0 30px rgba(168, 230, 207, 0.2);
           }
 
           .node-1 {
