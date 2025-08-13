@@ -111,7 +111,7 @@ export default function SoundscapesPage() {
   };
 
   return (
-    <div className="main-container">
+    <div className="main-container" data-tab="soundscapes">
       <Sidebar activeItem="soundscapes" />
       
       <main className="main-content">
