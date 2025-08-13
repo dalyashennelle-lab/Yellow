@@ -243,10 +243,24 @@ export default function SoundscapesPage() {
           </div>
         </div>
 
+        <NeuralGalaxy isActive={!!activeSoundscape} />
+
+        <AIInsightsPanel
+          isActive={!!activeSoundscape}
+          brainState={activeSoundscape ? {
+            dominantWave: soundscapes.find(s => s.id === activeSoundscape)?.targetBrainwave || 'alpha',
+            focusLevel: Math.floor(Math.random() * 40) + 60,
+            stressLevel: Math.floor(Math.random() * 30) + 20,
+            creativity: Math.floor(Math.random() * 50) + 50,
+            fatigue: Math.floor(Math.random() * 40) + 10,
+            timestamp: Date.now()
+          } : undefined}
+        />
+
         <div className="section-card">
           <h2 className="section-title">Neuroscience of Sound</h2>
           <div className="section-divider"></div>
-          
+
           <div className="science-grid">
             <div className="science-item">
               <div className="science-icon">🌊</div>
@@ -269,7 +283,7 @@ export default function SoundscapesPage() {
             <div className="science-item">
               <div className="science-icon">⚖️</div>
               <h3>Hemispheric Sync</h3>
-              <p>Binaural processing promotes communication between brain hemispheres for enhanced cognition</p>
+              <p>Binaural processing promotes communication between blue hemispheres for enhanced cognition</p>
             </div>
           </div>
         </div>
