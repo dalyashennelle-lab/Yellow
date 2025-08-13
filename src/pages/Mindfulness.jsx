@@ -913,6 +913,62 @@ const Mindfulness = ({ user }) => {
           transform: translateY(-1px);
         }
 
+        .beach-calming-section {
+          margin: 60px 0;
+          padding: 40px;
+          background: var(--bg-card);
+          border-radius: 20px;
+          border: 1px solid var(--border-primary);
+        }
+
+        .video-container {
+          display: grid;
+          grid-template-columns: 2fr 1fr;
+          gap: 40px;
+          align-items: start;
+          margin-top: 32px;
+        }
+
+        .beach-video {
+          border-radius: 16px;
+          overflow: hidden;
+          box-shadow: var(--shadow-glow);
+        }
+
+        .video-benefits {
+          background: var(--bg-tertiary);
+          padding: 32px;
+          border-radius: 16px;
+          border: 1px solid var(--border-primary);
+        }
+
+        .video-benefits h4 {
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: var(--neural-primary);
+          margin-bottom: 20px;
+        }
+
+        .video-benefits ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        .video-benefits li {
+          padding: 8px 0;
+          color: var(--text-secondary);
+          position: relative;
+          padding-left: 20px;
+        }
+
+        .video-benefits li::before {
+          content: '●';
+          color: var(--neural-success);
+          position: absolute;
+          left: 0;
+        }
+
         .eeg-integration {
           background: var(--bg-tertiary);
           border-radius: 20px;
