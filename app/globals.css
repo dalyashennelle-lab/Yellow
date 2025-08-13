@@ -49,6 +49,17 @@ body::after {
   100% { transform: translate(30px, 30px); }
 }
 
+@keyframes neural-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    stroke-width: 1;
+  }
+  50% {
+    opacity: 0.8;
+    stroke-width: 2;
+  }
+}
+
 /* Splash Screen Styles */
 .splash-screen {
   position: fixed;
