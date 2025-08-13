@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
 import UltraRealistic3DBrain from '../components/UltraRealistic3DBrain';
 import AIRealtimeCognitive from '../components/AIRealtimeCognitive';
+import AdaptiveMiniGames from '../components/AdaptiveMiniGames';
 
 export default function BrainGamesPage() {
   const [cognitiveLoad, setCognitiveLoad] = useState(45);
