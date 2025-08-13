@@ -31,8 +31,15 @@ export default function HomePage() {
     { timestamp: Date.now(), attention: 87, memory: 74, processing: 82, reactionTime: 285, accuracy: 92, cognitiveLoad: 72 }
   ]);
 
+  // Handle splash screen completion
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+  };
+
   // Simulate real-time updates
   useEffect(() => {
+    if (showSplash) return; // Don't start updates until splash is complete
+
     const interval = setInterval(() => {
       setCognitiveMetrics(prev => ({
         ...prev,
@@ -47,7 +54,7 @@ export default function HomePage() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [showSplash]);
 
   return (
     <div className="main-container">
