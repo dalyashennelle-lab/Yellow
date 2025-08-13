@@ -138,6 +138,22 @@ export default function HomePage() {
         </div>
 
         <div className="section-card">
+          <h2 className="section-title">Advanced Memory Training</h2>
+          <div className="section-divider"></div>
+          <AdvancedMemoryGames
+            eegData={{
+              gamma: cognitiveMetrics.cognitiveLoad / 100,
+              alpha: cognitiveMetrics.attention / 100,
+              theta: cognitiveMetrics.memory / 100,
+              beta: cognitiveMetrics.processing / 100
+            }}
+            onScoreUpdate={(score, accuracy) => {
+              onScoreUpdate?.(score, accuracy, 0);
+            }}
+          />
+        </div>
+
+        <div className="section-card">
           <h2 className="section-title">Cognitive Performance Dashboard</h2>
           <div className="section-divider"></div>
           <CognitiveDashboard
