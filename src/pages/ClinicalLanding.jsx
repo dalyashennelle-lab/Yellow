@@ -187,21 +187,21 @@ const ClinicalLanding = ({ onNavigate }) => {
             <div className="hero-actions slide-in-up animate-delay-5">
               <button
                 className="btn btn-primary cta-button"
-                onClick={() => navigate('/dashboard')}
+                onClick={() => onNavigate ? onNavigate('/dashboard') : console.log('Navigate to dashboard')}
               >
                 <PlayCircle size={24} />
                 Start Your Journey
                 <ChevronRight size={20} />
               </button>
-              
+
               <button
                 className="btn btn-secondary demo-button"
-                onClick={() => navigate('/games')}
+                onClick={() => onNavigate ? onNavigate('/games') : console.log('Navigate to games')}
               >
                 <Brain size={24} />
                 Try Brain Games
               </button>
-              
+
               <button
                 className="btn btn-ghost contact-button"
                 onClick={() => window.open(`mailto:senushidinara2005@gmail.com?subject=NeuroMind Pro Consultation&body=Hello, I would like to learn more about NeuroMind Pro.`, '_blank')}
