@@ -6,14 +6,10 @@ import { gsap } from 'gsap';
 
 interface WebXRMeditationProps {
   environment: 'beach' | 'garden' | 'forest' | 'space';
-  onSessionStart?: () => void;
-  onSessionEnd?: () => void;
 }
 
-export default function WebXRMeditation({ 
-  environment = 'beach',
-  onSessionStart,
-  onSessionEnd
+export default function WebXRMeditation({
+  environment = 'beach'
 }: WebXRMeditationProps) {
   const [isXRSupported, setIsXRSupported] = useState(false);
   const [isSessionActive, setIsSessionActive] = useState(false);
