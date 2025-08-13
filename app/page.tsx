@@ -130,12 +130,11 @@ export default function HomePage() {
         <div className="section-card">
           <h2 className="section-title">Live Brainwave Analysis</h2>
           <div className="section-divider"></div>
-          <div style={{ padding: '40px', textAlign: 'center', background: 'rgba(0,0,0,0.1)', borderRadius: '8px' }}>
-            <p>📊 Brainwave Strips Component</p>
-            <p>Cognitive Load: {cognitiveMetrics.cognitiveLoad}%</p>
-            <p>Activity: {cognitiveMetrics.attention}%</p>
-            <p><em>Real-time visualization loading...</em></p>
-          </div>
+          <BrainwaveStrips
+            cognitiveLoad={cognitiveMetrics.cognitiveLoad}
+            activity={cognitiveMetrics.attention}
+            channels={4}
+          />
         </div>
 
         <div className="section-card">
