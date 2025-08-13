@@ -610,6 +610,116 @@ const Mindfulness = ({ user }) => {
       </div>
 
       <style jsx>{`
+        .mindfulness-bg-images {
+          position: fixed;
+          top: 0;
+          left: 280px;
+          right: 0;
+          bottom: 0;
+          pointer-events: none;
+          z-index: -1;
+          overflow: hidden;
+        }
+
+        .bg-meditation-float,
+        .bg-garden-float,
+        .bg-breathing-float {
+          position: absolute;
+          opacity: 0.02;
+          border-radius: 20px;
+          overflow: hidden;
+        }
+
+        .bg-meditation-float {
+          top: 15%;
+          right: 8%;
+          width: 250px;
+          height: 180px;
+        }
+
+        .bg-garden-float {
+          bottom: 25%;
+          left: 3%;
+          width: 300px;
+          height: 200px;
+        }
+
+        .bg-breathing-float {
+          top: 60%;
+          right: 25%;
+          width: 200px;
+          height: 150px;
+        }
+
+        .bg-float-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .calming-environments {
+          margin-bottom: 40px;
+          padding: 32px;
+          background: var(--bg-card);
+          border-radius: 20px;
+          border: 1px solid var(--border-primary);
+        }
+
+        .section-title {
+          font-size: 1.5rem;
+          font-weight: 600;
+          text-align: center;
+          margin-bottom: 24px;
+          color: var(--neural-primary);
+        }
+
+        .environment-gallery {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 20px;
+        }
+
+        .environment-card {
+          position: relative;
+          height: 150px;
+          border-radius: 12px;
+          overflow: hidden;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .environment-card:hover {
+          transform: translateY(-5px) scale(1.02);
+          box-shadow: var(--shadow-glow);
+        }
+
+        .environment-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .environment-info {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 12px;
+          background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+          color: white;
+        }
+
+        .environment-info h4 {
+          font-size: 0.875rem;
+          font-weight: 600;
+          margin-bottom: 2px;
+        }
+
+        .environment-info p {
+          font-size: 0.75rem;
+          opacity: 0.9;
+        }
+
         .mindfulness {
           padding: 80px 24px 24px;
           max-width: 1400px;
