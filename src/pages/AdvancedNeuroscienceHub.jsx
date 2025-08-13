@@ -19,7 +19,6 @@ import AIReinforcementSystem from '../components/AIReinforcementSystem'
 import EmotionResponsiveVR from '../components/EmotionResponsiveVR'
 import AIAgent from '../components/AIAgent'
 import BlockchainNFT from '../components/BlockchainNFT'
-import EmotionResponsiveVR from '../components/EmotionResponsiveVR'
 
 const AdvancedNeuroscienceHub = ({ user }) => {
   const [activeModule, setActiveModule] = useState('eeg-monitoring')
