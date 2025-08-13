@@ -32,7 +32,16 @@ export default function EnhancedVideoPlayer({
 
     const handleLoadedData = () => {
       setIsLoading(false);
-      setDuration(video.duration);
+      setDuration(video.duration || 0);
+    };
+
+    const handleLoadedMetadata = () => {
+      setIsLoading(false);
+      setDuration(video.duration || 0);
+    };
+
+    const handleCanPlay = () => {
+      setIsLoading(false);
     };
 
     const handleTimeUpdate = () => {
