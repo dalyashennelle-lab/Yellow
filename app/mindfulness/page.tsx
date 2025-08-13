@@ -27,7 +27,7 @@ export default function MindfulnessPage() {
   ];
 
   return (
-    <div className="main-container">
+    <div className="main-container" data-tab="mindfulness">
       <Sidebar activeItem="mindfulness" />
       
       <main className="main-content">
