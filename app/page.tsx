@@ -110,7 +110,7 @@ export default function HomePage() {
           />
 
           <RecommendationCard
-            icon="��"
+            icon="🍎"
             title="Nutrition"
             content="Focus on: Omega-3 rich foods. Consider adding salmon or walnuts to your meals for brain health benefits."
             highlight="Omega-3 rich foods"
@@ -118,9 +118,32 @@ export default function HomePage() {
         </div>
 
         <div className="section-card">
-          <h2 className="section-title">Cognitive Trends</h2>
+          <h2 className="section-title">Real-time Neural Activity</h2>
           <div className="section-divider"></div>
-          <CognitiveChart />
+          <AnimatedNeurons
+            cognitiveLoad={cognitiveMetrics.cognitiveLoad}
+            activity={cognitiveMetrics.attention}
+            neuronCount={30}
+          />
+        </div>
+
+        <div className="section-card">
+          <h2 className="section-title">Live Brainwave Analysis</h2>
+          <div className="section-divider"></div>
+          <BrainwaveStrips
+            cognitiveLoad={cognitiveMetrics.cognitiveLoad}
+            activity={cognitiveMetrics.attention}
+            channels={6}
+          />
+        </div>
+
+        <div className="section-card">
+          <h2 className="section-title">Cognitive Performance Dashboard</h2>
+          <div className="section-divider"></div>
+          <CognitiveDashboard
+            currentMetrics={cognitiveMetrics}
+            historicalData={historicalData}
+          />
         </div>
 
         <div className="dashboard-row">
