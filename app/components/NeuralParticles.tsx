@@ -12,15 +12,15 @@ const NeuralParticles: React.FC = () => {
   }>>([]);
 
   useEffect(() => {
-    const particleCount = 50;
+    const particleCount = 30;
     const newParticles = Array.from({ length: particleCount }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
-      delay: Math.random() * 15,
-      duration: 10 + Math.random() * 20,
-      opacity: 0.3 + Math.random() * 0.4
+      delay: Math.random() * 10,
+      duration: 8 + Math.random() * 12,
+      opacity: 0.2 + Math.random() * 0.3
     }));
-    
+
     setParticles(newParticles);
   }, []);
 
