@@ -98,7 +98,7 @@ export default function SoundscapesPage() {
 
   return (
     <div className="main-container">
-      <Sidebar activeItem="mindfulness" />
+      <Sidebar activeItem="soundscapes" />
       
       <main className="main-content">
         <div className="soundscapes-hero">
