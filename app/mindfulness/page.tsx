@@ -50,8 +50,8 @@ export default function MindfulnessPage() {
           </div>
         </div>
 
-        <WebXRMeditation
-          environment="beach"
+        <EnhancedMeditation
+          onSessionChange={(isActive) => console.log('🧘 Meditation session:', isActive ? 'Started' : 'Ended')}
         />
 
         <div className="mindfulness-gallery">
