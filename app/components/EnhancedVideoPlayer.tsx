@@ -54,13 +54,23 @@ export default function EnhancedVideoPlayer({
     };
 
     video.addEventListener('loadeddata', handleLoadedData);
+    video.addEventListener('loadedmetadata', handleLoadedMetadata);
+    video.addEventListener('canplay', handleCanPlay);
     video.addEventListener('timeupdate', handleTimeUpdate);
     video.addEventListener('ended', handleEnded);
 
+    // Force loading state to false after 3 seconds
+    const timeoutId = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
     return () => {
       video.removeEventListener('loadeddata', handleLoadedData);
+      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      video.removeEventListener('canplay', handleCanPlay);
       video.removeEventListener('timeupdate', handleTimeUpdate);
       video.removeEventListener('ended', handleEnded);
+      clearTimeout(timeoutId);
     };
   }, []);
 
