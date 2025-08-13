@@ -1067,6 +1067,405 @@ body {
   }
 }
 
+/* AI Cognitive Assessment Styles */
+.ai-cognitive-container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(79, 172, 254, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-cognitive-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(79, 172, 254, 0.05) 0%, transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(0, 242, 254, 0.03) 0%, transparent 30%);
+  pointer-events: none;
+}
+
+.cognitive-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cognitive-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ai-status {
+  display: flex;
+  align-items: center;
+}
+
+.ai-indicator {
+  background: rgba(107, 114, 128, 0.2);
+  color: #6b7280;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.ai-indicator.active {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  animation: ai-pulse 2s infinite;
+}
+
+.ai-indicator.loading {
+  animation: loading-pulse 1.5s infinite;
+}
+
+.metrics-dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.metric-item {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+}
+
+.metric-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(79, 172, 254, 0.15);
+  border-color: rgba(79, 172, 254, 0.3);
+}
+
+.metric-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 10px rgba(79, 172, 254, 0.3));
+}
+
+.metric-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4a5568;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2b6cb0;
+  line-height: 1;
+}
+
+.metric-unit {
+  font-size: 0.75rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+.metric-trend {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.trend-indicator {
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.trend-indicator.positive {
+  filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.6));
+}
+
+.trend-indicator.negative {
+  filter: drop-shadow(0 0 5px rgba(239, 68, 68, 0.6));
+}
+
+.test-interface {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.test-selection {
+  text-align: center;
+}
+
+.test-button {
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem;
+}
+
+.test-button.primary {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+}
+
+.test-button.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(79, 172, 254, 0.4);
+}
+
+.test-button.secondary {
+  background: rgba(79, 172, 254, 0.1);
+  color: #2b6cb0;
+  border: 2px solid rgba(79, 172, 254, 0.3);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+}
+
+.test-button.secondary:hover {
+  background: rgba(79, 172, 254, 0.2);
+  border-color: rgba(79, 172, 254, 0.5);
+  transform: translateY(-2px);
+}
+
+.individual-tests {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.active-test {
+  text-align: center;
+  padding: 2rem;
+}
+
+.active-test h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2b6cb0;
+  margin-bottom: 1rem;
+}
+
+.active-test p {
+  color: #718096;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+/* Reaction Test Styles */
+.stimulus {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 2rem auto;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.stimulus.visible {
+  opacity: 1;
+  animation: stimulus-glow 0.5s ease-in-out infinite alternate;
+}
+
+/* Memory Test Styles */
+.memory-display {
+  width: 150px;
+  height: 150px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  margin: 2rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 15px 35px rgba(79, 172, 254, 0.3);
+}
+
+.memory-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.memory-controls button {
+  padding: 0.75rem 2rem;
+  border: 2px solid #4facfe;
+  border-radius: 8px;
+  background: rgba(79, 172, 254, 0.1);
+  color: #2b6cb0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.memory-controls button:hover {
+  background: #4facfe;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Attention Test Styles */
+.attention-canvas {
+  border: 2px solid rgba(79, 172, 254, 0.3);
+  border-radius: 12px;
+  cursor: crosshair;
+  background: linear-gradient(135deg, rgba(0, 0, 17, 0.8) 0%, rgba(26, 29, 41, 0.9) 100%);
+  margin: 1rem 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.targets-found {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2b6cb0;
+  margin-top: 1rem;
+}
+
+.progress {
+  font-size: 1rem;
+  color: #718096;
+  margin-top: 1rem;
+}
+
+/* AI Insights */
+.ai-insights {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.ai-insights h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2b6cb0;
+  margin-bottom: 1.5rem;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.insight-card {
+  background: rgba(248, 250, 252, 0.8);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(79, 172, 254, 0.1);
+}
+
+.insight-card h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2b6cb0;
+  margin-bottom: 0.75rem;
+}
+
+.insight-card p {
+  color: #4a5568;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@keyframes ai-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
+  }
+}
+
+@keyframes loading-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes stimulus-glow {
+  0% { box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); }
+  100% { box-shadow: 0 0 50px rgba(0, 0, 0, 0.6); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .metrics-dashboard {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .individual-tests {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .attention-canvas {
+    width: 100%;
+    height: 300px;
+  }
+
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .mindfulness-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
