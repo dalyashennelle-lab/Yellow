@@ -1154,6 +1154,19 @@ const EmotionResponsiveVR = ({ emotionalData, eegData, biometricData, onEnvironm
             flex-direction: row;
             flex-wrap: wrap;
           }
+
+          .video-grid {
+            grid-template-columns: 1fr;
+            gap: 24px;
+          }
+
+          .environment-video-section {
+            padding: 24px;
+          }
+
+          .video-header h3 {
+            font-size: 1.25rem;
+          }
         }
       `}</style>
     </div>
