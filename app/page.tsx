@@ -3,6 +3,7 @@ import MetricCard from './components/MetricCard';
 import RecommendationCard from './components/RecommendationCard';
 import ActivityItem from './components/ActivityItem';
 import CognitiveChart from './components/CognitiveChart';
+import AIAgent from './components/AIAgent';
 
 export default function HomePage() {
   return (
@@ -79,7 +80,7 @@ export default function HomePage() {
           />
 
           <ActivityItem
-            icon="✅"
+            icon="���"
             title="Daily Check-in"
             details="Mood: 8/10 | Focus: 7/10 | Memory: 6/10"
             time="Today at 8:15 AM"
