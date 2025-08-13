@@ -13,6 +13,21 @@ import Progress from './pages/Progress'
 import Settings from './pages/Settings'
 import AdvancedNeuroscienceHub from './pages/AdvancedNeuroscienceHub'
 
+// Wrapper component to handle navigation after app loads
+const NavigationWrapper = ({ children }) => {
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const intendedPath = sessionStorage.getItem('intendedPath')
+    if (intendedPath) {
+      sessionStorage.removeItem('intendedPath')
+      navigate(intendedPath)
+    }
+  }, [navigate])
+
+  return children
+}
+
 function App() {
   const [user, setUser] = useState({
     name: 'Sarah Chen',
