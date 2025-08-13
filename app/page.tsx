@@ -10,6 +10,7 @@ import AIAgent from './components/AIAgent';
 import AnimatedNeurons from './components/AnimatedNeurons';
 import BrainwaveStrips from './components/BrainwaveStrips';
 import CognitiveDashboard from './components/CognitiveDashboard';
+import AdvancedMemoryGames from './components/AdvancedMemoryGames';
 
 export default function HomePage() {
   const [cognitiveMetrics, setCognitiveMetrics] = useState({
