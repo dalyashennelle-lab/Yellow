@@ -20,7 +20,6 @@ import EmotionResponsiveVR from '../components/EmotionResponsiveVR'
 import AIAgent from '../components/AIAgent'
 import BlockchainNFT from '../components/BlockchainNFT'
 import EmotionResponsiveVR from '../components/EmotionResponsiveVR'
-import VideoIntegration from '../components/VideoIntegration'
 
 const AdvancedNeuroscienceHub = ({ user }) => {
   const [activeModule, setActiveModule] = useState('eeg-monitoring')
