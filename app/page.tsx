@@ -119,30 +119,34 @@ export default function HomePage() {
         <div className="section-card">
           <h2 className="section-title">Real-time Neural Activity</h2>
           <div className="section-divider"></div>
-          <AnimatedNeurons
-            cognitiveLoad={cognitiveMetrics.cognitiveLoad}
-            activity={cognitiveMetrics.attention}
-            neuronCount={30}
-          />
+          <div style={{ padding: '40px', textAlign: 'center', background: 'rgba(0,0,0,0.1)', borderRadius: '8px' }}>
+            <p>🧠 Animated Neurons Component</p>
+            <p>Cognitive Load: {cognitiveMetrics.cognitiveLoad}%</p>
+            <p>Activity: {cognitiveMetrics.attention}%</p>
+            <p><em>3D visualization loading...</em></p>
+          </div>
         </div>
 
         <div className="section-card">
           <h2 className="section-title">Live Brainwave Analysis</h2>
           <div className="section-divider"></div>
-          <BrainwaveStrips
-            cognitiveLoad={cognitiveMetrics.cognitiveLoad}
-            activity={cognitiveMetrics.attention}
-            channels={6}
-          />
+          <div style={{ padding: '40px', textAlign: 'center', background: 'rgba(0,0,0,0.1)', borderRadius: '8px' }}>
+            <p>📊 Brainwave Strips Component</p>
+            <p>Cognitive Load: {cognitiveMetrics.cognitiveLoad}%</p>
+            <p>Activity: {cognitiveMetrics.attention}%</p>
+            <p><em>Real-time visualization loading...</em></p>
+          </div>
         </div>
 
         <div className="section-card">
           <h2 className="section-title">Cognitive Performance Dashboard</h2>
           <div className="section-divider"></div>
-          <CognitiveDashboard
-            currentMetrics={cognitiveMetrics}
-            historicalData={historicalData}
-          />
+          <div style={{ padding: '40px', textAlign: 'center', background: 'rgba(0,0,0,0.1)', borderRadius: '8px' }}>
+            <p>📈 Performance Dashboard</p>
+            <p>Memory: {cognitiveMetrics.memory}% | Attention: {cognitiveMetrics.attention}%</p>
+            <p>Processing: {cognitiveMetrics.processing}% | Reaction: {cognitiveMetrics.reactionTime}ms</p>
+            <p><em>Charts and analytics loading...</em></p>
+          </div>
         </div>
 
         <div className="dashboard-row">
