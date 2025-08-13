@@ -229,8 +229,18 @@ const ClinicalLanding = () => {
                   <div className="stat-number">98%</div>
                   <div className="stat-label">Accuracy</div>
                 </div>
-              </div>
             </div>
+
+            <div className="hero-actions">
+              <button
+                className="btn btn-primary specialist-chat-btn"
+                onClick={() => window.open(`mailto:senushidinara2005@gmail.com?subject=Specialist Consultation Request&body=Hello, I would like to schedule a consultation with a cognitive health specialist.`, '_blank')}
+              >
+                <MessageCircle size={20} />
+                Chat with Specialist
+              </button>
+            </div>
+          </div>
           </div>
           
           <div className="hero-image slide-in-right">
