@@ -3,6 +3,7 @@
 import Sidebar from '../components/Sidebar';
 import VideoPlayer from '../components/VideoPlayer';
 import EnhancedMeditation from '../components/EnhancedMeditation';
+import NeuralParticles from '../components/NeuralParticles';
 
 export default function MindfulnessPage() {
   const mindfulnessContent = [
