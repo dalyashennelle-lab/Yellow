@@ -137,9 +137,12 @@ const BrainGames = ({ user }) => {
     setActiveGame(gameId)
     setGameState('playing')
     setTimeLeft(60)
-    
+
     if (gameId === 'memory-matrix') {
       initializeMemoryGame()
+    } else {
+      // Initialize other games with default settings
+      setScore(0)
     }
   }
 
