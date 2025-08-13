@@ -19,7 +19,7 @@ import AIReinforcementSystem from '../components/AIReinforcementSystem'
 import EmotionResponsiveVR from '../components/EmotionResponsiveVR'
 import AIAgent from '../components/AIAgent'
 import BlockchainNFT from '../components/BlockchainNFT'
-import VRNeuralEnvironment from '../components/VRNeuralEnvironment'
+import EmotionResponsiveVR from '../components/EmotionResponsiveVR'
 import VideoIntegration from '../components/VideoIntegration'
 
 const AdvancedNeuroscienceHub = ({ user }) => {
