@@ -74,26 +74,26 @@ export default function HomePage() {
         <div className="metrics-grid">
           <MetricCard
             icon="🧠"
-            value="87%"
+            value={`${cognitiveMetrics.memory.toFixed(0)}%`}
             label="Memory Health"
             color="#4facfe"
           />
           <MetricCard
-            icon="🌙"
-            value="6.8h"
-            label="Avg. Sleep"
+            icon="⚡"
+            value={`${cognitiveMetrics.reactionTime.toFixed(0)}ms`}
+            label="Reaction Time"
             color="#4facfe"
           />
           <MetricCard
-            icon="💖"
-            value="74%"
-            label="Stress Level"
+            icon="🎯"
+            value={`${cognitiveMetrics.attention.toFixed(0)}%`}
+            label="Attention"
             color="#4facfe"
           />
           <MetricCard
-            icon="🔥"
-            value="28"
-            label="Current Streak"
+            icon="📊"
+            value={`${cognitiveMetrics.accuracy.toFixed(0)}%`}
+            label="Accuracy"
             color="#4facfe"
           />
         </div>
@@ -110,7 +110,7 @@ export default function HomePage() {
           />
 
           <RecommendationCard
-            icon="🍎"
+            icon="��"
             title="Nutrition"
             content="Focus on: Omega-3 rich foods. Consider adding salmon or walnuts to your meals for brain health benefits."
             highlight="Omega-3 rich foods"
