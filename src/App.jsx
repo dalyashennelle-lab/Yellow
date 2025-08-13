@@ -126,7 +126,8 @@ function App() {
 
   return (
     <Router>
-      <div className="app">
+      <NavigationWrapper>
+        <div className="app">
         {useAdvancedNav ? (
           <AdvancedNavigation user={user} />
         ) : (
@@ -201,7 +202,8 @@ function App() {
             transform: scale(1.05);
           }
         `}</style>
-      </div>
+        </div>
+      </NavigationWrapper>
     </Router>
   )
 }
