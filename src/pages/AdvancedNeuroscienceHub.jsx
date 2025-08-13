@@ -145,21 +145,6 @@ const AdvancedNeuroscienceHub = ({ user }) => {
         />
       )
     },
-    'video-integration': {
-      name: 'Interactive Media Library',
-      description: 'Curated meditation, breathing, and yoga content with progress tracking',
-      icon: Activity,
-      color: 'var(--neural-success)',
-      complexity: 'Medium',
-      realTime: false,
-      component: (
-        <VideoIntegration 
-          user={user}
-          onVideoComplete={(video) => console.log('Video completed:', video)}
-          onVideoStart={(video) => console.log('Video started:', video)}
-        />
-      )
-    }
   }
 
   // System status monitoring
