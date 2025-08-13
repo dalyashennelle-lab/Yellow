@@ -1,7 +1,7 @@
 'use client';
 
 import Sidebar from '../components/Sidebar';
-import EnhancedVideoPlayer from '../components/EnhancedVideoPlayer';
+import HybridVideoPlayer from '../components/HybridVideoPlayer';
 import EnhancedMeditation from '../components/EnhancedMeditation';
 import NeuralParticles from '../components/NeuralParticles';
 
