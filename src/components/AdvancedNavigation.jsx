@@ -19,150 +19,142 @@ import {
   Sparkles
 } from 'lucide-react'
 
-// 3D Neural Particle System
-const NeuralParticles = ({ isActive }) => {
-  const meshRef = useRef()
-  const { size } = useThree()
-  
-  const particlesCount = 200
-  const positions = new Float32Array(particlesCount * 3)
-  const colors = new Float32Array(particlesCount * 3)
-  
-  for (let i = 0; i < particlesCount; i++) {
-    positions[i * 3] = (Math.random() - 0.5) * 10
-    positions[i * 3 + 1] = (Math.random() - 0.5) * 10
-    positions[i * 3 + 2] = (Math.random() - 0.5) * 10
-    
-    colors[i * 3] = Math.random() * 0.5 + 0.5
-    colors[i * 3 + 1] = Math.random() * 0.8 + 0.2
-    colors[i * 3 + 2] = 1
-  }
-
-  useFrame((state) => {
-    if (meshRef.current && isActive) {
-      meshRef.current.rotation.x = state.clock.elapsedTime * 0.1
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.15
-      
-      const positions = meshRef.current.geometry.attributes.position.array
-      for (let i = 0; i < positions.length; i += 3) {
-        positions[i + 1] = Math.sin(state.clock.elapsedTime + i) * 0.5
-      }
-      meshRef.current.geometry.attributes.position.needsUpdate = true
-    }
-  })
+// CSS-based Neural Particle Effect
+const CSSNeuralParticles = ({ isActive }) => {
+  const [particles] = useState(() =>
+    Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 4 + 2,
+      delay: Math.random() * 2
+    }))
+  )
 
   return (
-    <points ref={meshRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={particlesCount}
-          array={positions}
-          itemSize={3}
+    <div className="css-neural-particles">
+      {particles.map((particle) => (
+        <motion.div
+          key={particle.id}
+          className="css-particle"
+          style={{
+            left: `${particle.x}%`,
+            top: `${particle.y}%`,
+            width: `${particle.size}px`,
+            height: `${particle.size}px`
+          }}
+          animate={isActive ? {
+            x: [0, Math.random() * 100 - 50, 0],
+            y: [0, Math.random() * 100 - 50, 0],
+            opacity: [0, 1, 0],
+            scale: [0.5, 1, 0.5]
+          } : {}}
+          transition={{
+            duration: 3 + particle.delay,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
         />
-        <bufferAttribute
-          attach="attributes-color"
-          count={particlesCount}
-          array={colors}
-          itemSize={3}
-        />
-      </bufferGeometry>
-      <pointsMaterial
-        size={0.05}
-        vertexColors
-        transparent
-        opacity={0.8}
-        sizeAttenuation={false}
-        blending={THREE.AdditiveBlending}
-      />
-    </points>
+      ))}
+    </div>
   )
 }
 
-// 3D Morphing Tab Component
-const MorphingTab = ({ icon: Icon, label, isActive, onClick, position, color }) => {
-  const meshRef = useRef()
-  const textRef = useRef()
-
-  useFrame((state) => {
-    if (meshRef.current) {
-      if (isActive) {
-        meshRef.current.scale.setScalar(1.2 + Math.sin(state.clock.elapsedTime * 2) * 0.1)
-        meshRef.current.material.emissive.setHex(0x001122)
-      } else {
-        meshRef.current.scale.setScalar(1)
-        meshRef.current.material.emissive.setHex(0x000000)
-      }
-    }
-  })
-
+// CSS-based Morphing Tab Component
+const CSSMorphingTab = ({ icon: Icon, label, isActive, onClick, color }) => {
   return (
-    <group position={position} onClick={onClick}>
-      <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
-        <Box
-          ref={meshRef}
-          args={[1.5, 1.5, 0.3]}
-          position={[0, 0, 0]}
-        >
-          <MeshWobbleMaterial
-            color={isActive ? color : '#2a2a3a'}
-            transparent
-            opacity={0.8}
-            factor={isActive ? 0.3 : 0.1}
-            speed={isActive ? 2 : 0.5}
-          />
-        </Box>
-        <Text
-          ref={textRef}
-          position={[0, 0, 0.2]}
-          fontSize={0.4}
-          color={isActive ? '#ffffff' : '#888888'}
-          anchorX="center"
-          anchorY="middle"
-          font="/fonts/SpaceGrotesk-Bold.woff"
-        >
-          {label}
-        </Text>
-      </Float>
-    </group>
+    <motion.div
+      className={`css-morphing-tab ${isActive ? 'active' : ''}`}
+      onClick={onClick}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      animate={isActive ? {
+        boxShadow: [
+          `0 0 20px ${color}40`,
+          `0 0 40px ${color}80`,
+          `0 0 20px ${color}40`
+        ]
+      } : {}}
+      transition={{ duration: 2, repeat: Infinity }}
+      style={{
+        borderColor: isActive ? color : 'rgba(255, 255, 255, 0.2)',
+        background: isActive
+          ? `linear-gradient(135deg, ${color}20, ${color}10)`
+          : 'rgba(0, 0, 0, 0.3)'
+      }}
+    >
+      <div className="tab-icon">
+        <Icon size={24} />
+      </div>
+      <span className="tab-label">{label}</span>
+      {isActive && <div className="tab-glow" style={{ background: color }} />}
+    </motion.div>
   )
 }
 
-// Neural Network Visualization
-const NeuralNetwork = ({ isVisible }) => {
-  const groupRef = useRef()
-  
-  useFrame((state) => {
-    if (groupRef.current && isVisible) {
-      groupRef.current.rotation.y = state.clock.elapsedTime * 0.2
-    }
-  })
+// CSS-based Neural Network
+const CSSNeuralNetwork = ({ isVisible }) => {
+  const [nodes] = useState(() =>
+    Array.from({ length: 6 }, (_, i) => ({
+      id: i,
+      x: 20 + (i % 3) * 30,
+      y: 30 + Math.floor(i / 3) * 40,
+      size: Math.random() * 20 + 10
+    }))
+  )
 
   if (!isVisible) return null
 
   return (
-    <group ref={groupRef}>
-      {/* Neural Nodes */}
-      {Array.from({ length: 8 }, (_, i) => (
-        <Float key={i} speed={1 + i * 0.1} rotationIntensity={0.3}>
-          <Sphere
-            position={[
-              Math.cos((i / 8) * Math.PI * 2) * 3,
-              Math.sin((i / 8) * Math.PI * 2) * 3,
-              (i % 2) * 2 - 1
-            ]}
-            args={[0.2, 8, 8]}
-          >
-            <meshStandardMaterial
-              color="#00d4ff"
-              emissive="#002255"
-              transparent
-              opacity={0.8}
-            />
-          </Sphere>
-        </Float>
+    <div className="css-neural-network">
+      {nodes.map((node, i) => (
+        <motion.div
+          key={node.id}
+          className="neural-node"
+          style={{
+            left: `${node.x}%`,
+            top: `${node.y}%`,
+            width: `${node.size}px`,
+            height: `${node.size}px`
+          }}
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.5, 1, 0.5]
+          }}
+          transition={{
+            duration: 2 + i * 0.3,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
       ))}
-    </group>
+
+      {/* Neural connections */}
+      <svg className="neural-connections">
+        {nodes.map((node, i) =>
+          nodes.slice(i + 1).map((otherNode, j) => (
+            <motion.line
+              key={`${i}-${j}`}
+              x1={`${node.x}%`}
+              y1={`${node.y}%`}
+              x2={`${otherNode.x}%`}
+              y2={`${otherNode.y}%`}
+              stroke="#00d4ff"
+              strokeWidth="1"
+              opacity="0.3"
+              animate={{
+                opacity: [0.1, 0.5, 0.1]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                delay: i * 0.2
+              }}
+            />
+          ))
+        )}
+      </svg>
+    </div>
   )
 }
 
