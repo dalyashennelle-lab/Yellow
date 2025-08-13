@@ -48,28 +48,34 @@ export default function MindfulnessPage() {
           </div>
         </div>
 
+        <WebXRMeditation
+          environment="beach"
+          onSessionStart={() => console.log('VR meditation started')}
+          onSessionEnd={() => console.log('VR meditation ended')}
+        />
+
         <div className="mindfulness-gallery">
           <div className="gallery-grid">
             <div className="gallery-item">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fff40f1951e0b41d5b70b0ad8707328f0?format=webp&width=800"
-                alt="Beach meditation exercises"
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2F5c2e1743615f4df1951e18014a943f3a?format=webp&width=800"
+                alt="Tranquil sea environment for meditation"
                 className="gallery-img"
               />
-              <h3 className="gallery-title">Beach Meditation</h3>
+              <h3 className="gallery-title">Sea Meditation</h3>
             </div>
             <div className="gallery-item">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fcbc2f728411b462e8db4e0172e517080?format=webp&width=800"
-                alt="Yoga practice outdoors"
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fb8c278c23cfa4139b8dd575f5bb927c6?format=webp&width=800"
+                alt="Yoga practice in serene setting"
                 className="gallery-img"
               />
               <h3 className="gallery-title">Yoga Practice</h3>
             </div>
             <div className="gallery-item">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2F646a1879e22a42a9a1a92a236397b947?format=webp&width=800"
-                alt="Breathing exercises by the ocean"
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2F98fefdd1866d45af96205a72498b2e10?format=webp&width=800"
+                alt="Breathing exercises in nature"
                 className="gallery-img"
               />
               <h3 className="gallery-title">Breathing Exercises</h3>
