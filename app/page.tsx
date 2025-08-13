@@ -1,3 +1,6 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Sidebar from './components/Sidebar';
 import MetricCard from './components/MetricCard';
 import RecommendationCard from './components/RecommendationCard';
@@ -7,10 +10,6 @@ import AIAgent from './components/AIAgent';
 import AnimatedNeurons from './components/AnimatedNeurons';
 import BrainwaveStrips from './components/BrainwaveStrips';
 import CognitiveDashboard from './components/CognitiveDashboard';
-
-'use client';
-
-import { useState, useEffect } from 'react';
 
 export default function HomePage() {
   const [cognitiveMetrics, setCognitiveMetrics] = useState({
