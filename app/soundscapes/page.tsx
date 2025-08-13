@@ -89,15 +89,25 @@ export default function SoundscapesPage() {
     : null;
 
   const startSoundscape = (soundscapeId: string) => {
-    console.log('Starting soundscape:', soundscapeId);
+    console.log('🎵 Starting soundscape:', soundscapeId);
     setActiveSoundscape(soundscapeId);
     setIsBinauralPlaying(true);
+
+    // Add haptic feedback if available
+    if (navigator.vibrate) {
+      navigator.vibrate(50);
+    }
   };
 
   const stopSoundscape = () => {
-    console.log('Stopping soundscape');
+    console.log('⏹️ Stopping soundscape');
     setActiveSoundscape(null);
     setIsBinauralPlaying(false);
+
+    // Add haptic feedback if available
+    if (navigator.vibrate) {
+      navigator.vibrate(30);
+    }
   };
 
   return (
