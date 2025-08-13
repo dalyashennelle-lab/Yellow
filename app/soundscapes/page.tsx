@@ -153,8 +153,17 @@ export default function SoundscapesPage() {
                   </div>
                 </div>
                 
-                <button className="stop-button" onClick={stopSoundscape}>
-                  Stop Session
+                <button
+                  className="stop-button"
+                  onClick={(e) => {
+                    e.currentTarget.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                      e.currentTarget.style.transform = '';
+                    }, 150);
+                    stopSoundscape();
+                  }}
+                >
+                  ⏹️ Stop Session
                 </button>
               </div>
 
