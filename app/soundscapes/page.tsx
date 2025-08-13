@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import BinauralBeats from '../components/BinauralBeats';
+import NeuralGalaxy from '../components/NeuralGalaxy';
+import AIInsightsPanel from '../components/AIInsightsPanel';
 
 interface Soundscape {
   id: string;
