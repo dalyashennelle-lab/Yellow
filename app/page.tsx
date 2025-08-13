@@ -11,9 +11,23 @@ export default function HomePage() {
       <Sidebar activeItem="dashboard" />
 
       <main className="main-content">
-        <div className="dashboard-header">
-          <h1 className="dashboard-title">Cognitive Health Dashboard</h1>
-          <div className="section-divider"></div>
+        <div className="hero-section">
+          <div className="hero-content">
+            <div className="hero-text">
+              <h1 className="dashboard-title">Cognitive Health Dashboard</h1>
+              <p className="hero-description">
+                Advanced EEG monitoring and AI-powered insights for optimal brain performance
+              </p>
+              <div className="section-divider"></div>
+            </div>
+            <div className="hero-image">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2F1acec4e148274b8c806968bdb7513a4f?format=webp&width=800"
+                alt="EEG system with people working while wearing neural monitoring headbands"
+                className="hero-img"
+              />
+            </div>
+          </div>
         </div>
 
         <div className="metrics-grid">
