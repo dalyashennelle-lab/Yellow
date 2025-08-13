@@ -465,13 +465,13 @@ const Mindfulness = ({ user }) => {
       {/* Floating Background Elements */}
       <div className="mindfulness-bg-images">
         <div className="bg-meditation-float float-slow">
-          <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fc8b91b075c8d4735bbba9a2653647a5d?format=webp&width=800" alt="Peaceful Meditation" className="bg-float-img" />
+          <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Ff28b7b4be9f3440c8a2a5f038b966287?format=webp&width=800" alt="Beach Meditation" className="bg-float-img" />
         </div>
         <div className="bg-garden-float float-medium">
-          <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F393c10b906d043d384b19d0616a9b24b?format=webp&width=800" alt="Garden Path" className="bg-float-img" />
+          <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F32753069f6034bd39e9f7206d46cd99b?format=webp&width=800" alt="Beach Yoga" className="bg-float-img" />
         </div>
         <div className="bg-breathing-float float-fast">
-          <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fba8d2fee0f314362acccf739599e217c?format=webp&width=800" alt="Breathing Exercise" className="bg-float-img" />
+          <img src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F598339923d9943a494c4e7e903babb0e?format=webp&width=800" alt="Beach Breathing" className="bg-float-img" />
         </div>
       </div>
       <div className="page-header slide-in-up">
