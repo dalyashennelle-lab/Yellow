@@ -720,12 +720,15 @@ body::after {
 .environment-name {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #2d3748;
+  background: linear-gradient(135deg, #e2e8f0 0%, #4facfe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 0.5rem;
 }
 
 .environment-description {
-  color: #6b7280;
+  color: rgba(226, 232, 240, 0.8);
   margin-bottom: 1.5rem;
   line-height: 1.5;
 }
