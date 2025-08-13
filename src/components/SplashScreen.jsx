@@ -287,9 +287,10 @@ const SplashScreen = ({ onFinish }) => {
 
           .particle {
             position: absolute;
-            background: linear-gradient(45deg, #00d4ff, #7c3aed);
+            background: linear-gradient(45deg, var(--pastel-secondary), var(--pastel-accent));
             border-radius: 50%;
-            filter: blur(1px);
+            filter: blur(0.5px);
+            box-shadow: 0 0 10px rgba(168, 230, 207, 0.3);
           }
 
           .neural-background {
