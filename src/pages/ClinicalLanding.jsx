@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { 
-  PlayCircle, 
-  ChevronRight, 
-  Users, 
-  Award, 
-  TrendingUp, 
+import {
+  PlayCircle,
+  ChevronRight,
+  Users,
+  Award,
+  TrendingUp,
   Stethoscope,
   Monitor,
   Brain,
@@ -13,7 +13,8 @@ import {
   Laptop,
   Heart,
   Activity,
-  Zap
+  Zap,
+  MessageCircle
 } from 'lucide-react'
 
 const ClinicalLanding = () => {
