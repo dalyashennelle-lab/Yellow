@@ -87,11 +87,13 @@ export default function SoundscapesPage() {
     : null;
 
   const startSoundscape = (soundscapeId: string) => {
+    console.log('Starting soundscape:', soundscapeId);
     setActiveSoundscape(soundscapeId);
     setIsBinauralPlaying(true);
   };
 
   const stopSoundscape = () => {
+    console.log('Stopping soundscape');
     setActiveSoundscape(null);
     setIsBinauralPlaying(false);
   };
