@@ -14,6 +14,7 @@ import AdvancedMemoryGames from './components/AdvancedMemoryGames';
 import SplashScreen from './components/SplashScreen';
 
 export default function HomePage() {
+  const [showSplash, setShowSplash] = useState(true);
   const [cognitiveMetrics, setCognitiveMetrics] = useState({
     timestamp: Date.now(),
     attention: 87,
