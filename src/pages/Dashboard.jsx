@@ -24,6 +24,7 @@ import BlockchainNFT from '../components/BlockchainNFT'
 import EmotionResponsiveVR from '../components/EmotionResponsiveVR'
 
 const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
+  const navigate = useNavigate()
   const [currentTime, setCurrentTime] = useState(new Date())
   const [dailyGoals, setDailyGoals] = useState({
     meditation: { current: 15, target: 20, unit: 'min' },
