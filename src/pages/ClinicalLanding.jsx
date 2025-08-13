@@ -389,7 +389,7 @@ const ClinicalLanding = () => {
         }
 
         .hero-title {
-          font-size: 4rem;
+          font-size: 5.5rem;
           font-weight: 800;
           background: var(--gradient-neural);
           -webkit-background-clip: text;
@@ -403,14 +403,14 @@ const ClinicalLanding = () => {
         }
 
         .hero-subtitle {
-          font-size: 1.5rem;
+          font-size: 2rem;
           color: var(--neural-primary);
           margin-bottom: 24px;
           font-weight: 600;
         }
 
         .hero-description {
-          font-size: 1.125rem;
+          font-size: 1.5rem;
           color: var(--text-secondary);
           line-height: 1.6;
           margin-bottom: 40px;
@@ -440,13 +440,13 @@ const ClinicalLanding = () => {
         }
 
         .stat-number {
-          font-size: 1.5rem;
+          font-size: 2rem;
           font-weight: 700;
           color: var(--text-primary);
         }
 
         .stat-label {
-          font-size: 0.875rem;
+          font-size: 1.125rem;
           color: var(--text-secondary);
         }
 
@@ -486,7 +486,7 @@ const ClinicalLanding = () => {
         }
 
         .slide-info h3 {
-          font-size: 1.25rem;
+          font-size: 1.75rem;
           font-weight: 600;
           margin-bottom: 8px;
           color: var(--text-primary);
@@ -494,7 +494,7 @@ const ClinicalLanding = () => {
 
         .slide-info p {
           color: var(--text-secondary);
-          font-size: 0.875rem;
+          font-size: 1.25rem;
         }
 
         .theme-showcase {
@@ -509,7 +509,7 @@ const ClinicalLanding = () => {
         }
 
         .section-title {
-          font-size: 3rem;
+          font-size: 4rem;
           font-weight: 700;
           background: var(--gradient-neural);
           -webkit-background-clip: text;
@@ -519,9 +519,9 @@ const ClinicalLanding = () => {
         }
 
         .section-description {
-          font-size: 1.125rem;
+          font-size: 1.5rem;
           color: var(--text-secondary);
-          max-width: 600px;
+          max-width: 700px;
           margin: 0 auto;
           line-height: 1.6;
         }
@@ -546,7 +546,7 @@ const ClinicalLanding = () => {
         }
 
         .theme-set-title {
-          font-size: 2rem;
+          font-size: 2.5rem;
           font-weight: 600;
           text-align: center;
           margin-bottom: 40px;
@@ -595,7 +595,7 @@ const ClinicalLanding = () => {
         }
 
         .feature-card h3 {
-          font-size: 1.375rem;
+          font-size: 1.75rem;
           font-weight: 600;
           margin-bottom: 16px;
           color: var(--text-primary);
@@ -604,6 +604,7 @@ const ClinicalLanding = () => {
         .feature-card p {
           color: var(--text-secondary);
           line-height: 1.6;
+          font-size: 1.125rem;
         }
 
         .theme-gallery {
@@ -631,7 +632,7 @@ const ClinicalLanding = () => {
         }
 
         .theme-card-title {
-          font-size: 1.25rem;
+          font-size: 1.5rem;
           font-weight: 600;
           color: var(--text-primary);
           margin: 16px 0 8px;
@@ -641,6 +642,7 @@ const ClinicalLanding = () => {
           color: var(--text-secondary);
           line-height: 1.5;
           flex-grow: 1;
+          font-size: 1.125rem;
         }
 
         .theme-card-image {
@@ -658,8 +660,8 @@ const ClinicalLanding = () => {
           display: flex;
           align-items: center;
           gap: 12px;
-          padding: 16px 32px;
-          font-size: 1.125rem;
+          padding: 20px 40px;
+          font-size: 1.5rem;
           font-weight: 600;
           border-radius: 30px;
           background: var(--gradient-neural);
@@ -683,7 +685,7 @@ const ClinicalLanding = () => {
           }
 
           .hero-title {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
           }
 
           .hero-stats {
@@ -691,7 +693,7 @@ const ClinicalLanding = () => {
           }
 
           .section-title {
-            font-size: 2rem;
+            font-size: 2.5rem;
           }
 
           .features-grid {
