@@ -10,11 +10,31 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@babylonjs/core": "^7.0.0",
+    "@babylonjs/gui": "^7.0.0",
+    "@babylonjs/materials": "^7.0.0",
+    "@babylonjs/post-processes": "^7.0.0",
+    "@babylonjs/serializers": "^7.0.0",
+    "@tensorflow/tfjs": "^4.20.0",
+    "@tensorflow/tfjs-backend-webgl": "^4.20.0",
+    "@tensorflow/tfjs-backend-webgpu": "^4.20.0",
     "@types/three": "^0.179.0",
+    "cannon-es": "^0.20.0",
+    "d3": "^7.8.5",
+    "deck.gl": "^9.0.0",
+    "framer-motion": "^11.0.0",
+    "gsap": "^3.12.2",
+    "howler": "^2.2.4",
+    "lottie-web": "^5.12.2",
     "next": "^14.0.0",
+    "pixi.js": "^8.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "three": "^0.179.1"
+    "react-spring": "^9.7.3",
+    "@react-three/fiber": "^8.15.0",
+    "three": "^0.179.1",
+    "tone": "^15.0.4",
+    "zustand": "^4.4.1"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

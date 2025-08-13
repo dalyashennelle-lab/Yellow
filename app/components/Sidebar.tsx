@@ -3,6 +3,7 @@ interface SidebarProps {
 }
 
 import Link from 'next/link';
+import ThemeSwitcher from './ThemeSwitcher';
 
 interface NavItem {
   id: string;
@@ -14,11 +15,15 @@ interface NavItem {
 const navItems: NavItem[] = [
   { id: 'dashboard', label: 'Dashboard', icon: '📊', href: '/' },
   { id: 'checkin', label: 'Daily Check-In', icon: '✅', href: '/checkin' },
-  { id: 'games', label: 'Brain Games', icon: '🎮', href: '/games' },
+  { id: 'games', label: 'Memory Games', icon: '🎮', href: '/games' },
+  { id: 'focus', label: 'Focus Sessions', icon: '🎯', href: '/focus' },
+  { id: 'sleep', label: 'Sleep Tracker', icon: '😴', href: '/sleep' },
+  { id: 'tutorials', label: 'Tutorials', icon: '🎓', href: '/tutorials' },
   { id: 'mindfulness', label: 'Mindfulness', icon: '🧘', href: '/mindfulness' },
-  { id: 'soundscapes', label: 'Neural Soundscapes', icon: '🎵', href: '/soundscapes' },
+  { id: 'soundscapes', label: 'Soundscapes', icon: '🎵', href: '/soundscapes' },
   { id: 'eeg', label: 'EEG Analysis', icon: '📈', href: '/eeg' },
-  { id: 'nft-rewards', label: 'NFT Rewards', icon: '🏆', href: '/nft-rewards' },
+  { id: 'nft-rewards', label: 'NFT Premium', icon: '🏆', href: '/nft-rewards' },
+  { id: 'ai-agent', label: 'AI Agent', icon: '🤖', href: '/ai-agent' },
   { id: 'progress', label: 'Progress', icon: '📊', href: '/progress' },
   { id: 'settings', label: 'Settings', icon: '⚙️', href: '/settings' },
 ];
@@ -46,6 +51,10 @@ export default function Sidebar({ activeItem }: SidebarProps) {
           ))}
         </ul>
       </nav>
+
+      <div className="sidebar-footer">
+        <ThemeSwitcher />
+      </div>
     </div>
   );
 }

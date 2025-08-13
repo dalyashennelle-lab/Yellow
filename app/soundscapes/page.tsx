@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import BinauralBeats from '../components/BinauralBeats';
+import SimplifiedNeuralGalaxy from '../components/SimplifiedNeuralGalaxy';
+import AIInsightsPanel from '../components/AIInsightsPanel';
 
 interface Soundscape {
   id: string;
@@ -87,24 +89,49 @@ export default function SoundscapesPage() {
     : null;
 
   const startSoundscape = (soundscapeId: string) => {
+    console.log('🎵 Starting soundscape:', soundscapeId);
     setActiveSoundscape(soundscapeId);
     setIsBinauralPlaying(true);
+
+    // Add haptic feedback if available
+    if (navigator.vibrate) {
+      navigator.vibrate(50);
+    }
   };
 
   const stopSoundscape = () => {
+    console.log('⏹️ Stopping soundscape');
     setActiveSoundscape(null);
     setIsBinauralPlaying(false);
+
+    // Add haptic feedback if available
+    if (navigator.vibrate) {
+      navigator.vibrate(30);
+    }
   };
 
   return (
-    <div className="main-container">
-      <Sidebar activeItem="mindfulness" />
+    <div className="main-container" data-tab="soundscapes">
+      <Sidebar activeItem="soundscapes" />
       
       <main className="main-content">
-        <div className="dashboard-header">
-          <h1 className="dashboard-title">Neural Soundscapes</h1>
-          <p className="dashboard-subtitle">Adaptive binaural beats and ambient sounds for cognitive enhancement</p>
-          <div className="section-divider"></div>
+        <div className="soundscapes-hero">
+          <div className="hero-content">
+            <div className="hero-text">
+              <h1 className="dashboard-title">Neural Soundscapes</h1>
+              <p className="hero-description">
+                Adaptive binaural beats and ambient sounds for cognitive enhancement in calming environments
+              </p>
+              <div className="section-divider"></div>
+            </div>
+            <div className="hero-image">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2F3523311277ec45bea23afd2acf036ec7?format=webp&width=800"
+                alt="Serene calming environment for mindfulness and meditation"
+                className="hero-img"
+              />
+            </div>
+          </div>
         </div>
 
         {activeSoundscapeData && (
@@ -126,8 +153,17 @@ export default function SoundscapesPage() {
                   </div>
                 </div>
                 
-                <button className="stop-button" onClick={stopSoundscape}>
-                  Stop Session
+                <button
+                  className="stop-button"
+                  onClick={(e) => {
+                    e.currentTarget.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                      e.currentTarget.style.transform = '';
+                    }, 150);
+                    stopSoundscape();
+                  }}
+                >
+                  ⏹️ Stop Session
                 </button>
               </div>
 
@@ -208,16 +244,34 @@ export default function SoundscapesPage() {
 
                 <div className="soundscape-actions">
                   {activeSoundscape === soundscape.id ? (
-                    <button className="soundscape-button active" onClick={stopSoundscape}>
-                      Stop Session
+                    <button
+                      className="soundscape-button active"
+                      onClick={(e) => {
+                        e.currentTarget.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                          e.currentTarget.style.transform = '';
+                        }, 150);
+                        stopSoundscape();
+                      }}
+                    >
+                      ⏹️ Stop Session
                     </button>
                   ) : (
-                    <button 
+                    <button
                       className="soundscape-button"
-                      onClick={() => startSoundscape(soundscape.id)}
-                      style={{ borderColor: soundscape.color }}
+                      onClick={(e) => {
+                        e.currentTarget.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                          e.currentTarget.style.transform = '';
+                        }, 150);
+                        startSoundscape(soundscape.id);
+                      }}
+                      style={{
+                        borderColor: soundscape.color,
+                        '--primary-color': soundscape.color
+                      } as React.CSSProperties}
                     >
-                      Start Session
+                      ▶️ Start Session
                     </button>
                   )}
                 </div>
@@ -226,10 +280,27 @@ export default function SoundscapesPage() {
           </div>
         </div>
 
+        <SimplifiedNeuralGalaxy
+          isActive={!!activeSoundscape}
+          brainwave={activeSoundscape ? soundscapes.find(s => s.id === activeSoundscape)?.targetBrainwave : 'alpha'}
+        />
+
+        <AIInsightsPanel
+          isActive={!!activeSoundscape}
+          brainState={activeSoundscape ? {
+            dominantWave: soundscapes.find(s => s.id === activeSoundscape)?.targetBrainwave || 'alpha',
+            focusLevel: Math.floor(Math.random() * 40) + 60,
+            stressLevel: Math.floor(Math.random() * 30) + 20,
+            creativity: Math.floor(Math.random() * 50) + 50,
+            fatigue: Math.floor(Math.random() * 40) + 10,
+            timestamp: Date.now()
+          } : undefined}
+        />
+
         <div className="section-card">
           <h2 className="section-title">Neuroscience of Sound</h2>
           <div className="section-divider"></div>
-          
+
           <div className="science-grid">
             <div className="science-item">
               <div className="science-icon">🌊</div>

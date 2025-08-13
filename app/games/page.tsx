@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
-import NeuralNetwork3D from '../components/NeuralNetwork3D';
+import UltraRealistic3DBrain from '../components/UltraRealistic3DBrain';
+import AIRealtimeCognitive from '../components/AIRealtimeCognitive';
+import AdaptiveMiniGames from '../components/AdaptiveMiniGames';
 
 export default function BrainGamesPage() {
   const [cognitiveLoad, setCognitiveLoad] = useState(45);
@@ -95,16 +97,37 @@ export default function BrainGamesPage() {
       <Sidebar activeItem="games" />
       
       <main className="main-content">
-        <div className="dashboard-header">
-          <h1 className="dashboard-title">Neural Training Games</h1>
-          <p className="dashboard-subtitle">AI-powered cognitive enhancement with real-time EEG adaptation</p>
-          <div className="section-divider"></div>
+        <div className="games-hero">
+          <div className="hero-content">
+            <div className="hero-text">
+              <h1 className="dashboard-title">Neural Training Games</h1>
+              <p className="hero-description">
+                AI-powered cognitive enhancement with real-time EEG adaptation in our advanced research laboratory
+              </p>
+              <div className="section-divider"></div>
+            </div>
+            <div className="hero-image">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2F55b95b32dde5423082890d1b31a97f0b?format=webp&width=800"
+                alt="Neuroscience researcher working in futuristic brain research lab"
+                className="hero-img"
+              />
+            </div>
+          </div>
         </div>
 
-        <NeuralNetwork3D 
+        <UltraRealistic3DBrain
           cognitiveLoad={cognitiveLoad}
           memoryActivity={memoryActivity}
           focusLevel={focusLevel}
+        />
+
+        <AIRealtimeCognitive
+          onMetricsUpdate={(metrics) => {
+            setCognitiveLoad(Math.round((metrics.attention + metrics.processing) / 2));
+            setMemoryActivity(metrics.workingMemory);
+            setFocusLevel(metrics.attention);
+          }}
         />
 
         <div className="section-card">
@@ -167,29 +190,78 @@ export default function BrainGamesPage() {
           </div>
         </div>
 
+        <div className="research-lab">
+          <h2 className="section-title">Research & Development</h2>
+          <div className="section-divider"></div>
+
+          <div className="research-content">
+            <div className="research-visual">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fe6a6c9e5cdad4937b2baa7321e301195?format=webp&width=800"
+                alt="Neuroscience researcher working in futuristic lab"
+                className="research-img"
+              />
+            </div>
+            <div className="research-info">
+              <h3>Advanced Neuroscience Lab</h3>
+              <p>Our games are developed using cutting-edge neuroscience research, incorporating real-time EEG feedback and adaptive AI algorithms to maximize cognitive enhancement.</p>
+              <div className="research-stats">
+                <div className="research-stat">
+                  <span className="stat-number">50+</span>
+                  <span className="stat-label">Research Studies</span>
+                </div>
+                <div className="research-stat">
+                  <span className="stat-number">95%</span>
+                  <span className="stat-label">Improvement Rate</span>
+                </div>
+                <div className="research-stat">
+                  <span className="stat-number">24/7</span>
+                  <span className="stat-label">Lab Operations</span>
+                </div>
+              </div>
+              <button className="research-button">Learn More</button>
+            </div>
+          </div>
+        </div>
+
+        <div className="section-card">
+          <h2 className="section-title">Adaptive Mini-Games</h2>
+          <div className="section-divider"></div>
+          <AdaptiveMiniGames
+            onScoreUpdate={(score, accuracy, reactionTime) => {
+              setCognitiveLoad(Math.round((score / 100) * 30 + 50));
+              setMemoryActivity(Math.round(accuracy));
+              setFocusLevel(Math.round((500 - reactionTime) / 3));
+            }}
+            onDifficultyChange={(difficulty) => {
+              console.log('Difficulty adjusted to:', difficulty);
+            }}
+          />
+        </div>
+
         <div className="section-card">
           <h2 className="section-title">Neural Enhancement Features</h2>
           <div className="section-divider"></div>
-          
+
           <div className="features-grid">
             <div className="feature-item">
               <div className="feature-icon">🧠</div>
               <h3>Real-time EEG Adaptation</h3>
               <p>Games automatically adjust difficulty based on your brainwave patterns and cognitive load</p>
             </div>
-            
+
             <div className="feature-item">
               <div className="feature-icon">🎮</div>
               <h3>Procedural Generation</h3>
               <p>AI creates unique challenges daily, ensuring continuous cognitive stimulation</p>
             </div>
-            
+
             <div className="feature-item">
               <div className="feature-icon">🌟</div>
               <h3>Neuroplasticity Optimization</h3>
               <p>Tasks designed to maximize neural pathway strengthening and brain adaptability</p>
             </div>
-            
+
             <div className="feature-item">
               <div className="feature-icon">📊</div>
               <h3>Performance Analytics</h3>

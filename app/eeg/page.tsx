@@ -21,10 +21,23 @@ export default function EEGPage() {
       <Sidebar activeItem="eeg" />
       
       <main className="main-content">
-        <div className="dashboard-header">
-          <h1 className="dashboard-title">EEG Neural Analysis</h1>
-          <p className="dashboard-subtitle">Real-time brainwave monitoring and cognitive state analysis</p>
-          <div className="section-divider"></div>
+        <div className="eeg-hero">
+          <div className="hero-content">
+            <div className="hero-text">
+              <h1 className="dashboard-title">EEG Neural Analysis</h1>
+              <p className="hero-description">
+                Real-time brainwave monitoring and cognitive state analysis with professional-grade equipment
+              </p>
+              <div className="section-divider"></div>
+            </div>
+            <div className="hero-image">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2F0bf7dd9df1d8477fa5d5ed112e4d08fc?format=webp&width=800"
+                alt="NeuroMind Pro medical facility front desk with doctors and patients"
+                className="hero-img"
+              />
+            </div>
+          </div>
         </div>
 
         <div className="eeg-controls">
