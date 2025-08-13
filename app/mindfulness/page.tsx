@@ -8,22 +8,46 @@ import NeuralParticles from '../components/NeuralParticles';
 export default function MindfulnessPage() {
   const mindfulnessContent = [
     {
-      videoId: 'j734gLbQFbU',
-      title: '🧘‍♀️ Guided Meditation Session',
-      description: 'Meditation designed to promote relaxation and mental clarity.',
-      icon: '🧘‍♀️'
+      videoUrl: 'https://cdn.builder.io/o/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2F569935b2f0164533a0c9b05394b074c3?alt=media&token=528847f4-96cf-45a9-99ff-25e80cd834f8&apiKey=07e9cfb94d0443d29c8064da41e57c5b',
+      title: '🧘‍♀️ Deep Mindfulness Journey',
+      description: 'Immersive meditation experience designed to promote deep relaxation and mental clarity.',
+      icon: '🧘‍♀️',
+      category: 'Guided Meditation'
     },
     {
-      videoId: 'LiUnFJ8P4gM', 
-      title: '🌬️ Breathing Exercises for Focus',
-      description: 'A series of breathing exercises aimed at enhancing focus and reducing stress.',
-      icon: '🌬️'
+      videoUrl: 'https://cdn.builder.io/o/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fdbdfbe8d678246a3a4d139429965c6a0?alt=media&token=edca3d09-3353-4f69-8e94-0b0ca9989b2a&apiKey=07e9cfb94d0443d29c8064da41e57c5b',
+      title: '🌬️ Advanced Breathing Techniques',
+      description: 'Comprehensive breathing exercises for enhanced focus, stress reduction and energy balance.',
+      icon: '🌬️',
+      category: 'Breathwork'
     },
     {
-      videoId: 'yPK7ISPEu3M',
-      title: '🧘‍♂️ Full-Body Yoga Routine', 
-      description: 'A comprehensive yoga session targeting flexibility and strength.',
-      icon: '🧘‍♂️'
+      videoUrl: 'https://cdn.builder.io/o/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2F799d10508dc04e3691cc83f0e9a0248c?alt=media&token=b9751b51-1bf9-4174-b775-2311d5f5ced8&apiKey=07e9cfb94d0443d29c8064da41e57c5b',
+      title: '🧘‍♂️ Transformative Yoga Flow',
+      description: 'Complete yoga session combining movement, breath and mindfulness for total wellness.',
+      icon: '🧘‍♂️',
+      category: 'Yoga Practice'
+    },
+    {
+      videoUrl: 'https://cdn.builder.io/o/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fa39466546b6a4372abdab3519f1e5765?alt=media&token=e7f655a0-f300-43da-86cb-a367a2323525&apiKey=07e9cfb94d0443d29c8064da41e57c5b',
+      title: '🌟 Neural Synchronization',
+      description: 'Advanced meditation technique for optimal brain wave synchronization and cognitive enhancement.',
+      icon: '🌟',
+      category: 'Neural Training'
+    },
+    {
+      videoUrl: 'https://cdn.builder.io/o/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fd2bb6cd60cd74375990fc486e2a2f3a9?alt=media&token=8b62f61f-645d-4949-a097-29da8f2ac44c&apiKey=07e9cfb94d0443d29c8064da41e57c5b',
+      title: '💫 Cosmic Consciousness Meditation',
+      description: 'Transcendent meditation journey for expanding awareness and spiritual connection.',
+      icon: '💫',
+      category: 'Advanced Practice'
+    },
+    {
+      videoUrl: 'https://cdn.builder.io/o/assets%2F07e9cfb94d0443d29c8064da41e57c5b%2Fc984de17eda8495da06240ee5965ef5e?alt=media&token=2c9ed9d5-bf01-4294-a0f7-e0a8b2e0af86&apiKey=07e9cfb94d0443d29c8064da41e57c5b',
+      title: '🔮 Energy Healing Session',
+      description: 'Holistic energy healing practice combining visualization, sound therapy and chakra alignment.',
+      icon: '🔮',
+      category: 'Energy Work'
     }
   ];
 
@@ -203,7 +227,7 @@ export default function MindfulnessPage() {
           
           <div className="benefits-grid">
             <div className="benefit-item">
-              <div className="benefit-icon">��</div>
+              <div className="benefit-icon">🧠</div>
               <h3 className="benefit-title">Enhanced Neuroplasticity</h3>
               <p className="benefit-description">Meditation increases gray matter density and promotes neural connectivity</p>
             </div>
