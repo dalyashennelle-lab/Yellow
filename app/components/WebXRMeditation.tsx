@@ -457,7 +457,7 @@ export default function WebXRMeditation({
 
     try {
       setIsSessionActive(true);
-      onSessionStart?.();
+      console.log('VR meditation session started');
 
       // Start meditation timer
       const timer = setInterval(() => {
@@ -474,7 +474,7 @@ export default function WebXRMeditation({
         clearInterval(timer);
         setIsSessionActive(false);
         setMeditationTimer(0);
-        onSessionEnd?.();
+        console.log('VR meditation session ended');
         
         if (audioRef.current) {
           audioRef.current.pause();
@@ -558,12 +558,12 @@ export default function WebXRMeditation({
                 onClick={() => {
                   setIsSessionActive(!isSessionActive);
                   if (!isSessionActive) {
-                    onSessionStart?.();
+                    console.log('Meditation started');
                     if (audioRef.current) {
                       audioRef.current.play();
                     }
                   } else {
-                    onSessionEnd?.();
+                    console.log('Meditation ended');
                     if (audioRef.current) {
                       audioRef.current.pause();
                     }
