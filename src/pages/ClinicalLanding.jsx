@@ -650,6 +650,31 @@ const ClinicalLanding = () => {
           border-radius: 12px;
         }
 
+        .hero-actions {
+          margin-top: 32px;
+        }
+
+        .specialist-chat-btn {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 16px 32px;
+          font-size: 1.125rem;
+          font-weight: 600;
+          border-radius: 30px;
+          background: var(--gradient-neural);
+          color: white;
+          border: none;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .specialist-chat-btn:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+        }
+
         @media (max-width: 768px) {
           .hero-content {
             grid-template-columns: 1fr;
