@@ -127,7 +127,7 @@ const AdvancedFeatures = ({ user }) => {
               className="title-icon neural-pulse" 
               style={{ background: sections[activeSection].color }}
             >
-              <sections[activeSection].icon size={24} />
+              {React.createElement(sections[activeSection].icon, { size: 24 })}
             </div>
             <div>
               <h2>{sections[activeSection].title}</h2>
