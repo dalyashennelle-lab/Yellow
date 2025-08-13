@@ -1,5 +1,6 @@
 import Sidebar from '../components/Sidebar';
 import VideoPlayer from '../components/VideoPlayer';
+import WebXRMeditation from '../components/WebXRMeditation';
 
 export default function MindfulnessPage() {
   const mindfulnessContent = [
