@@ -706,8 +706,7 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
         }
 
         .ai-agent-section,
-        .vr-section,
-        .video-section {
+        .vr-section {
           margin-bottom: 40px;
         }
 
