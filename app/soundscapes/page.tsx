@@ -283,7 +283,7 @@ export default function SoundscapesPage() {
             <div className="science-item">
               <div className="science-icon">⚖️</div>
               <h3>Hemispheric Sync</h3>
-              <p>Binaural processing promotes communication between blue hemispheres for enhanced cognition</p>
+              <p>Binaural processing promotes communication between brain hemispheres for enhanced cognition</p>
             </div>
           </div>
         </div>
