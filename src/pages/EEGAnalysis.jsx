@@ -91,9 +91,9 @@ const EEGAnalysis = ({ user, cognitiveData }) => {
       {/* Clinical Setup Section */}
       <div className="clinical-setup">
         <div className="setup-image">
-          <img 
-            src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2Fe79bd483a96549538c83d950e593cfc1?format=webp&width=800"
-            alt="EEG Clinical Setup"
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2Fdc3782de61224ee6afee73d63ac0f50c%2F8849c3d33bb64dd593961485aa79ae80?format=webp&width=800"
+            alt="EEG System - People Working with EEG Headbands"
             className="clinical-img"
           />
         </div>
