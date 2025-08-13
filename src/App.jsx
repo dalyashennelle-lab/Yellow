@@ -106,18 +106,23 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <Navigation user={user} />
-        <main className="main-content">
+        {useAdvancedNav ? (
+          <AdvancedNavigation user={user} />
+        ) : (
+          <Navigation user={user} />
+        )}
+
+        <main className={useAdvancedNav ? "main-content-advanced" : "main-content"}>
           <Routes>
-            <Route 
-              path="/" 
+            <Route
+              path="/"
               element={
-                <Dashboard 
-                  user={user} 
+                <Dashboard
+                  user={user}
                   cognitiveData={cognitiveData}
                   setCognitiveData={setCognitiveData}
                 />
-              } 
+              }
             />
             <Route path="/checkin" element={<DailyCheckin user={user} />} />
             <Route path="/games" element={<BrainGames user={user} />} />
@@ -129,6 +134,52 @@ function App() {
             <Route path="/advanced" element={<AdvancedNeuroscienceHub user={user} />} />
           </Routes>
         </main>
+
+        {/* Advanced Navigation Toggle */}
+        <div className="nav-toggle">
+          <button
+            className="toggle-btn"
+            onClick={() => setUseAdvancedNav(!useAdvancedNav)}
+            title={useAdvancedNav ? "Switch to Classic Navigation" : "Switch to Advanced Navigation"}
+          >
+            {useAdvancedNav ? "Classic" : "3D"}
+          </button>
+        </div>
+
+        <style jsx>{`
+          .main-content-advanced {
+            width: 100%;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at top, #0a0a0a 0%, #000000 70%);
+            position: relative;
+          }
+
+          .nav-toggle {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 9999;
+          }
+
+          .toggle-btn {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+          }
+
+          .toggle-btn:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.5);
+            transform: scale(1.05);
+          }
+        `}</style>
       </div>
     </Router>
   )
