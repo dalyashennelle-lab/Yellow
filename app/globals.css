@@ -107,7 +107,7 @@ body {
 }
 
 .dashboard-subtitle {
-  color: #94a3b8;
+  color: #718096;
   font-size: 1.125rem;
 }
 
@@ -181,11 +181,12 @@ body {
 }
 
 .recommendation-item {
-  background: rgba(20, 25, 35, 0.6);
-  border: 1px solid rgba(255, 0, 110, 0.2);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 0, 110, 0.3);
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .recommendation-header {
@@ -207,7 +208,7 @@ body {
 }
 
 .recommendation-content {
-  color: #e2e8f0;
+  color: #4a5568;
   line-height: 1.6;
 }
 
@@ -217,11 +218,12 @@ body {
 }
 
 .activity-item {
-  background: rgba(20, 25, 35, 0.6);
-  border: 1px solid rgba(255, 0, 110, 0.2);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 0, 110, 0.3);
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .activity-header {
@@ -243,12 +245,12 @@ body {
 }
 
 .activity-details {
-  color: #e2e8f0;
+  color: #4a5568;
   margin-bottom: 0.5rem;
 }
 
 .activity-time {
-  color: #94a3b8;
+  color: #718096;
   font-size: 0.875rem;
 }
 
