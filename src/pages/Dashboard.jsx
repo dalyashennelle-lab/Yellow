@@ -292,10 +292,11 @@ const Dashboard = ({ user, cognitiveData, setCognitiveData }) => {
 
       {/* VR Neural Environment */}
       <div className="vr-section slide-in-up animate-delay-6">
-        <VRNeuralEnvironment
-          cognitiveData={cognitiveData}
-          emotionalState={{ mood: 'calm', energy: 'moderate' }}
+        <EmotionResponsiveVR
+          emotionalData={{ mood: 'calm', energy: 'moderate' }}
+          eegData={null}
           biometricData={{ heartRate: cognitiveData.heartRate }}
+          onEnvironmentChange={(emotion, state) => console.log('Environment changed:', emotion, state)}
         />
       </div>
 
