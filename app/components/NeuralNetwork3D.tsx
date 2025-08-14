@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useRef } from 'react';
@@ -5,23 +6,23 @@ import * as THREE from 'three';
 
 interface NeuralNetwork3DProps {
   cognitiveLoad: number;
-  memoryActivity: number;
+  memoryScore: number;
   focusLevel: number;
+  stressLevel: number;
 }
 
-export default function NeuralNetwork3D({ cognitiveLoad, memoryActivity, focusLevel }: NeuralNetwork3DProps) {
+export default function NeuralNetwork3D({ cognitiveLoad, memoryScore, focusLevel, stressLevel }: NeuralNetwork3DProps) {
   const mountRef = useRef<HTMLDivElement>(null);
-  const sceneRef = useRef<THREE.Scene | null>(null);
-  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
-  const neuronsRef = useRef<THREE.Group[]>([]);
-  const connectionsRef = useRef<THREE.Line[]>([]);
+  const sceneRef = useRef<THREE.Scene>();
+  const rendererRef = useRef<THREE.WebGLRenderer>();
+  const frameRef = useRef<number>();
 
   useEffect(() => {
     if (!mountRef.current) return;
 
     // Scene setup
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0a0f1c);
+    scene.background = new THREE.Color(0x0a0f1a);
     sceneRef.current = scene;
 
     // Camera setup
@@ -31,29 +32,83 @@ export default function NeuralNetwork3D({ cognitiveLoad, memoryActivity, focusLe
       0.1,
       1000
     );
-    camera.position.set(0, 0, 15);
+    camera.position.z = 5;
 
     // Renderer setup
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
-    renderer.setClearColor(0x0a0f1c, 0.8);
-    rendererRef.current = renderer;
     mountRef.current.appendChild(renderer.domElement);
+    rendererRef.current = renderer;
 
-    // Create neural network
-    createNeuralNetwork(scene);
+    // Create neural network nodes
+    const nodes: THREE.Mesh[] = [];
+    const nodeGeometry = new THREE.SphereGeometry(0.05, 16, 16);
+    
+    for (let i = 0; i < 50; i++) {
+      const nodeMaterial = new THREE.MeshBasicMaterial({
+        color: new THREE.Color().setHSL(0.6, 1, 0.5 + Math.random() * 0.5)
+      });
+      const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
+      
+      node.position.x = (Math.random() - 0.5) * 8;
+      node.position.y = (Math.random() - 0.5) * 6;
+      node.position.z = (Math.random() - 0.5) * 4;
+      
+      scene.add(node);
+      nodes.push(node);
+    }
+
+    // Create connections between nodes
+    const connections: THREE.Line[] = [];
+    const lineGeometry = new THREE.BufferGeometry();
+    
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        if (Math.random() < 0.1) { // 10% chance of connection
+          const points = [
+            nodes[i].position,
+            nodes[j].position
+          ];
+          
+          lineGeometry.setFromPoints(points);
+          const lineMaterial = new THREE.LineBasicMaterial({
+            color: 0x4facfe,
+            opacity: 0.3,
+            transparent: true
+          });
+          
+          const line = new THREE.Line(lineGeometry.clone(), lineMaterial);
+          scene.add(line);
+          connections.push(line);
+        }
+      }
+    }
 
     // Animation loop
     const animate = () => {
-      requestAnimationFrame(animate);
-      
-      // Rotate the entire scene
-      scene.rotation.y += 0.005;
-      scene.rotation.x += 0.002;
+      frameRef.current = requestAnimationFrame(animate);
 
-      // Update neuron pulsing based on brain activity
-      updateNeuronActivity();
-      
+      // Animate nodes based on cognitive metrics
+      nodes.forEach((node, index) => {
+        const time = Date.now() * 0.001;
+        node.rotation.x = time * 0.5;
+        node.rotation.y = time * 0.3;
+        
+        // Pulse based on cognitive load
+        const scale = 1 + Math.sin(time + index) * 0.3 * (cognitiveLoad / 100);
+        node.scale.setScalar(scale);
+        
+        // Color based on focus level
+        const hue = 0.6 + (focusLevel / 100) * 0.4;
+        (node.material as THREE.MeshBasicMaterial).color.setHSL(hue, 1, 0.5);
+      });
+
+      // Animate connections
+      connections.forEach((connection, index) => {
+        const opacity = 0.1 + (memoryScore / 100) * 0.5 + Math.sin(Date.now() * 0.001 + index) * 0.2;
+        (connection.material as THREE.LineBasicMaterial).opacity = Math.max(0, opacity);
+      });
+
       renderer.render(scene, camera);
     };
 
@@ -61,7 +116,8 @@ export default function NeuralNetwork3D({ cognitiveLoad, memoryActivity, focusLe
 
     // Handle resize
     const handleResize = () => {
-      if (!mountRef.current) return;
+      if (!mountRef.current || !camera || !renderer) return;
+      
       camera.aspect = mountRef.current.clientWidth / mountRef.current.clientHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
@@ -71,143 +127,25 @@ export default function NeuralNetwork3D({ cognitiveLoad, memoryActivity, focusLe
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      if (frameRef.current) {
+        cancelAnimationFrame(frameRef.current);
+      }
       if (mountRef.current && renderer.domElement) {
         mountRef.current.removeChild(renderer.domElement);
       }
       renderer.dispose();
     };
-  }, []);
-
-  const createNeuralNetwork = (scene: THREE.Scene) => {
-    // Create neuron positions in 3D space
-    const neuronPositions = [];
-    const layers = [
-      { count: 8, z: -6, color: 0x4facfe, name: 'input' },
-      { count: 12, z: -2, color: 0x00f2fe, name: 'hidden1' },
-      { count: 10, z: 2, color: 0xff006e, name: 'hidden2' },
-      { count: 6, z: 6, color: 0x8338ec, name: 'output' }
-    ];
-
-    neuronsRef.current = [];
-    connectionsRef.current = [];
-
-    layers.forEach((layer, layerIndex) => {
-      for (let i = 0; i < layer.count; i++) {
-        const angle = (i / layer.count) * Math.PI * 2;
-        const radius = 3 + layerIndex * 0.5;
-        
-        const x = Math.cos(angle) * radius;
-        const y = Math.sin(angle) * radius;
-        const z = layer.z;
-
-        neuronPositions.push({ x, y, z, layer: layerIndex, color: layer.color });
-
-        // Create neuron sphere
-        const geometry = new THREE.SphereGeometry(0.1, 16, 16);
-        const material = new THREE.MeshBasicMaterial({ 
-          color: layer.color,
-          transparent: true,
-          opacity: 0.8
-        });
-        const neuron = new THREE.Mesh(geometry, material);
-        neuron.position.set(x, y, z);
-
-        // Add glow effect
-        const glowGeometry = new THREE.SphereGeometry(0.15, 16, 16);
-        const glowMaterial = new THREE.MeshBasicMaterial({
-          color: layer.color,
-          transparent: true,
-          opacity: 0.3
-        });
-        const glow = new THREE.Mesh(glowGeometry, glowMaterial);
-        glow.position.set(x, y, z);
-
-        const neuronGroup = new THREE.Group();
-        neuronGroup.add(neuron);
-        neuronGroup.add(glow);
-        
-        neuronsRef.current.push(neuronGroup);
-        scene.add(neuronGroup);
-      }
-    });
-
-    // Create connections between layers
-    neuronPositions.forEach((neuron, i) => {
-      neuronPositions.forEach((target, j) => {
-        if (target.layer === neuron.layer + 1) {
-          const geometry = new THREE.BufferGeometry().setFromPoints([
-            new THREE.Vector3(neuron.x, neuron.y, neuron.z),
-            new THREE.Vector3(target.x, target.y, target.z)
-          ]);
-
-          const material = new THREE.LineBasicMaterial({
-            color: 0x4facfe,
-            transparent: true,
-            opacity: 0.2
-          });
-
-          const line = new THREE.Line(geometry, material);
-          connectionsRef.current.push(line);
-          scene.add(line);
-        }
-      });
-    });
-
-    // Add ambient lighting
-    const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
-    scene.add(ambientLight);
-
-    // Add point lights for effects
-    const light1 = new THREE.PointLight(0x4facfe, 1, 100);
-    light1.position.set(10, 10, 10);
-    scene.add(light1);
-
-    const light2 = new THREE.PointLight(0xff006e, 1, 100);
-    light2.position.set(-10, -10, 10);
-    scene.add(light2);
-  };
-
-  const updateNeuronActivity = () => {
-    neuronsRef.current.forEach((neuronGroup, index) => {
-      const time = Date.now() * 0.001;
-      const activity = (cognitiveLoad + memoryActivity + focusLevel) / 300;
-      
-      // Pulsing based on brain activity
-      const pulse = 1 + Math.sin(time * 2 + index * 0.1) * 0.3 * activity;
-      neuronGroup.scale.setScalar(pulse);
-
-      // Update opacity based on activity
-      const opacity = 0.5 + activity * 0.5;
-      neuronGroup.children.forEach(child => {
-        if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshBasicMaterial) {
-          child.material.opacity = opacity;
-        }
-      });
-    });
-
-    // Update connection opacity based on focus level
-    connectionsRef.current.forEach((connection, index) => {
-      if (connection.material instanceof THREE.LineBasicMaterial) {
-        const focusIntensity = focusLevel / 100;
-        connection.material.opacity = 0.1 + focusIntensity * 0.4;
-      }
-    });
-  };
+  }, [cognitiveLoad, memoryScore, focusLevel, stressLevel]);
 
   return (
-    <div className="neural-network-container">
-      <div className="neural-network-header">
-        <h3 className="neural-title">3D Neural Network Visualization</h3>
-        <div className="neural-stats">
-          <span className="stat">Cognitive Load: <strong>{cognitiveLoad}%</strong></span>
-          <span className="stat">Memory: <strong>{memoryActivity}%</strong></span>
-          <span className="stat">Focus: <strong>{focusLevel}%</strong></span>
-        </div>
-      </div>
-      <div ref={mountRef} className="neural-canvas" />
-      <div className="neural-info">
-        <p>Interactive 3D representation of neural pathways. Neuron pulsing indicates cognitive activity levels.</p>
-      </div>
-    </div>
+    <div 
+      ref={mountRef} 
+      style={{ 
+        width: '100%', 
+        height: '400px',
+        borderRadius: '12px',
+        overflow: 'hidden'
+      }} 
+    />
   );
 }

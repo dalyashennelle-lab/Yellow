@@ -23,7 +23,7 @@ const nextConfig = {
     ]
   },
   experimental: {
-    allowedDevOrigins: ['localhost', '*.replit.dev', '*.repl.co']
+    // Remove allowedDevOrigins as it's not supported in this version
   }
 }
 
