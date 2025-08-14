@@ -1,3 +1,4 @@
+
 import Sidebar from '../components/Sidebar';
 import VideoPlayer from '../components/VideoPlayer';
 
@@ -31,7 +32,7 @@ export default function MindfulnessPage() {
         <div className="dashboard-header">
           <h1 className="dashboard-title">Mindfulness & Meditation</h1>
           <p className="dashboard-subtitle">Enhance your cognitive wellness through guided meditation, breathing exercises, and yoga</p>
-          <div className="section-divider"></div>ssName="section-divider"></div>
+          <div className="section-divider"></div>
         </div>
 
         <div className="mindfulness-grid">
@@ -44,44 +45,6 @@ export default function MindfulnessPage() {
               icon={content.icon}
             />
           ))}
-        </div>
-      </main>
-    </div>
-  );
-}n}
-            />
-          ))}
-        </div>
-
-        <div className="section-card">
-          <h2 className="section-title">Neural Benefits</h2>
-          <div className="section-divider"></div>
-          
-          <div className="benefits-grid">
-            <div className="benefit-item">
-              <div className="benefit-icon">🧠</div>
-              <h3 className="benefit-title">Enhanced Neuroplasticity</h3>
-              <p className="benefit-description">Meditation increases gray matter density and promotes neural connectivity</p>
-            </div>
-            
-            <div className="benefit-item">
-              <div className="benefit-icon">⚡</div>
-              <h3 className="benefit-title">Gamma Wave Activity</h3>
-              <p className="benefit-description">Breathing exercises increase gamma oscillations linked to higher cognition</p>
-            </div>
-            
-            <div className="benefit-item">
-              <div className="benefit-icon">🎯</div>
-              <h3 className="benefit-title">Attention Networks</h3>
-              <p className="benefit-description">Yoga strengthens the anterior cingulate cortex and improves focus</p>
-            </div>
-            
-            <div className="benefit-item">
-              <div className="benefit-icon">🌊</div>
-              <h3 className="benefit-title">Stress Reduction</h3>
-              <p className="benefit-description">Reduces cortisol levels and activates the parasympathetic nervous system</p>
-            </div>
-          </div>
         </div>
       </main>
     </div>
