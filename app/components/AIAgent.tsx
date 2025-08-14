@@ -3,13 +3,6 @@
 
 import { useState, useEffect } from 'react';
 
-interface AIAgentProps {
-  cognitiveLoad: number;
-  memoryScore: number;
-  focusLevel: number;
-  stressLevel: number;
-}
-
 interface AIMessage {
   id: string;
   message: string;
@@ -17,120 +10,70 @@ interface AIMessage {
   timestamp: Date;
 }
 
-const generateAIResponse = (metrics: { cognitiveLoad: number; memoryScore: number; focusLevel: number; stressLevel: number }) => {
-  const responses = {
-    highLoad: [
-      "I notice your cognitive load is elevated at {cognitiveLoad}%. Consider taking a 5-minute breathing break to optimize performance.",
-      "Your brain is working hard! Let's reduce task complexity for the next 10 minutes to prevent fatigue.",
-      "High cognitive demand detected. I'm adjusting the next exercise difficulty down by 20%."
-    ],
-    lowFocus: [
-      "Focus levels have dropped to {focusLevel}%. Try the gamma wave entrainment audio for 3 minutes.",
-      "Your attention networks need activation. I recommend starting with the dual n-back exercise.",
-      "Detected mind-wandering patterns. Switching to more engaging visual-spatial tasks."
-    ],
-    highStress: [
-      "Stress indicators are elevated at {stressLevel}%. Initiating theta wave meditation protocol.",
-      "Your cortisol levels appear high. I suggest 10 minutes of guided breathing before continuing.",
-      "Stress response detected. Activating parasympathetic nervous system recovery mode."
-    ],
-    goodPerformance: [
-      "Excellent cognitive balance! Your neural efficiency is in the optimal zone.",
-      "Perfect neuroplasticity window detected. This is ideal for learning new information.",
-      "Your brain state is optimal for memory consolidation. Great time for review exercises."
-    ],
-    memoryOptimal: [
-      "Memory systems are highly active at {memoryScore}%. Perfect time for encoding new information.",
-      "Hippocampal activity is strong. I recommend memory palace construction exercises.",
-      "Your memory networks are primed. Let's build some lasting neural pathways!"
-    ]
-  };
-
-  const { cognitiveLoad, memoryScore, focusLevel, stressLevel } = metrics;
-  
-  if (cognitiveLoad > 80) {
-    return { 
-      message: responses.highLoad[Math.floor(Math.random() * responses.highLoad.length)]
-        .replace('{cognitiveLoad}', cognitiveLoad.toString()),
-      type: 'warning' as const
-    };
-  }
-  
-  if (focusLevel < 40) {
-    return { 
-      message: responses.lowFocus[Math.floor(Math.random() * responses.lowFocus.length)]
-        .replace('{focusLevel}', focusLevel.toString()),
-      type: 'suggestion' as const
-    };
-  }
-  
-  if (stressLevel > 70) {
-    return { 
-      message: responses.highStress[Math.floor(Math.random() * responses.highStress.length)]
-        .replace('{stressLevel}', stressLevel.toString()),
-      type: 'warning' as const
-    };
-  }
-  
-  if (memoryScore > 75) {
-    return { 
-      message: responses.memoryOptimal[Math.floor(Math.random() * responses.memoryOptimal.length)]
-        .replace('{memoryScore}', memoryScore.toString()),
-      type: 'encouragement' as const
-    };
-  }
-  
-  return { 
-    message: responses.goodPerformance[Math.floor(Math.random() * responses.goodPerformance.length)],
-    type: 'analysis' as const
-  };
-};
-
-export default function AIAgent({ cognitiveLoad, memoryScore, focusLevel, stressLevel }: AIAgentProps) {
+export default function AIAgent() {
   const [messages, setMessages] = useState<AIMessage[]>([]);
   const [isThinking, setIsThinking] = useState(false);
 
   useEffect(() => {
-    const generateMessage = () => {
-      setIsThinking(true);
-      
-      setTimeout(() => {
-        const response = generateAIResponse({ cognitiveLoad, memoryScore, focusLevel, stressLevel });
+    const initialMessages: AIMessage[] = [
+      {
+        id: '1',
+        message: 'Welcome to NeuroMind Pro! I\'ve analyzed your cognitive patterns and notice excellent progress in memory consolidation. Your gamma wave activity has increased by 34% this week.',
+        type: 'analysis',
+        timestamp: new Date()
+      },
+      {
+        id: '2',
+        message: 'Based on your EEG patterns, I recommend a 15-minute alpha wave session at 10Hz to enhance creativity before your next learning session.',
+        type: 'suggestion',
+        timestamp: new Date()
+      },
+      {
+        id: '3',
+        message: 'Outstanding! You\'ve achieved a new personal record in working memory tasks. Your neural efficiency has improved by 23% compared to last month.',
+        type: 'encouragement',
+        timestamp: new Date()
+      }
+    ];
+
+    setMessages(initialMessages);
+
+    // Simulate periodic AI insights
+    const interval = setInterval(() => {
+      if (Math.random() < 0.3) {
+        const insights = [
+          'Your theta waves suggest optimal conditions for memory consolidation. Consider reviewing important material now.',
+          'Beta wave patterns indicate high focus. This is an excellent time for challenging cognitive tasks.',
+          'Your stress markers are elevated. I recommend a 5-minute breathing exercise to optimize performance.',
+          'Neural synchronization is at peak levels. Your brain is primed for creative problem-solving.',
+          'Your cognitive load is approaching optimal levels. Maintain current training intensity.',
+        ];
+
         const newMessage: AIMessage = {
           id: Date.now().toString(),
-          message: response.message,
-          type: response.type,
+          message: insights[Math.floor(Math.random() * insights.length)],
+          type: Math.random() > 0.5 ? 'analysis' : 'suggestion',
           timestamp: new Date()
         };
-        
-        setMessages(prev => [newMessage, ...prev.slice(0, 4)]);
-        setIsThinking(false);
-      }, 1000 + Math.random() * 2000);
-    };
 
-    const interval = setInterval(generateMessage, 10000);
-    generateMessage(); // Initial message
+        setIsThinking(true);
+        setTimeout(() => {
+          setMessages(prev => [newMessage, ...prev].slice(0, 5));
+          setIsThinking(false);
+        }, 2000);
+      }
+    }, 15000);
 
     return () => clearInterval(interval);
-  }, [cognitiveLoad, memoryScore, focusLevel, stressLevel]);
+  }, []);
 
-  const getMessageIcon = (type: AIMessage['type']) => {
+  const getMessageIcon = (type: string) => {
     switch (type) {
       case 'suggestion': return '💡';
       case 'analysis': return '🔬';
-      case 'encouragement': return '🌟';
+      case 'encouragement': return '🎉';
       case 'warning': return '⚠️';
       default: return '🤖';
-    }
-  };
-
-  const getMessageColor = (type: AIMessage['type']) => {
-    switch (type) {
-      case 'suggestion': return '#4facfe';
-      case 'analysis': return '#00f2fe';
-      case 'encouragement': return '#10b981';
-      case 'warning': return '#f59e0b';
-      default: return '#4facfe';
     }
   };
 
@@ -141,13 +84,10 @@ export default function AIAgent({ cognitiveLoad, memoryScore, focusLevel, stress
           <div className="avatar-glow">🧠</div>
         </div>
         <div className="agent-info">
-          <h3 className="agent-name">NeuroMind AI</h3>
-          <p className="agent-status">
-            {isThinking ? 'Analyzing neural patterns...' : 'Monitoring cognitive state'}
-          </p>
-        </div>
-        <div className="ai-indicators">
+          <h3 className="agent-name">ARIA</h3>
+          <p className="agent-status">Advanced Reasoning & Intelligence Assistant</p>
           <div className={`thinking-indicator ${isThinking ? 'active' : ''}`}>
+            <span>Analyzing neural patterns</span>
             <div className="thinking-dots">
               <span></span>
               <span></span>
@@ -158,37 +98,48 @@ export default function AIAgent({ cognitiveLoad, memoryScore, focusLevel, stress
       </div>
 
       <div className="ai-messages">
-        {messages.map((message) => (
-          <div key={message.id} className="ai-message" style={{ borderLeftColor: getMessageColor(message.type) }}>
-            <div className="message-header">
-              <span className="message-icon">{getMessageIcon(message.type)}</span>
-              <span className="message-time">
-                {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-              </span>
-            </div>
-            <p className="message-text">{message.message}</p>
+        {messages.length === 0 ? (
+          <div className="welcome-message">
+            <p>ARIA is analyzing your cognitive patterns...</p>
           </div>
-        ))}
+        ) : (
+          messages.map(message => (
+            <div key={message.id} className={`ai-message ${message.type}`}>
+              <div className="message-header">
+                <span className="message-icon">
+                  {getMessageIcon(message.type)}
+                </span>
+                <span className="message-time">
+                  {message.timestamp.toLocaleTimeString([], { 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                  })}
+                </span>
+              </div>
+              <p className="message-content">{message.message}</p>
+            </div>
+          ))
+        )}
       </div>
 
       <div className="ai-capabilities">
         <h4 className="capabilities-title">AI Capabilities</h4>
         <div className="capabilities-grid">
           <div className="capability-item">
+            <span className="capability-icon">🧠</span>
+            <span>Real-time EEG Analysis</span>
+          </div>
+          <div className="capability-item">
+            <span className="capability-icon">📊</span>
+            <span>Performance Tracking</span>
+          </div>
+          <div className="capability-item">
             <span className="capability-icon">🎯</span>
-            <span>Adaptive Difficulty</span>
+            <span>Personalized Training</span>
           </div>
           <div className="capability-item">
-            <span className="capability-icon">🧮</span>
-            <span>Performance Prediction</span>
-          </div>
-          <div className="capability-item">
-            <span className="capability-icon">🌊</span>
-            <span>Stress Detection</span>
-          </div>
-          <div className="capability-item">
-            <span className="capability-icon">⚡</span>
-            <span>Fatigue Prevention</span>
+            <span className="capability-icon">💡</span>
+            <span>Adaptive Recommendations</span>
           </div>
         </div>
       </div>

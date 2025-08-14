@@ -2,150 +2,140 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import * as THREE from 'three';
 
 interface NeuralNetwork3DProps {
   cognitiveLoad: number;
-  memoryScore: number;
   focusLevel: number;
-  stressLevel: number;
+  memoryScore: number;
 }
 
-export default function NeuralNetwork3D({ cognitiveLoad, memoryScore, focusLevel, stressLevel }: NeuralNetwork3DProps) {
+export default function NeuralNetwork3D({ 
+  cognitiveLoad, 
+  focusLevel, 
+  memoryScore 
+}: NeuralNetwork3DProps) {
   const mountRef = useRef<HTMLDivElement>(null);
-  const sceneRef = useRef<THREE.Scene>();
-  const rendererRef = useRef<THREE.WebGLRenderer>();
-  const frameRef = useRef<number>();
 
   useEffect(() => {
     if (!mountRef.current) return;
 
-    // Scene setup
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0a0f1a);
-    sceneRef.current = scene;
-
-    // Camera setup
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      mountRef.current.clientWidth / mountRef.current.clientHeight,
-      0.1,
-      1000
-    );
-    camera.position.z = 5;
-
-    // Renderer setup
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
-    mountRef.current.appendChild(renderer.domElement);
-    rendererRef.current = renderer;
-
-    // Create neural network nodes
-    const nodes: THREE.Mesh[] = [];
-    const nodeGeometry = new THREE.SphereGeometry(0.05, 16, 16);
+    // Create animated neural network visualization using CSS and Canvas
+    const canvas = document.createElement('canvas');
+    canvas.width = mountRef.current.clientWidth;
+    canvas.height = 400;
+    canvas.className = 'neural-canvas';
     
-    for (let i = 0; i < 50; i++) {
-      const nodeMaterial = new THREE.MeshBasicMaterial({
-        color: new THREE.Color().setHSL(0.6, 1, 0.5 + Math.random() * 0.5)
-      });
-      const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
-      
-      node.position.x = (Math.random() - 0.5) * 8;
-      node.position.y = (Math.random() - 0.5) * 6;
-      node.position.z = (Math.random() - 0.5) * 4;
-      
-      scene.add(node);
-      nodes.push(node);
-    }
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
-    // Create connections between nodes
-    const connections: THREE.Line[] = [];
-    const lineGeometry = new THREE.BufferGeometry();
-    
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        if (Math.random() < 0.1) { // 10% chance of connection
-          const points = [
-            nodes[i].position,
-            nodes[j].position
-          ];
-          
-          lineGeometry.setFromPoints(points);
-          const lineMaterial = new THREE.LineBasicMaterial({
-            color: 0x4facfe,
-            opacity: 0.3,
-            transparent: true
-          });
-          
-          const line = new THREE.Line(lineGeometry.clone(), lineMaterial);
-          scene.add(line);
-          connections.push(line);
-        }
-      }
-    }
+    // Neural network nodes
+    const nodes = Array.from({ length: 50 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 2,
+      vy: (Math.random() - 0.5) * 2,
+      radius: Math.random() * 3 + 1,
+      connections: []
+    }));
 
     // Animation loop
     const animate = () => {
-      frameRef.current = requestAnimationFrame(animate);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Draw background grid
+      ctx.strokeStyle = 'rgba(79, 172, 254, 0.1)';
+      ctx.lineWidth = 1;
+      for (let i = 0; i < canvas.width; i += 50) {
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, canvas.height);
+        ctx.stroke();
+      }
+      for (let i = 0; i < canvas.height; i += 50) {
+        ctx.beginPath();
+        ctx.moveTo(0, i);
+        ctx.lineTo(canvas.width, i);
+        ctx.stroke();
+      }
 
-      // Animate nodes based on cognitive metrics
+      // Update and draw nodes
       nodes.forEach((node, index) => {
-        const time = Date.now() * 0.001;
-        node.rotation.x = time * 0.5;
-        node.rotation.y = time * 0.3;
-        
-        // Pulse based on cognitive load
-        const scale = 1 + Math.sin(time + index) * 0.3 * (cognitiveLoad / 100);
-        node.scale.setScalar(scale);
-        
-        // Color based on focus level
-        const hue = 0.6 + (focusLevel / 100) * 0.4;
-        (node.material as THREE.MeshBasicMaterial).color.setHSL(hue, 1, 0.5);
+        // Update position
+        node.x += node.vx;
+        node.y += node.vy;
+
+        // Bounce off edges
+        if (node.x <= 0 || node.x >= canvas.width) node.vx *= -1;
+        if (node.y <= 0 || node.y >= canvas.height) node.vy *= -1;
+
+        // Draw connections
+        nodes.forEach((otherNode, otherIndex) => {
+          if (index !== otherIndex) {
+            const dist = Math.sqrt(
+              Math.pow(node.x - otherNode.x, 2) + 
+              Math.pow(node.y - otherNode.y, 2)
+            );
+            
+            if (dist < 100) {
+              const opacity = (1 - dist / 100) * (focusLevel / 100) * 0.5;
+              ctx.strokeStyle = `rgba(79, 172, 254, ${opacity})`;
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.moveTo(node.x, node.y);
+              ctx.lineTo(otherNode.x, otherNode.y);
+              ctx.stroke();
+            }
+          }
+        });
+
+        // Draw node
+        const intensity = (cognitiveLoad + memoryScore) / 200;
+        const hue = 200 + (focusLevel / 100) * 60;
+        ctx.fillStyle = `hsla(${hue}, 100%, 60%, ${0.8 + intensity * 0.2})`;
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.radius * (1 + intensity), 0, Math.PI * 2);
+        ctx.fill();
+
+        // Add glow effect
+        ctx.shadowBlur = 10 + intensity * 20;
+        ctx.shadowColor = `hsl(${hue}, 100%, 60%)`;
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.radius * (1 + intensity), 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
       });
 
-      // Animate connections
-      connections.forEach((connection, index) => {
-        const opacity = 0.1 + (memoryScore / 100) * 0.5 + Math.sin(Date.now() * 0.001 + index) * 0.2;
-        (connection.material as THREE.LineBasicMaterial).opacity = Math.max(0, opacity);
-      });
-
-      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
     };
 
+    mountRef.current.appendChild(canvas);
     animate();
 
-    // Handle resize
-    const handleResize = () => {
-      if (!mountRef.current || !camera || !renderer) return;
-      
-      camera.aspect = mountRef.current.clientWidth / mountRef.current.clientHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
-    };
-
-    window.addEventListener('resize', handleResize);
-
     return () => {
-      window.removeEventListener('resize', handleResize);
-      if (frameRef.current) {
-        cancelAnimationFrame(frameRef.current);
+      if (mountRef.current && canvas) {
+        mountRef.current.removeChild(canvas);
       }
-      if (mountRef.current && renderer.domElement) {
-        mountRef.current.removeChild(renderer.domElement);
-      }
-      renderer.dispose();
     };
-  }, [cognitiveLoad, memoryScore, focusLevel, stressLevel]);
+  }, [cognitiveLoad, focusLevel, memoryScore]);
 
   return (
-    <div 
-      ref={mountRef} 
-      style={{ 
-        width: '100%', 
-        height: '400px',
-        borderRadius: '12px',
-        overflow: 'hidden'
-      }} 
-    />
+    <div className="neural-network-container">
+      <div className="neural-network-header">
+        <h2 className="neural-title">Neural Network Visualization</h2>
+        <div className="neural-stats">
+          <span className="stat">Nodes: <strong>50</strong></span>
+          <span className="stat">Connections: <strong>Dynamic</strong></span>
+          <span className="stat">Activity: <strong>Real-time</strong></span>
+        </div>
+      </div>
+      <div ref={mountRef} className="neural-canvas-container">
+        <div className="neural-info">
+          Neural activity visualization based on cognitive metrics • 
+          Node intensity reflects cognitive load • 
+          Connection density shows focus level • 
+          Color represents memory performance
+        </div>
+      </div>
+    </div>
   );
 }
