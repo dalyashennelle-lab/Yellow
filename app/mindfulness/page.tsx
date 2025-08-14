@@ -31,7 +31,7 @@ export default function MindfulnessPage() {
         <div className="dashboard-header">
           <h1 className="dashboard-title">Mindfulness & Meditation</h1>
           <p className="dashboard-subtitle">Enhance your cognitive wellness through guided meditation, breathing exercises, and yoga</p>
-          <div className="section-divider"></div>
+          <div className="section-divider"></div>ssName="section-divider"></div>
         </div>
 
         <div className="mindfulness-grid">
@@ -42,6 +42,13 @@ export default function MindfulnessPage() {
               title={content.title}
               description={content.description}
               icon={content.icon}
+            />
+          ))}
+        </div>
+      </main>
+    </div>
+  );
+}n}
             />
           ))}
         </div>
