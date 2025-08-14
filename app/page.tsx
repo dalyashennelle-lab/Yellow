@@ -1,4 +1,8 @@
 import Sidebar from './components/Sidebar';
+import AdvancedMemoryChallenge from './components/AdvancedMemoryChallenge';
+import ResearchLab from './components/ResearchLab';
+import AdvancedScience from './components/AdvancedScience';
+import WinnersCelebration from './components/WinnersCelebration';
 
 export default function Dashboard() {
   return (
@@ -43,6 +47,14 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
+
+          <AdvancedMemoryChallenge />
+          
+          <ResearchLab />
+          
+          <AdvancedScience />
+          
+          <WinnersCelebration />
         </div>
       </main>
     </div>
