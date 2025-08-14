@@ -22,11 +22,14 @@ const nextConfig = {
       },
     ]
   },
-  experimental: {
-    allowedOrigins: ['*'],
-  },
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', '*.replit.dev'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.replit.dev',
+      },
+    ],
   },
 }
 
