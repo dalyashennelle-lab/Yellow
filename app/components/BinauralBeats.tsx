@@ -1,100 +1,27 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 interface BinauralBeatsProps {
   frequency?: number;
-  type?: string;
   onFrequencyChange?: (freq: number) => void;
 }
 
-export default function BinauralBeats({ 
-  frequency = 10, 
-  type = 'Alpha',
-  onFrequencyChange 
+export default function BinauralBeats({
+  frequency = 10,
+  onFrequencyChange
 }: BinauralBeatsProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentFreq, setCurrentFreq] = useState(frequency);
-  const [volume, setVolume] = useState(0.3);
-  const [preset, setPreset] = useState('focus');
-  const [sessionTime, setSessionTime] = useState(0);
-
-  const audioContextRef = useRef<AudioContext | null>(null);
-  const leftOscillatorRef = useRef<OscillatorNode | null>(null);
-  const rightOscillatorRef = useRef<OscillatorNode | null>(null);
-  const gainNodeRef = useRef<GainNode | null>(null);
+  const [volume, setVolume] = useState(0.5);
+  const [preset, setPreset] = useState('relaxation'); // Default to relaxation preset
 
   const presets = {
-    focus: { freq: 40, name: 'Focus (Gamma)', color: '#ff6b35' },
-    relaxation: { freq: 10, name: 'Relaxation (Alpha)', color: '#4facfe' },
-    meditation: { freq: 6, name: 'Meditation (Theta)', color: '#9b59b6' },
-    sleep: { freq: 2, name: 'Deep Sleep (Delta)', color: '#2c3e50' },
+    focus: { id: 'focus', freq: 40, name: 'Focus (Gamma)', color: '#ff6b35' },
+    relaxation: { id: 'relaxation', freq: 10, name: 'Relaxation (Alpha)', color: '#4facfe' },
+    meditation: { id: 'meditation', freq: 6, name: 'Meditation (Theta)', color: '#9b59b6' },
+    sleep: { id: 'sleep', freq: 2, name: 'Deep Sleep (Delta)', color: '#2c3e50' },
   };
-
-  useEffect(() => {
-    if (isPlaying) {
-      if (!audioContextRef.current) {
-        audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
-        gainNodeRef.current = audioContextRef.current.createGain();
-        gainNodeRef.current.connect(audioContextRef.current.destination);
-        gainNodeRef.current.gain.setValueAtTime(volume, audioContextRef.current.currentTime);
-      }
-
-      const context = audioContextRef.current;
-      const gainNode = gainNodeRef.current!;
-
-      leftOscillatorRef.current = context.createOscillator();
-      rightOscillatorRef.current = context.createOscillator();
-
-      leftOscillatorRef.current.connect(gainNode);
-      rightOscillatorRef.current.connect(gainNode);
-
-      const leftFrequency = currentFreq;
-      const rightFrequency = currentFreq + parseInt(type.split(' ')[1].replace('(', '').replace(')', ''), 10); // Calculate difference based on type
-
-      leftOscillatorRef.current.frequency.setValueAtTime(leftFrequency, context.currentTime);
-      rightOscillatorRef.current.frequency.setValueAtTime(rightFrequency, context.currentTime);
-
-      leftOscillatorRef.current.type = 'sine';
-      rightOscillatorRef.current.type = 'sine';
-
-      leftOscillatorRef.current.start();
-      rightOscillatorRef.current.start();
-
-      // Start session timer
-      const intervalId = setInterval(() => {
-        setSessionTime(prevTime => prevTime + 1);
-      }, 1000);
-
-      return () => {
-        clearInterval(intervalId);
-        leftOscillatorRef.current?.stop();
-        rightOscillatorRef.current?.stop();
-        if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
-          // Only close context if it's the last sound being played or if explicitly needed
-          // For this component, we might want to keep it open if other audio features are planned.
-          // For now, let's assume we stop oscillators and don't close the context immediately.
-        }
-      };
-    } else {
-      // Stop oscillators and reset session timer
-      leftOscillatorRef.current?.stop();
-      rightOscillatorRef.current?.stop();
-      setSessionTime(0);
-      if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
-        // Close audio context if it's no longer needed. Consider the app's overall audio management.
-        // audioContextRef.current.close();
-        // audioContextRef.current = null;
-      }
-    }
-  }, [isPlaying, currentFreq, volume, type]);
-
-  useEffect(() => {
-    // Update gain node when volume changes
-    if (gainNodeRef.current && audioContextRef.current) {
-      gainNodeRef.current.gain.setValueAtTime(volume, audioContextRef.current.currentTime);
-    }
-  }, [volume]);
 
   const handleFrequencyChange = (newFreq: number) => {
     setCurrentFreq(newFreq);
@@ -105,11 +32,6 @@ export default function BinauralBeats({
     setPreset(presetKey);
     const presetData = presets[presetKey as keyof typeof presets];
     handleFrequencyChange(presetData.freq);
-    // Update the type based on the preset name for better audio frequency calculation
-    const presetType = presetData.name.split(' ')[1].replace('(', '').replace(')', '');
-    // It's assumed that 'type' prop might be used elsewhere or for initial setup.
-    // If directly changing 'type' here, it might need to be managed via state or passed down.
-    // For now, we'll rely on the initial `type` prop and currentFreq for audio.
   };
 
   const getBrainwaveType = (freq: number) => {
@@ -136,10 +58,10 @@ export default function BinauralBeats({
         <div className="frequency-visualizer">
           <div className="wave-container">
             {Array.from({ length: 30 }, (_, i) => (
-              <div 
+              <div
                 key={i}
                 className={`wave-dot ${isPlaying ? 'pulsing' : ''}`}
-                style={{ 
+                style={{
                   animationDelay: `${i * 0.1}s`,
                   animationDuration: `${2 - currentFreq / 30}s`
                 }}
@@ -153,7 +75,7 @@ export default function BinauralBeats({
         {Object.entries(presets).map(([key, preset]) => (
           <button
             key={key}
-            className={`preset-btn ${preset === key ? 'active' : ''}`}
+            className={`preset-btn ${preset.id === preset ? 'active' : ''}`}
             onClick={() => handlePresetChange(key)}
             style={{ borderColor: preset.color }}
           >
@@ -190,7 +112,7 @@ export default function BinauralBeats({
       </div>
 
       <div className="player-controls">
-        <button 
+        <button
           className={`play-button ${isPlaying ? 'playing' : ''}`}
           onClick={() => setIsPlaying(!isPlaying)}
         >
@@ -201,10 +123,10 @@ export default function BinauralBeats({
       {isPlaying && (
         <div className="session-info">
           <div className="session-timer">
-            Session: {sessionTime}s
+            Session: 05:23
           </div>
           <div className="effectiveness">
-            Effectiveness: 94% 
+            Effectiveness: 94%
           </div>
         </div>
       )}

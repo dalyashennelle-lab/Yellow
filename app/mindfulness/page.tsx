@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import VideoPlayer from '../components/VideoPlayer';
+import Image from 'next/image';
 
 interface MindfulnessContent {
   videoId: string;
@@ -77,6 +78,42 @@ export default function MindfulnessPage() {
               duration={content.duration}
             />
           ))}
+        </div>
+
+        <div className="meditation-gallery">
+          <div className="gallery-header">
+            <h2 className="section-title">🏖️ Peaceful Environments</h2>
+            <p>Immerse yourself in calming beach scenes for deeper relaxation</p>
+          </div>
+          <div className="gallery-grid">
+            <div className="meditation-scene">
+              <div className="scene-image">
+                <div className="scene-placeholder">
+                  🏖️ Serene Beach Sunset
+                </div>
+              </div>
+              <h3>Beach Meditation</h3>
+              <p>Find peace with gentle ocean waves</p>
+            </div>
+            <div className="meditation-scene">
+              <div className="scene-image">
+                <div className="scene-placeholder">
+                  🌊 Ocean Waves
+                </div>
+              </div>
+              <h3>Wave Meditation</h3>
+              <p>Let the rhythmic sounds calm your mind</p>
+            </div>
+            <div className="meditation-scene">
+              <div className="scene-image">
+                <div className="scene-placeholder">
+                  🌅 Dawn Reflection
+                </div>
+              </div>
+              <h3>Morning Mindfulness</h3>
+              <p>Start your day with peaceful intention</p>
+            </div>
+          </div>
         </div>
 
         <div className="mindfulness-stats">

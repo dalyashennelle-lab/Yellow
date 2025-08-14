@@ -23,11 +23,14 @@ const nextConfig = {
     ]
   },
   images: {
-    domains: ['localhost', '*.replit.dev'],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**.replit.dev',
+        hostname: '**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
       },
     ],
   },
