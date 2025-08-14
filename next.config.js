@@ -23,8 +23,11 @@ const nextConfig = {
     ]
   },
   experimental: {
-    // Remove allowedDevOrigins as it's not supported in this version
-  }
+    allowedOrigins: ['*'],
+  },
+  images: {
+    domains: ['localhost'],
+  },
 }
 
 module.exports = nextConfig

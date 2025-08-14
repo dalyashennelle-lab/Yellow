@@ -5,82 +5,132 @@ import { useState, useEffect } from 'react';
 
 interface BinauralBeatsProps {
   frequency?: number;
-  type?: string;
+  onFrequencyChange?: (freq: number) => void;
 }
 
-export default function BinauralBeats({ frequency = 40, type = 'Gamma' }: BinauralBeatsProps) {
+export default function BinauralBeats({ 
+  frequency = 10, 
+  onFrequencyChange 
+}: BinauralBeatsProps) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(50);
   const [currentFreq, setCurrentFreq] = useState(frequency);
+  const [volume, setVolume] = useState(0.5);
+  const [preset, setPreset] = useState('focus');
 
-  const beatTypes = [
-    { name: 'Delta', freq: 2, description: 'Deep sleep, healing' },
-    { name: 'Theta', freq: 6, description: 'Meditation, creativity' },
-    { name: 'Alpha', freq: 10, description: 'Relaxation, learning' },
-    { name: 'Beta', freq: 20, description: 'Focus, concentration' },
-    { name: 'Gamma', freq: 40, description: 'Peak performance, insight' }
-  ];
+  const presets = {
+    focus: { freq: 40, name: 'Focus (Gamma)', color: '#ff6b35' },
+    relaxation: { freq: 10, name: 'Relaxation (Alpha)', color: '#4facfe' },
+    meditation: { freq: 6, name: 'Meditation (Theta)', color: '#9b59b6' },
+    sleep: { freq: 2, name: 'Deep Sleep (Delta)', color: '#2c3e50' },
+  };
+
+  const handleFrequencyChange = (newFreq: number) => {
+    setCurrentFreq(newFreq);
+    onFrequencyChange?.(newFreq);
+  };
+
+  const handlePresetChange = (presetKey: string) => {
+    setPreset(presetKey);
+    const presetData = presets[presetKey as keyof typeof presets];
+    handleFrequencyChange(presetData.freq);
+  };
+
+  const getBrainwaveType = (freq: number) => {
+    if (freq >= 30) return 'Gamma (High Focus)';
+    if (freq >= 13) return 'Beta (Active Thinking)';
+    if (freq >= 8) return 'Alpha (Relaxed)';
+    if (freq >= 4) return 'Theta (Meditative)';
+    return 'Delta (Deep Sleep)';
+  };
 
   return (
-    <div className="binaural-beats-container">
-      <div className="beats-header">
+    <div className="binaural-beats-player">
+      <div className="player-header">
         <h3>🎵 Binaural Beats Generator</h3>
-        <p>Current: {type} waves at {currentFreq}Hz</p>
+        <div className="brainwave-type">
+          {getBrainwaveType(currentFreq)}
+        </div>
       </div>
 
-      <div className="frequency-selector">
-        {beatTypes.map((beat) => (
+      <div className="frequency-display">
+        <div className="frequency-value">
+          {currentFreq} Hz
+        </div>
+        <div className="frequency-visualizer">
+          <div className="wave-container">
+            {Array.from({ length: 30 }, (_, i) => (
+              <div 
+                key={i}
+                className={`wave-dot ${isPlaying ? 'pulsing' : ''}`}
+                style={{ 
+                  animationDelay: `${i * 0.1}s`,
+                  animationDuration: `${2 - currentFreq / 30}s`
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="preset-buttons">
+        {Object.entries(presets).map(([key, preset]) => (
           <button
-            key={beat.name}
-            className={`freq-btn ${beat.name === type ? 'active' : ''}`}
-            onClick={() => {
-              setCurrentFreq(beat.freq);
-            }}
+            key={key}
+            className={`preset-btn ${preset === key ? 'active' : ''}`}
+            onClick={() => handlePresetChange(key)}
+            style={{ borderColor: preset.color }}
           >
-            <span className="freq-name">{beat.name}</span>
-            <span className="freq-value">{beat.freq}Hz</span>
-            <span className="freq-desc">{beat.description}</span>
+            {preset.name}
           </button>
         ))}
       </div>
 
-      <div className="audio-controls">
-        <button 
-          className="play-pause-btn"
-          onClick={() => setIsPlaying(!isPlaying)}
-        >
-          {isPlaying ? '⏸️ Pause' : '▶️ Play'}
-        </button>
+      <div className="controls">
+        <div className="frequency-slider">
+          <label>Frequency: {currentFreq}Hz</label>
+          <input
+            type="range"
+            min="1"
+            max="50"
+            value={currentFreq}
+            onChange={(e) => handleFrequencyChange(Number(e.target.value))}
+            className="slider"
+          />
+        </div>
 
-        <div className="volume-control">
-          <span>🔊</span>
+        <div className="volume-slider">
+          <label>Volume: {Math.round(volume * 100)}%</label>
           <input
             type="range"
             min="0"
-            max="100"
+            max="1"
+            step="0.1"
             value={volume}
             onChange={(e) => setVolume(Number(e.target.value))}
-            className="volume-slider"
+            className="slider"
           />
-          <span>{volume}%</span>
         </div>
       </div>
 
-      <div className="visualization">
-        <div className="wave-form">
-          {Array.from({ length: 20 }).map((_, i) => (
-            <div
-              key={i}
-              className="wave-bar"
-              style={{
-                height: `${Math.sin(i * 0.5) * 20 + 30}px`,
-                animationDelay: `${i * 0.1}s`,
-                animationPlayState: isPlaying ? 'running' : 'paused'
-              }}
-            />
-          ))}
-        </div>
+      <div className="player-controls">
+        <button 
+          className={`play-button ${isPlaying ? 'playing' : ''}`}
+          onClick={() => setIsPlaying(!isPlaying)}
+        >
+          {isPlaying ? '⏸️ Stop' : '▶️ Play'}
+        </button>
       </div>
+
+      {isPlaying && (
+        <div className="session-info">
+          <div className="session-timer">
+            Session: 05:23
+          </div>
+          <div className="effectiveness">
+            Effectiveness: 94%
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -74,6 +74,7 @@ export default function MindfulnessPage() {
               title={content.title}
               description={content.description}
               icon={content.icon}
+              duration={content.duration}
             />
           ))}
         </div>

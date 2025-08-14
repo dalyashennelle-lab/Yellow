@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 interface SidebarProps {
-  activeItem: string;
+  activeItem?: string;
 }
 
 export default function Sidebar({ activeItem }: SidebarProps) {
@@ -17,11 +17,11 @@ export default function Sidebar({ activeItem }: SidebarProps) {
     { id: 'mindfulness', label: 'Mindfulness', icon: '🧘', href: '/mindfulness' },
     { id: 'soundscapes', label: 'Soundscapes', icon: '🎵', href: '/soundscapes' },
     { id: 'eeg', label: 'EEG Monitor', icon: '🧠', href: '/eeg' },
-    { id: 'nft-rewards', label: 'NFT Rewards', icon: '🏆', href: '/nft-rewards' }
+    { id: 'nft-rewards', label: 'NFT Rewards', icon: '🏆', href: '/nft-rewards' },
   ];
 
   return (
-    <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
+    <nav className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="sidebar-header">
         <div className="logo">
           <span className="logo-icon">🧠</span>
@@ -35,25 +35,31 @@ export default function Sidebar({ activeItem }: SidebarProps) {
         </button>
       </div>
 
-      <nav className="sidebar-nav">
+      <ul className="sidebar-menu">
         {menuItems.map((item) => (
-          <Link 
-            key={item.id} 
-            href={item.href}
-            className={`nav-item ${activeItem === item.id ? 'active' : ''}`}
-          >
-            <span className="nav-icon">{item.icon}</span>
-            {!isCollapsed && <span className="nav-label">{item.label}</span>}
-          </Link>
+          <li key={item.id}>
+            <Link 
+              href={item.href}
+              className={`sidebar-link ${activeItem === item.id ? 'active' : ''}`}
+            >
+              <span className="sidebar-icon">{item.icon}</span>
+              {!isCollapsed && <span className="sidebar-label">{item.label}</span>}
+            </Link>
+          </li>
         ))}
-      </nav>
+      </ul>
 
       <div className="sidebar-footer">
-        <div className="user-status">
-          <div className="status-indicator active"></div>
-          {!isCollapsed && <span>Neural State: Optimal</span>}
+        <div className="user-info">
+          <div className="user-avatar">👤</div>
+          {!isCollapsed && (
+            <div className="user-details">
+              <div className="user-name">Neural Explorer</div>
+              <div className="user-level">Level 7</div>
+            </div>
+          )}
         </div>
       </div>
-    </aside>
+    </nav>
   );
 }

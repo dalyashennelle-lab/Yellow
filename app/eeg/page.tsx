@@ -1,33 +1,20 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import BrainwaveChart from '../components/BrainwaveChart';
 
 export default function EEGPage() {
   const [isConnected, setIsConnected] = useState(false);
-  const [brainwaveData, setBrainwaveData] = useState({
-    delta: 20,
-    theta: 35,
-    alpha: 45,
-    beta: 65,
-    gamma: 30
-  });
+  const [deviceStatus, setDeviceStatus] = useState('disconnected');
 
-  useEffect(() => {
-    // Simulate real-time brainwave data
-    const interval = setInterval(() => {
-      setBrainwaveData({
-        delta: Math.random() * 100,
-        theta: Math.random() * 100,
-        alpha: Math.random() * 100,
-        beta: Math.random() * 100,
-        gamma: Math.random() * 100
-      });
+  const handleConnect = () => {
+    setDeviceStatus('connecting');
+    setTimeout(() => {
+      setIsConnected(true);
+      setDeviceStatus('connected');
     }, 2000);
-
-    return () => clearInterval(interval);
-  }, []);
+  };
 
   return (
     <div className="app-container">
@@ -37,42 +24,15 @@ export default function EEGPage() {
           <div className="header-content">
             <h1 className="main-title">🧠 EEG Monitoring</h1>
             <p className="main-subtitle">
-              Real-time brainwave monitoring and biofeedback training
+              Real-time brainwave analysis and neurofeedback training
             </p>
           </div>
-        </div>
-
-        <div className="eeg-status">
-          <div className={`connection-status ${isConnected ? 'connected' : 'disconnected'}`}>
-            <div className="status-indicator"></div>
-            <span>{isConnected ? 'EEG Device Connected' : 'No Device Connected'}</span>
-            <button 
-              className="connect-btn"
-              onClick={() => setIsConnected(!isConnected)}
-            >
-              {isConnected ? 'Disconnect' : 'Connect Device'}
-            </button>
-          </div>
+          <div className="section-divider"></div>
         </div>
 
         {isConnected ? (
           <div className="eeg-dashboard">
-            <BrainwaveChart data={brainwaveData} />
-
-            <div className="brainwave-bands">
-              {Object.entries(brainwaveData).map(([band, value]) => (
-                <div key={band} className="band-meter">
-                  <h4>{band.charAt(0).toUpperCase() + band.slice(1)} Waves</h4>
-                  <div className="meter-bar">
-                    <div 
-                      className="meter-fill"
-                      style={{ width: `${value}%` }}
-                    ></div>
-                  </div>
-                  <span>{Math.round(value)}%</span>
-                </div>
-              ))}
-            </div>
+            <BrainwaveChart />
 
             <div className="eeg-insights">
               <div className="insight-card">
@@ -94,6 +54,13 @@ export default function EEGPage() {
               <div className="step">2. Enable Bluetooth</div>
               <div className="step">3. Click Connect Device</div>
             </div>
+            <button 
+              className="connect-btn"
+              onClick={handleConnect}
+              disabled={deviceStatus === 'connecting'}
+            >
+              {deviceStatus === 'connecting' ? 'Connecting...' : 'Connect Device'}
+            </button>
           </div>
         )}
       </main>
