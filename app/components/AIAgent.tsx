@@ -3,76 +3,85 @@
 
 import { useState, useEffect } from 'react';
 
-interface AIMessage {
-  id: string;
-  message: string;
-  type: 'suggestion' | 'analysis' | 'encouragement' | 'warning';
-  timestamp: Date;
-}
-
 export default function AIAgent() {
-  const [messages, setMessages] = useState<AIMessage[]>([]);
+  const [messages, setMessages] = useState<Array<{
+    id: string;
+    type: 'analysis' | 'recommendation' | 'warning' | 'encouragement';
+    content: string;
+    timestamp: Date;
+  }>>([]);
   const [isThinking, setIsThinking] = useState(false);
 
   useEffect(() => {
-    const initialMessages: AIMessage[] = [
-      {
-        id: '1',
-        message: 'Welcome to NeuroMind Pro! I\'ve analyzed your cognitive patterns and notice excellent progress in memory consolidation. Your gamma wave activity has increased by 34% this week.',
-        type: 'analysis',
-        timestamp: new Date()
-      },
-      {
-        id: '2',
-        message: 'Based on your EEG patterns, I recommend a 15-minute alpha wave session at 10Hz to enhance creativity before your next learning session.',
-        type: 'suggestion',
-        timestamp: new Date()
-      },
-      {
-        id: '3',
-        message: 'Outstanding! You\'ve achieved a new personal record in working memory tasks. Your neural efficiency has improved by 23% compared to last month.',
-        type: 'encouragement',
-        timestamp: new Date()
-      }
-    ];
-
-    setMessages(initialMessages);
+    // Initialize with welcome message
+    const initialMessage = {
+      id: '1',
+      type: 'analysis' as const,
+      content: 'Neural interface initialized. Your cognitive patterns are being analyzed for optimal enhancement protocols.',
+      timestamp: new Date()
+    };
+    setMessages([initialMessage]);
 
     // Simulate periodic AI insights
     const interval = setInterval(() => {
-      if (Math.random() < 0.3) {
-        const insights = [
-          'Your theta waves suggest optimal conditions for memory consolidation. Consider reviewing important material now.',
-          'Beta wave patterns indicate high focus. This is an excellent time for challenging cognitive tasks.',
-          'Your stress markers are elevated. I recommend a 5-minute breathing exercise to optimize performance.',
-          'Neural synchronization is at peak levels. Your brain is primed for creative problem-solving.',
-          'Your cognitive load is approaching optimal levels. Maintain current training intensity.',
-        ];
-
-        const newMessage: AIMessage = {
-          id: Date.now().toString(),
-          message: insights[Math.floor(Math.random() * insights.length)],
-          type: Math.random() > 0.5 ? 'analysis' : 'suggestion',
-          timestamp: new Date()
-        };
-
-        setIsThinking(true);
-        setTimeout(() => {
-          setMessages(prev => [newMessage, ...prev].slice(0, 5));
-          setIsThinking(false);
-        }, 2000);
+      if (Math.random() > 0.7) {
+        addAIMessage();
       }
-    }, 15000);
+    }, 8000);
 
     return () => clearInterval(interval);
   }, []);
 
+  const addAIMessage = () => {
+    setIsThinking(true);
+    
+    setTimeout(() => {
+      const messageTypes = ['analysis', 'recommendation', 'warning', 'encouragement'] as const;
+      const messageContents = {
+        analysis: [
+          'Neural efficiency increased by 12.4% in the last session. Pattern recognition shows significant improvement.',
+          'Brainwave coherence optimal for advanced cognitive tasks. Consider increasing difficulty levels.',
+          'Memory consolidation patterns suggest ideal timing for new learning protocols.'
+        ],
+        recommendation: [
+          'Recommend 15-minute meditation session to optimize focus metrics.',
+          'Consider binaural beats at 40Hz for enhanced gamma wave production.',
+          'Your peak cognitive performance window is detected between 2-4 PM.'
+        ],
+        warning: [
+          'Stress indicators elevated. Consider mindfulness break to maintain neural efficiency.',
+          'Cognitive load approaching threshold. Recommend brief meditation interval.',
+          'Sleep quality affects morning cognitive performance. Consider sleep optimization.'
+        ],
+        encouragement: [
+          'Exceptional progress in memory challenges! You\'re in the top 5% of users.',
+          'Neural plasticity indicators show remarkable adaptation. Keep up the excellent work!',
+          'Your dedication to cognitive enhancement is yielding measurable results.'
+        ]
+      };
+
+      const type = messageTypes[Math.floor(Math.random() * messageTypes.length)];
+      const contents = messageContents[type];
+      const content = contents[Math.floor(Math.random() * contents.length)];
+
+      const newMessage = {
+        id: Date.now().toString(),
+        type,
+        content,
+        timestamp: new Date()
+      };
+
+      setMessages(prev => [...prev.slice(-4), newMessage]);
+      setIsThinking(false);
+    }, 2000);
+  };
+
   const getMessageIcon = (type: string) => {
     switch (type) {
-      case 'suggestion': return '💡';
       case 'analysis': return '🔬';
-      case 'encouragement': return '🎉';
+      case 'recommendation': return '💡';
       case 'warning': return '⚠️';
+      case 'encouragement': return '🎯';
       default: return '🤖';
     }
   };
@@ -81,18 +90,17 @@ export default function AIAgent() {
     <div className="ai-agent-container">
       <div className="ai-agent-header">
         <div className="agent-avatar">
-          <div className="avatar-glow">🧠</div>
+          <div className="avatar-glow">🤖</div>
         </div>
         <div className="agent-info">
-          <h3 className="agent-name">ARIA</h3>
-          <p className="agent-status">Advanced Reasoning & Intelligence Assistant</p>
-          <div className={`thinking-indicator ${isThinking ? 'active' : ''}`}>
-            <span>Analyzing neural patterns</span>
-            <div className="thinking-dots">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+          <h3 className="agent-name">Neural AI Assistant</h3>
+          <p className="agent-status">Advanced Cognitive Analysis Active</p>
+        </div>
+        <div className={`thinking-indicator ${isThinking ? 'active' : ''}`}>
+          <div className="thinking-dots">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
       </div>
@@ -100,23 +108,18 @@ export default function AIAgent() {
       <div className="ai-messages">
         {messages.length === 0 ? (
           <div className="welcome-message">
-            <p>ARIA is analyzing your cognitive patterns...</p>
+            <p>Neural AI is analyzing your cognitive patterns...</p>
           </div>
         ) : (
           messages.map(message => (
             <div key={message.id} className={`ai-message ${message.type}`}>
               <div className="message-header">
-                <span className="message-icon">
-                  {getMessageIcon(message.type)}
-                </span>
+                <span className="message-icon">{getMessageIcon(message.type)}</span>
                 <span className="message-time">
-                  {message.timestamp.toLocaleTimeString([], { 
-                    hour: '2-digit', 
-                    minute: '2-digit' 
-                  })}
+                  {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 </span>
               </div>
-              <p className="message-content">{message.message}</p>
+              <p className="message-content">{message.content}</p>
             </div>
           ))
         )}
@@ -127,19 +130,19 @@ export default function AIAgent() {
         <div className="capabilities-grid">
           <div className="capability-item">
             <span className="capability-icon">🧠</span>
-            <span>Real-time EEG Analysis</span>
+            <span>Real-time Neural Analysis</span>
           </div>
           <div className="capability-item">
             <span className="capability-icon">📊</span>
-            <span>Performance Tracking</span>
+            <span>Performance Optimization</span>
           </div>
           <div className="capability-item">
             <span className="capability-icon">🎯</span>
-            <span>Personalized Training</span>
+            <span>Personalized Recommendations</span>
           </div>
           <div className="capability-item">
-            <span className="capability-icon">💡</span>
-            <span>Adaptive Recommendations</span>
+            <span className="capability-icon">⚡</span>
+            <span>Adaptive Learning</span>
           </div>
         </div>
       </div>
