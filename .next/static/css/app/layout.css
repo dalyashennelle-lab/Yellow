@@ -1354,6 +1354,741 @@ body {
   50% { transform: scale(1.3); }
 }
 
+/* Advanced Memory Challenge Styles */
+.memory-challenge-container {
+  background: rgba(20, 25, 35, 0.8);
+  border: 1px solid rgba(79, 172, 254, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.challenge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.challenge-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4facfe;
+}
+
+.challenge-stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.challenge-stats .stat {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.challenge-start {
+  text-align: center;
+  padding: 3rem;
+}
+
+.start-challenge-btn {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.start-challenge-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+}
+
+.pattern-display {
+  text-align: center;
+  padding: 2rem;
+}
+
+.timer-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  margin-bottom: 2rem;
+}
+
+.timer-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  border-radius: 3px;
+  transition: width 0.1s linear;
+}
+
+.sequence-display {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.sequence-number {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(79, 172, 254, 0.2);
+  border: 2px solid #4facfe;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4facfe;
+}
+
+.sequence-number.active {
+  animation: pulse-glow 1s infinite;
+}
+
+.sequence-number.user-input {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: #10b981;
+  color: #10b981;
+}
+
+.number-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  gap: 1rem;
+  margin-top: 2rem;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.number-btn {
+  width: 80px;
+  height: 80px;
+  background: rgba(30, 35, 48, 0.8);
+  border: 2px solid rgba(79, 172, 254, 0.3);
+  border-radius: 12px;
+  color: #e2e8f0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.number-btn:hover {
+  background: rgba(79, 172, 254, 0.2);
+  border-color: #4facfe;
+  transform: scale(1.05);
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(79, 172, 254, 0.5); }
+  50% { box-shadow: 0 0 30px rgba(79, 172, 254, 0.8); }
+}
+
+/* Research Lab Styles */
+.research-lab-container {
+  background: rgba(20, 25, 35, 0.8);
+  border: 1px solid rgba(79, 172, 254, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.lab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.lab-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4facfe;
+}
+
+.lab-stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.lab-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lab-stat .stat-icon {
+  font-size: 1.5rem;
+}
+
+.lab-stat .stat-value {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #4facfe;
+}
+
+.lab-stat .stat-label {
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 2rem;
+  gap: 2rem;
+}
+
+.research-list h3 {
+  color: #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+.research-item {
+  background: rgba(30, 35, 48, 0.6);
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.research-item:hover,
+.research-item.selected {
+  border-color: rgba(79, 172, 254, 0.4);
+  background: rgba(30, 35, 48, 0.8);
+}
+
+.research-item h4 {
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+}
+
+.research-category {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.research-progress {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.research-progress .progress-bar {
+  flex: 1 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.research-progress .progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  border-radius: 3px;
+}
+
+.research-status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+}
+
+.research-details h3 {
+  color: #4facfe;
+  margin-bottom: 1rem;
+}
+
+.detail-meta {
+  display: flex;
+  gap: 1rem;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+.findings-list {
+  margin-top: 1rem;
+}
+
+.finding-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: rgba(30, 35, 48, 0.4);
+  border-radius: 8px;
+}
+
+.finding-icon {
+  font-size: 1.125rem;
+  margin-top: 0.125rem;
+}
+
+.finding-item p {
+  color: #e2e8f0;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.research-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.metric-card {
+  background: rgba(30, 35, 48, 0.6);
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.metric-card h5 {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.metric-card .metric-value {
+  color: #4facfe;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Advanced Science Styles */
+.advanced-science-container {
+  background: rgba(20, 25, 35, 0.8);
+  border: 1px solid rgba(79, 172, 254, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.science-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.science-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4facfe;
+}
+
+.monitor-btn {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.monitor-btn.active {
+  background: linear-gradient(135deg, #ff006e, #8338ec);
+}
+
+.science-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  gap: 2rem;
+}
+
+.real-time-monitor {
+  grid-column: 1 / -1;
+}
+
+.real-time-monitor h3 {
+  color: #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+.brainwave-chart {
+  background: rgba(30, 35, 48, 0.6);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.wave-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.wave-label {
+  width: 80px;
+  color: #94a3b8;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.wave-meter {
+  flex: 1 1;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.wave-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.wave-value {
+  width: 60px;
+  text-align: right;
+  color: #e2e8f0;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  gap: 1rem;
+}
+
+.insight-card {
+  background: rgba(30, 35, 48, 0.6);
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.insight-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.insight-card h4 {
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.insight-value {
+  color: #4facfe;
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.insight-card p {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.protocol-list {
+  margin-top: 1rem;
+}
+
+.protocol-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(30, 35, 48, 0.4);
+  border-radius: 8px;
+}
+
+.protocol-status {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-top: 0.25rem;
+}
+
+.protocol-status.active {
+  background: #10b981;
+  animation: pulse 2s infinite;
+}
+
+.protocol-status.pending {
+  background: #fbbf24;
+}
+
+.protocol-info h4 {
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+}
+
+.protocol-info p {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.protocol-progress {
+  color: #4facfe;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Winners Celebration Styles */
+.winners-celebration-container {
+  background: rgba(20, 25, 35, 0.8);
+  border: 1px solid rgba(79, 172, 254, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.celebration-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.celebration-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4facfe;
+}
+
+.celebration-stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.stat-item .stat-icon {
+  font-size: 1.5rem;
+}
+
+.stat-item .stat-value {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #4facfe;
+}
+
+.stat-item .stat-label {
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.category-filters {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(30, 35, 48, 0.6);
+  border: 1px solid rgba(79, 172, 254, 0.2);
+  border-radius: 8px;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.category-btn:hover,
+.category-btn.active {
+  background: rgba(79, 172, 254, 0.2);
+  border-color: #4facfe;
+  color: #4facfe;
+}
+
+.category-icon {
+  font-size: 1rem;
+}
+
+.winners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-gap: 1.5rem;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.winner-card {
+  background: rgba(30, 35, 48, 0.6);
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.winner-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(79, 172, 254, 0.4);
+  box-shadow: 0 8px 32px rgba(79, 172, 254, 0.2);
+}
+
+.winner-card.top-winner {
+  border-color: #fbbf24;
+  background: radial-gradient(circle at top right, rgba(251, 191, 36, 0.1), rgba(30, 35, 48, 0.6));
+}
+
+.winner-rank {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.winner-avatar {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 10px rgba(79, 172, 254, 0.5));
+}
+
+.winner-name {
+  color: #e2e8f0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.winner-achievement {
+  color: #4facfe;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.winner-score {
+  color: #fbbf24;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.winner-date {
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+
+.winner-celebration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.winner-card:hover .winner-celebration {
+  opacity: 1;
+}
+
+.celebration-particles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  animation: celebrate 2s infinite;
+}
+
+@keyframes celebrate {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.2); }
+}
+
+.achievement-gallery h3 {
+  color: #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+.achievements-scroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.achievement-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(30, 35, 48, 0.6);
+  border: 1px solid rgba(79, 172, 254, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  min-width: 300px;
+  white-space: nowrap;
+}
+
+.achievement-icon {
+  font-size: 1.5rem;
+}
+
+.achievement-text {
+  color: #e2e8f0;
+  font-size: 0.875rem;
+}
+
+.achievement-text strong {
+  color: #4facfe;
+}
+
+.achievement-text em {
+  color: #fbbf24;
+}
+
+.achievement-sparkle {
+  font-size: 1.25rem;
+  animation: sparkle 1.5s infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
 /* NFT Rewards Styles */
 .wallet-section {
   margin-bottom: 2rem;
