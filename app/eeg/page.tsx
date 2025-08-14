@@ -1,138 +1,101 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
 import BrainwaveChart from '../components/BrainwaveChart';
 
 export default function EEGPage() {
-  const [isRecording, setIsRecording] = useState(false);
-  const [deviceConnected, setDeviceConnected] = useState(false);
+  const [isConnected, setIsConnected] = useState(false);
+  const [brainwaveData, setBrainwaveData] = useState({
+    delta: 20,
+    theta: 35,
+    alpha: 45,
+    beta: 65,
+    gamma: 30
+  });
 
-  const handleStartRecording = () => {
-    setIsRecording(!isRecording);
-  };
+  useEffect(() => {
+    // Simulate real-time brainwave data
+    const interval = setInterval(() => {
+      setBrainwaveData({
+        delta: Math.random() * 100,
+        theta: Math.random() * 100,
+        alpha: Math.random() * 100,
+        beta: Math.random() * 100,
+        gamma: Math.random() * 100
+      });
+    }, 2000);
 
-  const handleDeviceConnection = () => {
-    setDeviceConnected(!deviceConnected);
-  };
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="main-container">
+    <div className="app-container">
       <Sidebar activeItem="eeg" />
-      
       <main className="main-content">
-        <div className="dashboard-header">
-          <h1 className="dashboard-title">EEG Neural Analysis</h1>
-          <p className="dashboard-subtitle">Real-time brainwave monitoring and cognitive state analysis</p>
-          <div className="section-divider"></div>
+        <div className="content-header">
+          <div className="header-content">
+            <h1 className="main-title">🧠 EEG Monitoring</h1>
+            <p className="main-subtitle">
+              Real-time brainwave monitoring and biofeedback training
+            </p>
+          </div>
         </div>
 
-        <div className="eeg-controls">
-          <div className="device-status">
-            <div className={`status-indicator ${deviceConnected ? 'connected' : 'disconnected'}`}>
-              <div className="status-dot"></div>
-              <span>EEG Device: {deviceConnected ? 'Connected' : 'Disconnected'}</span>
-            </div>
-            
+        <div className="eeg-status">
+          <div className={`connection-status ${isConnected ? 'connected' : 'disconnected'}`}>
+            <div className="status-indicator"></div>
+            <span>{isConnected ? 'EEG Device Connected' : 'No Device Connected'}</span>
             <button 
-              className={`control-button ${deviceConnected ? 'disconnect' : 'connect'}`}
-              onClick={handleDeviceConnection}
+              className="connect-btn"
+              onClick={() => setIsConnected(!isConnected)}
             >
-              {deviceConnected ? 'Disconnect' : 'Connect Device'}
-            </button>
-          </div>
-
-          <div className="recording-controls">
-            <button 
-              className={`control-button ${isRecording ? 'stop' : 'start'}`}
-              onClick={handleStartRecording}
-              disabled={!deviceConnected}
-            >
-              {isRecording ? 'Stop Recording' : 'Start Recording'}
+              {isConnected ? 'Disconnect' : 'Connect Device'}
             </button>
           </div>
         </div>
 
-        <BrainwaveChart isRecording={isRecording} />
+        {isConnected ? (
+          <div className="eeg-dashboard">
+            <BrainwaveChart data={brainwaveData} />
 
-        <div className="section-card">
-          <h2 className="section-title">Neuroscience Insights</h2>
-          <div className="section-divider"></div>
-          
-          <div className="insights-grid">
-            <div className="insight-card">
-              <div className="insight-icon">🧠</div>
-              <h3 className="insight-title">Cognitive Load Analysis</h3>
-              <p className="insight-description">
-                Monitor gamma and beta waves to assess mental workload and optimize task difficulty in real-time.
-              </p>
-              <div className="insight-metrics">
-                <span className="metric">Current Load: <strong>Moderate</strong></span>
-              </div>
+            <div className="brainwave-bands">
+              {Object.entries(brainwaveData).map(([band, value]) => (
+                <div key={band} className="band-meter">
+                  <h4>{band.charAt(0).toUpperCase() + band.slice(1)} Waves</h4>
+                  <div className="meter-bar">
+                    <div 
+                      className="meter-fill"
+                      style={{ width: `${value}%` }}
+                    ></div>
+                  </div>
+                  <span>{Math.round(value)}%</span>
+                </div>
+              ))}
             </div>
 
-            <div className="insight-card">
-              <div className="insight-icon">⚡</div>
-              <h3 className="insight-title">Attention State</h3>
-              <p className="insight-description">
-                Alpha wave suppression indicates focused attention, while theta increases suggest mind-wandering.
-              </p>
-              <div className="insight-metrics">
-                <span className="metric">Focus Level: <strong>High</strong></span>
+            <div className="eeg-insights">
+              <div className="insight-card">
+                <h3>🎯 Current State</h3>
+                <p>Focused attention with moderate relaxation</p>
               </div>
-            </div>
-
-            <div className="insight-card">
-              <div className="insight-icon">🌊</div>
-              <h3 className="insight-title">Stress & Relaxation</h3>
-              <p className="insight-description">
-                Beta/alpha ratio indicates stress levels. High theta suggests deep relaxation or meditative states.
-              </p>
-              <div className="insight-metrics">
-                <span className="metric">Stress Level: <strong>Low</strong></span>
-              </div>
-            </div>
-
-            <div className="insight-card">
-              <div className="insight-icon">💭</div>
-              <h3 className="insight-title">Memory Formation</h3>
-              <p className="insight-description">
-                Gamma-theta coupling during learning enhances memory consolidation and information encoding.
-              </p>
-              <div className="insight-metrics">
-                <span className="metric">Memory State: <strong>Optimal</strong></span>
+              <div className="insight-card">
+                <h3>💡 Recommendations</h3>
+                <p>Consider alpha wave training for enhanced creativity</p>
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="section-card">
-          <h2 className="section-title">Compatible EEG Devices</h2>
-          <div className="section-divider"></div>
-          
-          <div className="device-grid">
-            <div className="device-item">
-              <h4>OpenBCI Cyton</h4>
-              <p>8-channel research-grade EEG</p>
-              <span className="device-status-badge supported">Supported</span>
-            </div>
-            <div className="device-item">
-              <h4>Muse Headband</h4>
-              <p>Consumer meditation EEG</p>
-              <span className="device-status-badge supported">Supported</span>
-            </div>
-            <div className="device-item">
-              <h4>Emotiv EPOC X</h4>
-              <p>14-channel wireless EEG</p>
-              <span className="device-status-badge supported">Supported</span>
-            </div>
-            <div className="device-item">
-              <h4>NeuroSky MindWave</h4>
-              <p>Single-channel EEG headset</p>
-              <span className="device-status-badge beta">Beta</span>
+        ) : (
+          <div className="device-setup">
+            <h3>🔗 Connect Your EEG Device</h3>
+            <p>Supported devices: Muse, NeuroSky, OpenBCI</p>
+            <div className="setup-steps">
+              <div className="step">1. Turn on your EEG headset</div>
+              <div className="step">2. Enable Bluetooth</div>
+              <div className="step">3. Click Connect Device</div>
             </div>
           </div>
-        </div>
+        )}
       </main>
     </div>
   );

@@ -1,4 +1,7 @@
 
+'use client';
+
+import { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 
 interface BrainGame {
@@ -11,6 +14,8 @@ interface BrainGame {
 }
 
 export default function GamesPage() {
+  const [selectedGame, setSelectedGame] = useState<string | null>(null);
+
   const brainGames: BrainGame[] = [
     {
       id: 'memory-matrix',
@@ -63,34 +68,55 @@ export default function GamesPage() {
   ];
 
   return (
-    <div className="main-container">
+    <div className="app-container">
       <Sidebar activeItem="games" />
-      
       <main className="main-content">
-        <div className="dashboard-header">
-          <h1 className="dashboard-title">Cognitive Training Games</h1>
-          <p className="dashboard-subtitle">Advanced neural training games designed to enhance specific cognitive functions</p>
-          <div className="section-divider"></div>
+        <div className="content-header">
+          <div className="header-content">
+            <h1 className="main-title">🎮 Brain Training Games</h1>
+            <p className="main-subtitle">
+              Advanced cognitive games designed to enhance specific neural pathways and boost cognitive performance
+            </p>
+          </div>
         </div>
 
         <div className="games-grid">
           {brainGames.map((game) => (
-            <div key={game.id} className="game-card">
+            <div 
+              key={game.id} 
+              className={`game-card ${selectedGame === game.id ? 'selected' : ''}`}
+              onClick={() => setSelectedGame(game.id)}
+            >
               <div className="game-header">
                 <h3 className="game-title">{game.title}</h3>
                 <div className="game-badges">
-                  <span className="category-badge">{game.category}</span>
                   <span className="difficulty-badge">{game.difficulty}</span>
+                  <span className="category-badge">{game.category}</span>
                 </div>
               </div>
               <p className="game-description">{game.description}</p>
               <div className="neural-target">
                 <strong>Neural Target:</strong> {game.neuralTarget}
               </div>
-              <button className="play-button">Launch Game</button>
+              <button className="play-button">
+                {selectedGame === game.id ? '🎯 Playing' : '▶️ Play Game'}
+              </button>
             </div>
           ))}
         </div>
+
+        {selectedGame && (
+          <div className="game-interface">
+            <div className="game-container">
+              <h2>Game Interface: {brainGames.find(g => g.id === selectedGame)?.title}</h2>
+              <div className="game-placeholder">
+                <p>🎮 Game will load here</p>
+                <p>Adaptive difficulty based on performance</p>
+                <button onClick={() => setSelectedGame(null)}>Exit Game</button>
+              </div>
+            </div>
+          </div>
+        )}
       </main>
     </div>
   );

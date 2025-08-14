@@ -1,4 +1,7 @@
+
 'use client';
+
+import { useState } from 'react';
 
 interface VideoPlayerProps {
   videoId: string;
@@ -8,27 +11,32 @@ interface VideoPlayerProps {
 }
 
 export default function VideoPlayer({ videoId, title, description, icon }: VideoPlayerProps) {
+  const [isPlaying, setIsPlaying] = useState(false);
+
   return (
     <div className="video-card">
-      <div className="video-header">
-        <span className="video-icon">{icon}</span>
-        <div className="video-info">
-          <h3 className="video-title">{title}</h3>
-          <p className="video-description">{description}</p>
+      <div className="video-thumbnail">
+        <div className="thumbnail-overlay">
+          <span className="video-icon">{icon}</span>
+          <button 
+            className="play-button"
+            onClick={() => setIsPlaying(!isPlaying)}
+          >
+            {isPlaying ? '⏸️' : '▶️'}
+          </button>
         </div>
       </div>
-      
-      <div className="video-container">
-        <iframe
-          width="100%"
-          height="315"
-          src={`https://www.youtube.com/embed/${videoId}?si=4CrafZZgC88lS9yY`}
-          title={title}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="video-iframe"
-        />
+      <div className="video-info">
+        <h3 className="video-title">{title}</h3>
+        <p className="video-description">{description}</p>
+        <div className="video-controls">
+          <button className="control-btn">⏮️</button>
+          <button className="control-btn">⏯️</button>
+          <button className="control-btn">⏭️</button>
+          <div className="progress-bar">
+            <div className="progress" style={{ width: '30%' }}></div>
+          </div>
+        </div>
       </div>
     </div>
   );

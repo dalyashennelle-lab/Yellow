@@ -23,7 +23,7 @@ const nextConfig = {
     ]
   },
   experimental: {
-    // Add any valid experimental options here if needed
+    allowedDevOrigins: ['localhost', '*.replit.dev', '*.repl.co']
   }
 }
 
